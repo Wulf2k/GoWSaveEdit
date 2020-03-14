@@ -59,3 +59,7 @@ Temporary Items
 **/bin
 **/obj
 *.pfx
+.vs/GoWSaveEdit/v15/Server/sqlite3/storage.ide-wal
+.vs/GoWSaveEdit/v15/Server/sqlite3/storage.ide-shm
+.vs/GoWSaveEdit/v15/Server/sqlite3/storage.ide
+.vs/GoWSaveEdit/v15/Server/sqlite3/db.lock
