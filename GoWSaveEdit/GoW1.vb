@@ -10,6 +10,8 @@ Public Class GoW1
 
     Public Shared encrypted As Boolean = False
 
+    Public Shared bigendian As Boolean = True
+
     Public Shared bytes() As Byte
     Public Shared folder
     Public Shared filename
@@ -33,8 +35,13 @@ Public Class GoW1
 
     End Sub
 
-    Private Function FourByteFloat(ByRef bytes, start) As String
-        Return HexToSingle(Hex(bytes(start)).PadLeft(2, "0"c).ToString & Hex(bytes(start + 1)).PadLeft(2, "0"c).ToString & Hex(bytes(start + 2)).PadLeft(2, "0"c).ToString & Hex(bytes(start + 3)).PadLeft(2, "0"c).ToString)
+    Private Function RSingle(ByRef bytes, start) As Single
+        Dim ba(4) As Byte
+        Array.Copy(bytes, start, ba, 0, 4)
+        If bigendian Then Array.Reverse(ba)
+
+        REM TODO: ...Why is this not acting like it's zero-indexed?
+        Return BitConverter.ToSingle(ba, 1)
     End Function
 
     Private Function SingleToHex(text As String, part As Integer)
@@ -117,9 +124,8 @@ Public Class GoW1
             bytes = FileToBytes(filename)
 
 
-            If bytes(4) <> 202 Then
-                MsgBox("This file's opening bytes are not GoW-standard.  Decryption has failed or save slot #1 is empty.  Unless you've manually modified this value, this program will probably crash now.")
-            Else
+            If bytes(4) = 202 Then
+                bigendian = True
                 btnG1Browse.Visible = False
                 btnG1Open.Visible = False
                 btnG1Master.Visible = True
@@ -127,13 +133,26 @@ Public Class GoW1
                 btnG1Slot2.Visible = True
                 btnG1Slot3.Visible = True
                 btnG1Slot4.Visible = True
+            Else
+                If bytes(7) = 202 Then
+                    bigendian = False
+                    btnG1Browse.Visible = False
+                    btnG1Open.Visible = False
+                    btnG1Master.Visible = True
+                    btnG1Slot1.Visible = True
+                    btnG1Slot2.Visible = True
+                    btnG1Slot3.Visible = True
+                    btnG1Slot4.Visible = True
+                Else
+                    MsgBox("This file's opening bytes are not GoW-standard.  Decryption has failed or save slot #1 is empty.  Unless you've manually modified this value, this program will probably crash now.")
+                End If
             End If
 
 
-            If (bytes(67) And 2) = 2 Then chkG1BeatGameMaster.Checked = True Else chkG1BeatGameMaster.Checked = False
-            If (bytes(67) And 4) = 4 Then chkG1BeatVHMaster.Checked = True Else chkG1BeatVHMaster.Checked = False
-            If (bytes(67) And 8) = 8 Then chkG1BeatCotGMaster.Checked = True Else chkG1BeatCotGMaster.Checked = False
-            If (bytes(67) And 16) = 16 Then chkG1StatuesMaster.Checked = True Else chkG1StatuesMaster.Checked = False
+            If (bytes(&H43) And 2) = 2 Then chkG1BeatGameMaster.Checked = True Else chkG1BeatGameMaster.Checked = False
+            If (bytes(&H43) And 4) = 4 Then chkG1BeatVHMaster.Checked = True Else chkG1BeatVHMaster.Checked = False
+            If (bytes(&H43) And 8) = 8 Then chkG1BeatCotGMaster.Checked = True Else chkG1BeatCotGMaster.Checked = False
+            If (bytes(&H43) And 16) = 16 Then chkG1StatuesMaster.Checked = True Else chkG1StatuesMaster.Checked = False
 
             modified = False
 
@@ -144,7 +163,7 @@ Public Class GoW1
 
             bytes = FileToBytes(filename)
 
-            If bytes(0) <> 202 Then MsgBox("This file's opening byte is not GoW-standard.  It is likely still encrypted.  Unless you've manually modified this value, this program will probably crash now.")
+            If bytes(0) <> &HCA Then MsgBox("This file's opening byte is not GoW-standard.  It is likely still encrypted.  Unless you've manually modified this value, this program will probably crash now.")
 
             txtG1Wad1.Text = ""
             txtG1Wad2.Text = ""
@@ -158,23 +177,23 @@ Public Class GoW1
             Next
 
 
-            txtG1Xpos.Text = FourByteFloat(bytes, 78)
-            txtG1Height.Text = FourByteFloat(bytes, 82)
-            txtG1YPos.Text = FourByteFloat(bytes, 86)
+            txtG1Xpos.Text = RSingle(bytes, &H4E)
+            txtG1Height.Text = RSingle(bytes, &H52)
+            txtG1YPos.Text = RSingle(bytes, &H56)
 
-            If bytes(96) > 0 And bytes(96) < 4 Then
+            If bytes(&H60) > 0 And bytes(&H60) < 4 Then
                 chkG1Swim.Checked = True
             Else
                 chkG1Swim.Checked = False
             End If
 
 
-            txtG1SecsPlayed.Text = FourByteFloat(bytes, 106)
+            txtG1SecsPlayed.Text = RSingle(bytes, &H6A)
 
-            txtG1Health.Text = FourByteFloat(bytes, 118)
-            txtG1Magic.Text = FourByteFloat(bytes, 122)
-            txtG1Rage.Text = FourByteFloat(bytes, 126)
-            txtG1MagicRegen.Text = FourByteFloat(bytes, 130)
+            txtG1Health.Text = RSingle(bytes, 118)
+            txtG1Magic.Text = RSingle(bytes, 122)
+            txtG1Rage.Text = RSingle(bytes, 126)
+            txtG1MagicRegen.Text = RSingle(bytes, 130)
             txtG1RedOrbs.Text = (bytes(134) * (16 ^ 2)) + bytes(135)
 
 
@@ -190,10 +209,10 @@ Public Class GoW1
 
             chkG1PRSel.Checked = True
             chkG1PRSel.Checked = False
-            If bytes(156) = 3 Then chkG1PRSel.Checked = True
-            If bytes(156) = 4 Then chkG1MGSel.Checked = True
-            If bytes(156) = 5 Then chkG1AoHSel.Checked = True
-            If bytes(156) = 6 Then chkG1ZFSel.Checked = True
+            If bytes(&H9C) = 3 Then chkG1PRSel.Checked = True
+            If bytes(&H9C) = 4 Then chkG1MGSel.Checked = True
+            If bytes(&H9C) = 5 Then chkG1AoHSel.Checked = True
+            If bytes(&H9C) = 6 Then chkG1ZFSel.Checked = True
 
 
 
@@ -228,7 +247,7 @@ Public Class GoW1
                 End If
             Next
 
-            If bytes(1062) = 0 Then rdbG1Kratos.Checked = True
+            If bytes(&H426) = 0 Then rdbG1Kratos.Checked = True
             If bytes(1062) = 1 Then rdbG1Chef.Checked = True
             If bytes(1062) = 2 Then rdbG1Bubbles.Checked = True
             If bytes(1062) = 3 Then rdbG1Tycoonius.Checked = True
@@ -408,7 +427,7 @@ Public Class GoW1
 
         Try
             If filename = "MASTER.BIN" Then
-                bytes(67) = Math.Abs(chkG1BeatGameMaster.Checked * 2)
+                bytes(&H43) = Math.Abs(chkG1BeatGameMaster.Checked * 2)
                 bytes(67) = bytes(67) + Math.Abs(chkG1BeatVHMaster.Checked * 4)
                 bytes(67) = bytes(67) + Math.Abs(chkG1BeatCotGMaster.Checked * 8)
                 bytes(67) = bytes(67) + Math.Abs(chkG1StatuesMaster.Checked * 16)
@@ -433,6 +452,9 @@ Public Class GoW1
 
                 If txtG1Wad2.TextLength > 0 Then bytes(29) = 1 Else bytes(29) = 0
 
+
+                REM TODO:  What the hell, pastWulf?  This was what you did?
+                REM For shame....
                 bytes(78) = SingleToHex(txtG1Xpos.Text, 1)
                 bytes(79) = SingleToHex(txtG1Xpos.Text, 2)
                 bytes(80) = SingleToHex(txtG1Xpos.Text, 3)
@@ -786,7 +808,6 @@ Public Class GoW1
     Private Sub btnG1Restart_Click(sender As System.Object, e As System.EventArgs) Handles btnG1Restart.Click
         If MsgBox("Revert save to start of game?", vbYesNo) = vbYes Then
             modified = False
-            Dim oFileStream As System.IO.FileStream
             Dim blankbytes = My.Resources.G1BlankSave
 
             BytesToFile(filename, blankbytes)
