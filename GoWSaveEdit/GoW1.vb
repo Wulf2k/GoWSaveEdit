@@ -35,7 +35,7 @@ Public Class GoW1
 
     End Sub
 
-    Private Function RSingle(ByRef bytes, start) As Single
+    Private Function RSingle(ByRef bytes() As Byte, start As Int32) As Single
         Dim ba(4) As Byte
         Array.Copy(bytes, start, ba, 0, 4)
         If bigendian Then Array.Reverse(ba)
@@ -43,26 +43,28 @@ Public Class GoW1
         REM TODO: ...Why is this not acting like it's zero-indexed?
         Return BitConverter.ToSingle(ba, 1)
     End Function
+    Private Sub WSingle(ByRef bytes() As Byte, start As Int32, val As Single)
+        Dim ba(4) As Byte
+        ba = BitConverter.GetBytes(val)
+        If bigendian Then Array.Reverse(ba)
 
-    Private Function SingleToHex(text As String, part As Integer)
-        Return (Byte.Parse(Mid(BitConverter.ToString(BitConverter.GetBytes(System.Convert.ToSingle(text))), (13 - part * 3), 2), Globalization.NumberStyles.HexNumber))
-    End Function
+        Array.Copy(ba, 0, bytes, start, 4)
+    End Sub
+    Private Sub WUInt16(ByRef bytes() As Byte, start As Int32, val As UInt16)
+        Dim ba(2) As Byte
+        ba = BitConverter.GetBytes(val)
+        If bigendian Then Array.Reverse(ba)
 
+        Array.Copy(ba, 0, bytes, start, 2)
+    End Sub
+    Private Sub WUInt32(ByRef bytes() As Byte, start As Int32, val As UInt32)
+        Dim ba(4) As Byte
+        ba = BitConverter.GetBytes(val)
+        If bigendian Then Array.Reverse(ba)
 
-    Private Function HexToSingle(ByVal hexValue As String) As Single
-        Dim iInputIndex As Integer = 0
-        Dim iOutputIndex As Integer = 0
-        Dim bArray(3) As Byte
+        Array.Copy(ba, 0, bytes, start, 4)
+    End Sub
 
-        For iInputIndex = 0 To hexValue.Length - 1 Step 2
-            bArray(iOutputIndex) = Byte.Parse(hexValue.Chars(iInputIndex) & hexValue.Chars(iInputIndex + 1), Globalization.NumberStyles.HexNumber)
-            iOutputIndex += 1
-        Next
-
-        Array.Reverse(bArray)
-        Return BitConverter.ToSingle(bArray, 0)
-
-    End Function
 
     Private Function FileToBytes(name As String) As Byte()
         If encrypted Then
@@ -190,7 +192,7 @@ Public Class GoW1
 
             txtG1SecsPlayed.Text = RSingle(bytes, &H6A)
 
-            txtG1Health.Text = RSingle(bytes, 118)
+            txtG1Health.Text = RSingle(bytes, &H76)
             txtG1Magic.Text = RSingle(bytes, 122)
             txtG1Rage.Text = RSingle(bytes, 126)
             txtG1MagicRegen.Text = RSingle(bytes, 130)
@@ -200,7 +202,7 @@ Public Class GoW1
             txtG1HealthExt.Text = bytes(148)
             txtG1MagicExt.Text = bytes(149)
 
-            txtG1PR.Text = bytes(150) + 1
+            txtG1PR.Text = bytes(&H96) + 1
             txtG1MG.Text = bytes(151) + 1
             txtG1ZF.Text = bytes(152) + 1
             txtG1AoH.Text = bytes(153) + 1
@@ -231,7 +233,7 @@ Public Class GoW1
             txtG1Camera.Text = ""
             txtG1CamWad.Text = ""
 
-            For i = 174 To 197
+            For i = &HAE To &HC5
                 If bytes(i) > 0 Then
                     txtG1Camera.Text = txtG1Camera.Text + Chr(bytes(i))
                 Else
@@ -455,70 +457,41 @@ Public Class GoW1
 
                 REM TODO:  What the hell, pastWulf?  This was what you did?
                 REM For shame....
-                bytes(78) = SingleToHex(txtG1Xpos.Text, 1)
-                bytes(79) = SingleToHex(txtG1Xpos.Text, 2)
-                bytes(80) = SingleToHex(txtG1Xpos.Text, 3)
-                bytes(81) = SingleToHex(txtG1Xpos.Text, 4)
 
-                bytes(82) = SingleToHex(txtG1Height.Text, 1)
-                bytes(83) = SingleToHex(txtG1Height.Text, 2)
-                bytes(84) = SingleToHex(txtG1Height.Text, 3)
-                bytes(85) = SingleToHex(txtG1Height.Text, 4)
-
-                bytes(86) = SingleToHex(txtG1YPos.Text, 1)
-                bytes(87) = SingleToHex(txtG1YPos.Text, 2)
-                bytes(88) = SingleToHex(txtG1YPos.Text, 3)
-                bytes(89) = SingleToHex(txtG1YPos.Text, 4)
+                WSingle(bytes, &H4E, Convert.ToSingle(txtG1Xpos.Text))
+                WSingle(bytes, &H52, Convert.ToSingle(txtG1Height.Text))
+                WSingle(bytes, &H56, Convert.ToSingle(txtG1YPos.Text))
 
                 If chkG1Swim.Checked = True Then bytes(96) = 2 Else bytes(96) = 0
 
-                bytes(106) = SingleToHex(txtG1SecsPlayed.Text, 1)
-                bytes(107) = SingleToHex(txtG1SecsPlayed.Text, 2)
-                bytes(108) = SingleToHex(txtG1SecsPlayed.Text, 3)
-                bytes(109) = SingleToHex(txtG1SecsPlayed.Text, 4)
-
-                bytes(118) = SingleToHex(txtG1Health.Text, 1)
-                bytes(119) = SingleToHex(txtG1Health.Text, 2)
-                bytes(120) = SingleToHex(txtG1Health.Text, 3)
-                bytes(121) = SingleToHex(txtG1Health.Text, 4)
-
-                bytes(122) = SingleToHex(txtG1Magic.Text, 1)
-                bytes(123) = SingleToHex(txtG1Magic.Text, 2)
-                bytes(124) = SingleToHex(txtG1Magic.Text, 3)
-                bytes(125) = SingleToHex(txtG1Magic.Text, 4)
-
-                bytes(126) = SingleToHex(txtG1Rage.Text, 1)
-                bytes(127) = SingleToHex(txtG1Rage.Text, 2)
-                bytes(128) = SingleToHex(txtG1Rage.Text, 3)
-                bytes(129) = SingleToHex(txtG1Rage.Text, 4)
-
-                bytes(130) = SingleToHex(txtG1MagicRegen.Text, 1)
-                bytes(131) = SingleToHex(txtG1MagicRegen.Text, 2)
-                bytes(132) = SingleToHex(txtG1MagicRegen.Text, 3)
-                bytes(133) = SingleToHex(txtG1MagicRegen.Text, 4)
-
-                bytes(134) = Math.Floor(Val(txtG1RedOrbs.Text / (256)))
-                bytes(135) = txtG1RedOrbs.Text Mod 256
+                WSingle(bytes, &H6A, Convert.ToSingle(txtG1SecsPlayed.Text))
+                WSingle(bytes, &H76, Convert.ToSingle(txtG1Health.Text))
+                WSingle(bytes, &H7A, Convert.ToSingle(txtG1Magic.Text))
+                WSingle(bytes, &H7E, Convert.ToSingle(txtG1Rage.Text))
+                WSingle(bytes, &H82, Convert.ToSingle(txtG1MagicRegen.Text))
+                WUInt16(bytes, &H86, Convert.ToUInt16(txtG1RedOrbs.Text))
 
 
-                bytes(148) = txtG1HealthExt.Text
-                bytes(149) = txtG1MagicExt.Text
 
-                bytes(150) = txtG1PR.Text - 1
-                bytes(151) = txtG1MG.Text - 1
-                bytes(152) = txtG1ZF.Text - 1
+
+                bytes(&H94) = txtG1HealthExt.Text
+                bytes(&H95) = txtG1MagicExt.Text
+
+                bytes(&H96) = txtG1PR.Text - 1
+                bytes(&H97) = txtG1MG.Text - 1
+                bytes(&H98) = txtG1ZF.Text - 1
                 bytes(153) = txtG1AoH.Text - 1
                 bytes(154) = txtG1BoA.Text - 1
                 bytes(155) = txtG1BoC.Text - 1
 
-                bytes(156) = 0
+                bytes(&H9C) = 0
                 If chkG1PRSel.Checked = True Then bytes(156) = 3
                 If chkG1MGSel.Checked = True Then bytes(156) = 4
                 If chkG1AoHSel.Checked = True Then bytes(156) = 5
                 If chkG1ZFSel.Checked = True Then bytes(156) = 6
 
 
-                bytes(157) = txtG1GorgonEyes.Text
+                bytes(&H9D) = txtG1GorgonEyes.Text
                 bytes(158) = txtG1PhoenixFeathers.Text
                 bytes(159) = txtG1MuseKeys.Text
 
@@ -528,55 +501,55 @@ Public Class GoW1
                     bytes(160) = 0
                 End If
 
-                bytes(161) = System.Math.Abs((chkG1PR.Checked * 64) + (chkG1MG.Checked * 32) + (chkG1ZF.Checked * 16) + (chkG1AoH.Checked * 8) + (chkG1BoA.Checked * 4))
+                bytes(&HA1) = System.Math.Abs((chkG1PR.Checked * 64) + (chkG1MG.Checked * 32) + (chkG1ZF.Checked * 16) + (chkG1AoH.Checked * 8) + (chkG1BoA.Checked * 4))
 
 
                 For i = 0 To 23
                     If (i < txtG1Camera.TextLength) Then
-                        bytes(i + 174) = Asc(txtG1Camera.Text(i))
+                        bytes(i + &HAE) = Asc(txtG1Camera.Text(i))
                     Else
-                        bytes(i + 174) = 0
+                        bytes(i + &HAE) = 0
                     End If
                 Next
 
                 For i = 0 To 23
                     If (i < txtG1CamWad.TextLength) Then
-                        bytes(i + 198) = Asc(txtG1CamWad.Text(i))
+                        bytes(i + &HC6) = Asc(txtG1CamWad.Text(i))
                     Else
-                        bytes(i + 198) = 0
+                        bytes(i + &HC6) = 0
                     End If
                 Next
 
 
                 If rdbG1Kratos.Checked = True Then
-                    bytes(1062) = 0
+                    bytes(&H426) = 0
                     bytes(7) = 0
                 End If
                 If rdbG1Chef.Checked = True Then
-                    bytes(1062) = 1
+                    bytes(&H426) = 1
                     bytes(7) = 1
                 End If
                 If rdbG1Bubbles.Checked = True Then
-                    bytes(1062) = 2
+                    bytes(&H426) = 2
                     bytes(7) = 2
                 End If
                 If rdbG1Tycoonius.Checked = True Then
-                    bytes(1062) = 3
+                    bytes(&H426) = 3
                     bytes(7) = 3
                 End If
                 If rdbG1Dairy.Checked = True Then
-                    bytes(1062) = 4
+                    bytes(&H426) = 4
                     bytes(7) = 4
                 End If
                 If rdbG1Ares.Checked = True Then
-                    bytes(1062) = 5
+                    bytes(&H426) = 5
                     bytes(7) = 5
                 End If
 
-                If rdbG1Easy.Checked = True Then bytes(1063) = 0
-                If rdbG1Normal.Checked = True Then bytes(1063) = 1
-                If rdbG1Hard.Checked = True Then bytes(1063) = 2
-                If rdbG1VeryHard.Checked = True Then bytes(1063) = 3
+                If rdbG1Easy.Checked = True Then bytes(&H427) = 0
+                If rdbG1Normal.Checked = True Then bytes(&H427) = 1
+                If rdbG1Hard.Checked = True Then bytes(&H427) = 2
+                If rdbG1VeryHard.Checked = True Then bytes(&H427) = 3
 
 
                 Dim checksum As ULong
@@ -600,18 +573,20 @@ Public Class GoW1
 
                 Dim bytesmast = FileToBytes("MASTER.BIN")
 
-                bytesmast(4 + 16 * Val(slotnum)) = 202
-                bytesmast(5 + 16 * Val(slotnum)) = 254
-                bytesmast(6 + 16 * Val(slotnum)) = 186
-                bytesmast(7 + 16 * Val(slotnum)) = 209
+                bytesmast(4 + 16 * Val(slotnum)) = &HCA
+                bytesmast(5 + 16 * Val(slotnum)) = &HFE
+                bytesmast(6 + 16 * Val(slotnum)) = &HBA
+                bytesmast(7 + 16 * Val(slotnum)) = &HD1
 
-                bytesmast(8 + 16 * Val(slotnum)) = bytes(106)
-                bytesmast(9 + 16 * Val(slotnum)) = bytes(107)
-                bytesmast(10 + 16 * Val(slotnum)) = bytes(108)
-                bytesmast(11 + 16 * Val(slotnum)) = bytes(109)
+                bytesmast(8 + 16 * Val(slotnum)) = bytes(&H6A)
+                bytesmast(9 + 16 * Val(slotnum)) = bytes(&H6B)
+                bytesmast(10 + 16 * Val(slotnum)) = bytes(&H6C)
+                bytesmast(11 + 16 * Val(slotnum)) = bytes(&H6D)
 
                 If bytesmast(13 + 16 * Val(slotnum)) = 0 Then bytesmast(13 + 16 * Val(slotnum)) = 1
-                bytesmast(14 + 16 * Val(slotnum)) = bytes(1063)
+                bytesmast(14 + 16 * Val(slotnum)) = bytes(&H427)
+
+                BytesToFile("MASTER.BIN", bytesmast)
             End If
 
             BytesToFile(filename, bytes)
@@ -619,7 +594,7 @@ Public Class GoW1
 
             MsgBox("Save Completed")
         Catch ex As Exception
-            MsgBox("Save failed, no specific reason.  Either you or I did something dumb.")
+            MsgBox("Save failed, no specific reason.  Either you or I did something dumb. " & ex.Message)
         End Try
     End Sub
 
