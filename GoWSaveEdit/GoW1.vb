@@ -1,6 +1,15 @@
 ﻿Imports GoWEditor.PS3FileSystem
 
 Public Class GoW1
+
+
+    REM  Well damn
+    REM Never look at your own old code
+    REM Some of this is really, really bad.
+    REM But it works, so whatever.
+
+    Public Shared encrypted As Boolean = False
+
     Public Shared bytes() As Byte
     Public Shared folder
     Public Shared filename
@@ -48,10 +57,27 @@ Public Class GoW1
 
     End Function
 
+    Private Function FileToBytes(name As String) As Byte()
+        If encrypted Then
+            file = manager.Files.FirstOrDefault(Function(t) t.PFDEntry.file_name = name)
+            Return file.DecryptToBytes
+        Else
+            Return IO.File.ReadAllBytes(folder + "\" + name)
+        End If
+    End Function
+    Private Sub BytesToFile(name As String, b As Byte())
+        If encrypted Then
+            Dim f As Ps3File = manager.Files.FirstOrDefault(Function(t) t.PFDEntry.file_name = "MASTER.BIN")
+            f.Encrypt(b)
+            manager.ReBuildChanges()
+        Else
+            IO.File.WriteAllBytes(folder + "\" + name, b)
+        End If
+    End Sub
+
+
+
     Private Sub G1openSave()
-
-
-
         btnG1Master.BackColor = Color.LightGray
         btnG1Master.ForeColor = Color.Black
 
@@ -67,11 +93,20 @@ Public Class GoW1
         btnG1Slot4.BackColor = Color.LightGray
         btnG1Slot4.ForeColor = Color.Black
 
-        manager = New Ps3SaveManager(txtG1Folder.Text, SecureID)
+
+
+        If IO.File.Exists(folder + "\PARAM.SFD") Then
+            encrypted = True
+            manager = New Ps3SaveManager(txtG1Folder.Text, SecureID)
+        Else
+            encrypted = False
+        End If
+
+
+
 
 
         If slotnum = "t" Then
-
             btnG1Master.BackColor = Color.Black
             btnG1Master.ForeColor = Color.White
 
@@ -79,9 +114,7 @@ Public Class GoW1
             tctlG1Data.Visible = False
             gbG1Master.Visible = True
 
-
-            file = manager.Files.FirstOrDefault(Function(t) t.PFDEntry.file_name = filename)
-            bytes = file.DecryptToBytes
+            bytes = FileToBytes(filename)
 
 
             If bytes(4) <> 202 Then
@@ -109,8 +142,7 @@ Public Class GoW1
             tctlG1Data.Visible = True
             gbG1Master.Visible = False
 
-            file = manager.Files.FirstOrDefault(Function(t) t.PFDEntry.file_name = filename)
-            bytes = file.DecryptToBytes
+            bytes = FileToBytes(filename)
 
             If bytes(0) <> 202 Then MsgBox("This file's opening byte is not GoW-standard.  It is likely still encrypted.  Unless you've manually modified this value, this program will probably crash now.")
 
@@ -232,11 +264,8 @@ Public Class GoW1
 
 
     Private Sub btnG1Open_Click(sender As System.Object, e As System.EventArgs) Handles btnG1Open.Click
-
         slotnum = "t"
         G1openSave()
-
-
     End Sub
 
 
@@ -373,25 +402,17 @@ Public Class GoW1
     End Sub
 
     Private Sub btnG1Save_Click(sender As System.Object, e As System.EventArgs) Handles btnG1Save.Click
-
-
-        file = manager.Files.FirstOrDefault(Function(t) t.PFDEntry.file_name = filename)
-        bytes = file.DecryptToBytes
+        bytes = FileToBytes(filename)
 
         modified = False
 
         Try
-
-
-
             If filename = "MASTER.BIN" Then
                 bytes(67) = Math.Abs(chkG1BeatGameMaster.Checked * 2)
                 bytes(67) = bytes(67) + Math.Abs(chkG1BeatVHMaster.Checked * 4)
                 bytes(67) = bytes(67) + Math.Abs(chkG1BeatCotGMaster.Checked * 8)
                 bytes(67) = bytes(67) + Math.Abs(chkG1StatuesMaster.Checked * 16)
-
             Else
-
                 For i = 0 To 8
                     If (i < txtG1Wad1.TextLength) Then
                         bytes(i + 8) = Asc(txtG1Wad1.Text(i))
@@ -409,8 +430,6 @@ Public Class GoW1
                         bytes(i + 19) = 0
                     End If
                 Next
-
-
 
                 If txtG1Wad2.TextLength > 0 Then bytes(29) = 1 Else bytes(29) = 0
 
@@ -538,12 +557,6 @@ Public Class GoW1
                 If rdbG1VeryHard.Checked = True Then bytes(1063) = 3
 
 
-
-
-
-
-
-
                 Dim checksum As ULong
                 Dim power As ULong
                 Dim csum As String
@@ -562,8 +575,8 @@ Public Class GoW1
                     bytes((bytes.Length - 5) + (i + 1) / 2) = Integer.Parse(Mid(csum, i, 2), System.Globalization.NumberStyles.HexNumber)
                 Next
 
-                Dim filemast As Ps3File = manager.Files.FirstOrDefault(Function(t) t.PFDEntry.file_name = "MASTER.BIN")
-                Dim bytesmast = filemast.DecryptToBytes
+
+                Dim bytesmast = FileToBytes("MASTER.BIN")
 
                 bytesmast(4 + 16 * Val(slotnum)) = 202
                 bytesmast(5 + 16 * Val(slotnum)) = 254
@@ -577,15 +590,10 @@ Public Class GoW1
 
                 If bytesmast(13 + 16 * Val(slotnum)) = 0 Then bytesmast(13 + 16 * Val(slotnum)) = 1
                 bytesmast(14 + 16 * Val(slotnum)) = bytes(1063)
-
-                filemast.Encrypt(bytesmast)
-
-
-
             End If
 
-            file.Encrypt(bytes)
-            manager.ReBuildChanges()
+            BytesToFile(filename, bytes)
+
 
             MsgBox("Save Completed")
         Catch ex As Exception
@@ -781,9 +789,7 @@ Public Class GoW1
             Dim oFileStream As System.IO.FileStream
             Dim blankbytes = My.Resources.G1BlankSave
 
-            oFileStream = New System.IO.FileStream(filename, System.IO.FileMode.Create)
-            oFileStream.Write(blankbytes, 0, blankbytes.Length)
-            oFileStream.Close()
+            BytesToFile(filename, blankbytes)
 
             G1openSave()
 
@@ -803,7 +809,7 @@ Public Class GoW1
             End Select
 
 
-            Dim bytes = My.Computer.FileSystem.ReadAllBytes(Microsoft.VisualBasic.Left(filename, filename.length - 10) + "MASTER.BIN")
+            Dim bytes = FileToBytes("MASTER.BIN")
 
             bytes(8 + 16 * Val(slotnum)) = 0
             bytes(9 + 16 * Val(slotnum)) = 0
@@ -812,9 +818,7 @@ Public Class GoW1
 
             bytes(13 + 16 * Val(slotnum)) = 1
 
-            oFileStream = New System.IO.FileStream(Microsoft.VisualBasic.Left(filename, filename.length - 10) + "MASTER.BIN", System.IO.FileMode.Create)
-            oFileStream.Write(bytes, 0, bytes.Length)
-            oFileStream.Close()
+            BytesToFile("MASTER.BIN", bytes)
 
         End If
     End Sub
