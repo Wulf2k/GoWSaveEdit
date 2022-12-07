@@ -86,7 +86,7 @@ Partial Class Main
         Me.Controls.Add(Me.btnGoW2)
         Me.Controls.Add(Me.btnGoW1)
         Me.Name = "Main"
-        Me.Text = "Wulf's God of War Editor v0.700"
+        Me.Text = "Wulf's God of War Editor"
         Me.ResumeLayout(False)
 
     End Sub

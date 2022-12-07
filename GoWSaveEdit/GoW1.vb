@@ -249,6 +249,8 @@ Public Class GoW1
                 End If
             Next
 
+            If bytes(&H41E) = 1 Then chkG1WorldIdle.Checked = True
+
             If bytes(&H426) = 0 Then rdbG1Kratos.Checked = True
             If bytes(1062) = 1 Then rdbG1Chef.Checked = True
             If bytes(1062) = 2 Then rdbG1Bubbles.Checked = True
@@ -274,9 +276,11 @@ Public Class GoW1
 
             txtG1Checksum.Text = csum
 
-            For i = 1 To 7 Step 2
-                bytes((bytes.Length - 5) + (i + 1) / 2) = Integer.Parse(Mid(csum, i, 2), System.Globalization.NumberStyles.HexNumber)
-            Next
+            WUInt32(bytes, bytes.Length - 5, UInteger.Parse(txtG1Checksum.Text, System.Globalization.NumberStyles.HexNumber))
+
+            REM For i = 1 To 7 Step 2
+            REM bytes((bytes.Length - 5) + (i + 1) / 2) = Integer.Parse(Mid(csum, i, 2), System.Globalization.NumberStyles.HexNumber)
+            REM Next
 
             modified = False
         End If
@@ -520,6 +524,12 @@ Public Class GoW1
                     End If
                 Next
 
+                If chkG1WorldIdle.Checked = True Then
+                    bytes(&H41E) = 1
+                Else
+                    bytes(&H41E) = 0
+                End If
+
 
                 If rdbG1Kratos.Checked = True Then
                     bytes(&H426) = 0
@@ -577,6 +587,8 @@ Public Class GoW1
                 bytesmast(5 + 16 * Val(slotnum)) = &HFE
                 bytesmast(6 + 16 * Val(slotnum)) = &HBA
                 bytesmast(7 + 16 * Val(slotnum)) = &HD1
+
+                WUInt32(bytesmast, 4 + 16 * Val(slotnum), &HCAFEBAD1&)
 
                 bytesmast(8 + 16 * Val(slotnum)) = bytes(&H6A)
                 bytesmast(9 + 16 * Val(slotnum)) = bytes(&H6B)

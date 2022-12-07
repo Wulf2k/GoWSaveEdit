@@ -123,6 +123,8 @@ Partial Class GoW1
         Me.btnG1Slot3 = New System.Windows.Forms.Button()
         Me.btnG1Slot4 = New System.Windows.Forms.Button()
         Me.gbG1Master = New System.Windows.Forms.GroupBox()
+        Me.chkG1WorldIdle = New System.Windows.Forms.CheckBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.tctlG1Data.SuspendLayout()
         Me.tabG1Char.SuspendLayout()
         Me.gbG1Costume.SuspendLayout()
@@ -902,6 +904,8 @@ Partial Class GoW1
         '
         'tabG1Misc
         '
+        Me.tabG1Misc.Controls.Add(Me.chkG1WorldIdle)
+        Me.tabG1Misc.Controls.Add(Me.Label1)
         Me.tabG1Misc.Controls.Add(Me.lblG1Warning)
         Me.tabG1Misc.Controls.Add(Me.lblG1CamWad)
         Me.tabG1Misc.Controls.Add(Me.txtG1CamWad)
@@ -933,7 +937,7 @@ Partial Class GoW1
         Me.lblG1Warning.Name = "lblG1Warning"
         Me.lblG1Warning.Size = New System.Drawing.Size(484, 13)
         Me.lblG1Warning.TabIndex = 14
-        Me.lblG1Warning.Text = "WARNING: Changing anything in this section without a full understanding will like" & _
+        Me.lblG1Warning.Text = "WARNING: Changing anything in this section without a full understanding will like" &
     "ly corrupt your save."
         '
         'lblG1CamWad
@@ -1117,6 +1121,24 @@ Partial Class GoW1
         Me.gbG1Master.TabStop = False
         Me.gbG1Master.Visible = False
         '
+        'chkG1WorldIdle
+        '
+        Me.chkG1WorldIdle.AutoSize = True
+        Me.chkG1WorldIdle.Location = New System.Drawing.Point(128, 239)
+        Me.chkG1WorldIdle.Name = "chkG1WorldIdle"
+        Me.chkG1WorldIdle.Size = New System.Drawing.Size(15, 14)
+        Me.chkG1WorldIdle.TabIndex = 57
+        Me.chkG1WorldIdle.UseVisualStyleBackColor = True
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(64, 239)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(55, 13)
+        Me.Label1.TabIndex = 58
+        Me.Label1.Text = "World Idle"
+        '
         'GoW1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1252,5 +1274,6 @@ Partial Class GoW1
     Friend WithEvents txtG1SecsPlayed As System.Windows.Forms.TextBox
     Friend WithEvents lblG1SecsPlayed As System.Windows.Forms.Label
     Friend WithEvents btnG1Restart As System.Windows.Forms.Button
-
+    Friend WithEvents chkG1WorldIdle As CheckBox
+    Friend WithEvents Label1 As Label
 End Class
