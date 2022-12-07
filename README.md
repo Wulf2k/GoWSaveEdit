@@ -8,14 +8,14 @@ Currently has some level of save editing support for the following on PS3:
 
 Console:
 
-GoW1
+	GoW1
 
-GoW2
+	GoW2
 
-GoW: Ascension
+	GoW: Ascension
 
 
 
 RPCS3 Emulator:
 
-GoW1
+	GoW1
