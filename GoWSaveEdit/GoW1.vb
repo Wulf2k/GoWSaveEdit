@@ -1,4 +1,5 @@
 ﻿Imports GoWEditor.PS3FileSystem
+Imports GoWEditor.GoWFuncs
 
 Public Class GoW1
 
@@ -8,18 +9,13 @@ Public Class GoW1
     REM Some of this is really, really bad.
     REM But it works, so whatever.
 
-    Public Shared encrypted As Boolean = False
 
-    Public Shared bigendian As Boolean = True
+
 
     Public Shared bytes() As Byte
-    Public Shared folder
-    Public Shared filename
     Public Shared slotnum = "t"
     Public Shared modified = False
-    Public Shared manager As Ps3SaveManager
-    Public Shared file As Ps3File
-    Public Shared SecureID() As Byte = {&H82, &H21, &H42, &HD2, &H27, &H74, &H97, &H6, &H62, &H25, &H46, &HE6, &HE7, &H20, &H6, &H27}
+
 
 
     Private Sub numRangeCheck(ByRef txtbox As TextBox, low As Integer, high As Integer)
@@ -35,54 +31,11 @@ Public Class GoW1
 
     End Sub
 
-    Private Function RSingle(ByRef bytes() As Byte, start As Int32) As Single
-        Dim ba(4) As Byte
-        Array.Copy(bytes, start, ba, 0, 4)
-        If bigendian Then Array.Reverse(ba)
-
-        REM TODO: ...Why is this not acting like it's zero-indexed?
-        Return BitConverter.ToSingle(ba, 1)
-    End Function
-    Private Sub WSingle(ByRef bytes() As Byte, start As Int32, val As Single)
-        Dim ba(4) As Byte
-        ba = BitConverter.GetBytes(val)
-        If bigendian Then Array.Reverse(ba)
-
-        Array.Copy(ba, 0, bytes, start, 4)
-    End Sub
-    Private Sub WUInt16(ByRef bytes() As Byte, start As Int32, val As UInt16)
-        Dim ba(2) As Byte
-        ba = BitConverter.GetBytes(val)
-        If bigendian Then Array.Reverse(ba)
-
-        Array.Copy(ba, 0, bytes, start, 2)
-    End Sub
-    Private Sub WUInt32(ByRef bytes() As Byte, start As Int32, val As UInt32)
-        Dim ba(4) As Byte
-        ba = BitConverter.GetBytes(val)
-        If bigendian Then Array.Reverse(ba)
-
-        Array.Copy(ba, 0, bytes, start, 4)
-    End Sub
 
 
-    Private Function FileToBytes(name As String) As Byte()
-        If encrypted Then
-            file = manager.Files.FirstOrDefault(Function(t) t.PFDEntry.file_name = name)
-            Return file.DecryptToBytes
-        Else
-            Return IO.File.ReadAllBytes(folder + "\" + name)
-        End If
-    End Function
-    Private Sub BytesToFile(name As String, b As Byte())
-        If encrypted Then
-            Dim f As Ps3File = manager.Files.FirstOrDefault(Function(t) t.PFDEntry.file_name = "MASTER.BIN")
-            f.Encrypt(b)
-            manager.ReBuildChanges()
-        Else
-            IO.File.WriteAllBytes(folder + "\" + name, b)
-        End If
-    End Sub
+
+
+
 
 
 

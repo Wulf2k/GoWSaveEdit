@@ -161,6 +161,7 @@
     <Compile Include="Ps3File.vb" />
     <Compile Include="Ps3SaveManager.vb" />
     <Compile Include="SecureFileInfo.vb" />
+    <Compile Include="GoWFuncs.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="GoW1.resx">

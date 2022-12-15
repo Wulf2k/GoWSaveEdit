@@ -1,14 +1,10 @@
 ﻿Imports GoWEditor.PS3FileSystem
+Imports GoWEditor.GoWFuncs
 
 Public Class GoW2
     Public Shared bytes() As Byte
-    Public Shared folder
-    Public Shared filename
     Public Shared slotnum = "t"
     Public Shared modified = False
-    Public Shared manager As Ps3SaveManager
-    Public Shared file As Ps3File
-    Public Shared SecureID() As Byte = {&H82, &H21, &H42, &HD2, &H27, &H74, &H97, &H6, &H62, &H25, &H46, &HE6, &HE7, &H20, &H6, &H27}
     Public Shared costume
     Public Shared difficulty
     Public Shared Unlocks1
@@ -29,28 +25,7 @@ Public Class GoW2
 
     End Sub
 
-    Private Function FourByteFloat(ByRef bytes, start) As String
-        Return HexToSingle(Hex(bytes(start)).PadLeft(2, "0"c).ToString & Hex(bytes(start + 1)).PadLeft(2, "0"c).ToString & Hex(bytes(start + 2)).PadLeft(2, "0"c).ToString & Hex(bytes(start + 3)).PadLeft(2, "0"c).ToString)
-    End Function
 
-    Private Function SingleToHex(text As String, part As Integer)
-        Return (Byte.Parse(Mid(BitConverter.ToString(BitConverter.GetBytes(System.Convert.ToSingle(text))), (13 - part * 3), 2), Globalization.NumberStyles.HexNumber))
-    End Function
-
-    Private Function HexToSingle(ByVal hexValue As String) As Single
-        Dim iInputIndex As Integer = 0
-        Dim iOutputIndex As Integer = 0
-        Dim bArray(3) As Byte
-
-        For iInputIndex = 0 To hexValue.Length - 1 Step 2
-            bArray(iOutputIndex) = Byte.Parse(hexValue.Chars(iInputIndex) & hexValue.Chars(iInputIndex + 1), Globalization.NumberStyles.HexNumber)
-            iOutputIndex += 1
-        Next
-
-        Array.Reverse(bArray)
-        Return BitConverter.ToSingle(bArray, 0)
-
-    End Function
 
     Private Sub G2openSave()
 
@@ -87,7 +62,14 @@ Public Class GoW2
         btnG2Slot10.BackColor = Color.LightGray
         btnG2Slot10.ForeColor = Color.Black
 
-        manager = New Ps3SaveManager(txtG2Folder.Text, SecureID)
+        If IO.File.Exists(folder + "\PARAM.SFD") Then
+            encrypted = True
+            manager = New Ps3SaveManager(txtG2Folder.Text, SecureID)
+        Else
+            encrypted = False
+        End If
+
+
 
 
         If slotnum = "t" Then
@@ -98,8 +80,9 @@ Public Class GoW2
             btnG2Master.BackColor = Color.Black
             btnG2Master.ForeColor = Color.White
 
-            file = manager.Files.FirstOrDefault(Function(t) t.PFDEntry.file_name = filename)
-            bytes = file.DecryptToBytes
+
+            bytes = FileToBytes(filename)
+
 
             If bytes(4) <> 202 Then
                 MsgBox("This file's opening bytes are not GoW-standard.  It is likely still encrypted, or save slot #1 is empty.  Unless you've manually modified this value, this program will probably crash now.")
@@ -136,8 +119,7 @@ Public Class GoW2
             tctlG2Data.Visible = True
             gbG2Master.Visible = False
 
-            file = manager.Files.FirstOrDefault(Function(t) t.PFDEntry.file_name = filename)
-            bytes = file.DecryptToBytes
+            bytes = FileToBytes(filename)
 
             If bytes(0) <> 202 Then MsgBox("This file's opening byte is not GoW-standard.  It likely failed decryption.  Unless you've manually modified this value, this program will probably crash now.")
 
@@ -180,9 +162,9 @@ Public Class GoW2
             Next
 
 
-            txtG2Xpos.Text = FourByteFloat(bytes, 118)
-            txtG2Height.Text = FourByteFloat(bytes, 122)
-            txtG2YPos.Text = FourByteFloat(bytes, 126)
+            txtG2Xpos.Text = RSingle(bytes, 118)
+            txtG2Height.Text = RSingle(bytes, 122)
+            txtG2YPos.Text = RSingle(bytes, 126)
 
             If bytes(144) > 0 And bytes(144) < 4 Then
                 chkG2Swim.Checked = True
@@ -221,11 +203,11 @@ Public Class GoW2
             If (Unlocks3 And 2) = 2 Then chkG2CRAcq.Checked = True Else chkG2CRAcq.Checked = False
             If (Unlocks3 And 1) = 1 Then chkG2PRAcq.Checked = True Else chkG2PRAcq.Checked = False
 
-            txtG2Health.Text = FourByteFloat(bytes, 162)
-            txtG2Magic.Text = FourByteFloat(bytes, 166)
-            txtG2Item.Text = FourByteFloat(bytes, 170)
-            txtG2Rage.Text = FourByteFloat(bytes, 174)
-            txtG2MagicRegen.Text = FourByteFloat(bytes, 178)
+            txtG2Health.Text = RSingle(bytes, 162)
+            txtG2Magic.Text = RSingle(bytes, 166)
+            txtG2Item.Text = RSingle(bytes, 170)
+            txtG2Rage.Text = RSingle(bytes, 174)
+            txtG2MagicRegen.Text = RSingle(bytes, 178)
 
             If bytes(182) < 128 Then
                 txtG2RedOrbs.Text = (bytes(182) * 16 ^ 6) + (bytes(183) * 16 ^ 4) + (bytes(184) * 16 ^ 2) + bytes(185)
@@ -407,8 +389,7 @@ Public Class GoW2
 
     Private Sub btnG2Save_Click(sender As System.Object, e As System.EventArgs) Handles btnG2Save.Click
 
-        file = manager.Files.FirstOrDefault(Function(t) t.PFDEntry.file_name = filename)
-        bytes = file.DecryptToBytes
+        bytes = FileToBytes(filename)
 
         modified = False
 
@@ -450,20 +431,10 @@ Public Class GoW2
 
             If txtG2Wad2.TextLength > 0 Then bytes(49) = 1 Else bytes(49) = 0
 
-            bytes(118) = SingleToHex(txtG2Xpos.Text, 1)
-            bytes(119) = SingleToHex(txtG2Xpos.Text, 2)
-            bytes(120) = SingleToHex(txtG2Xpos.Text, 3)
-            bytes(121) = SingleToHex(txtG2Xpos.Text, 4)
+            WSingle(bytes, &H76, txtG2Xpos.Text)
+            WSingle(bytes, &H7A, txtG2Height.Text)
+            WSingle(bytes, &H7E, txtG2YPos.Text)
 
-            bytes(122) = SingleToHex(txtG2Height.Text, 1)
-            bytes(123) = SingleToHex(txtG2Height.Text, 2)
-            bytes(124) = SingleToHex(txtG2Height.Text, 3)
-            bytes(125) = SingleToHex(txtG2Height.Text, 4)
-
-            bytes(126) = SingleToHex(txtG2YPos.Text, 1)
-            bytes(127) = SingleToHex(txtG2YPos.Text, 2)
-            bytes(128) = SingleToHex(txtG2YPos.Text, 3)
-            bytes(129) = SingleToHex(txtG2YPos.Text, 4)
 
             If chkG2Swim.Checked = True Then bytes(144) = 2 Else bytes(144) = 0
 
@@ -497,44 +468,13 @@ Public Class GoW2
             Unlocks3 = Unlocks3 + Math.Abs(chkG2UnkUnl3_80.Checked * 128)
             bytes(157) = Unlocks3
 
-            bytes(162) = SingleToHex(txtG2Health.Text, 1)
-            bytes(163) = SingleToHex(txtG2Health.Text, 2)
-            bytes(164) = SingleToHex(txtG2Health.Text, 3)
-            bytes(165) = SingleToHex(txtG2Health.Text, 4)
+            WSingle(bytes, &HA2, txtG2Health.Text)
+            WSingle(bytes, &HA6, txtG2Magic.Text)
+            WSingle(bytes, &HAA, txtG2Item.Text)
+            WSingle(bytes, &HAE, txtG2Rage.Text)
+            WSingle(bytes, &HB2, txtG2MagicRegen.Text)
 
-            bytes(166) = SingleToHex(txtG2Magic.Text, 1)
-            bytes(167) = SingleToHex(txtG2Magic.Text, 2)
-            bytes(168) = SingleToHex(txtG2Magic.Text, 3)
-            bytes(169) = SingleToHex(txtG2Magic.Text, 4)
-
-            bytes(170) = SingleToHex(txtG2Item.Text, 1)
-            bytes(171) = SingleToHex(txtG2Item.Text, 2)
-            bytes(172) = SingleToHex(txtG2Item.Text, 3)
-            bytes(173) = SingleToHex(txtG2Item.Text, 4)
-
-            bytes(174) = SingleToHex(txtG2Rage.Text, 1)
-            bytes(175) = SingleToHex(txtG2Rage.Text, 2)
-            bytes(176) = SingleToHex(txtG2Rage.Text, 3)
-            bytes(177) = SingleToHex(txtG2Rage.Text, 4)
-
-            bytes(178) = SingleToHex(txtG2MagicRegen.Text, 1)
-            bytes(179) = SingleToHex(txtG2MagicRegen.Text, 2)
-            bytes(180) = SingleToHex(txtG2MagicRegen.Text, 3)
-            bytes(181) = SingleToHex(txtG2MagicRegen.Text, 4)
-
-            If txtG2RedOrbs.Text >= 0 Then
-                bytes(182) = Math.Floor(txtG2RedOrbs.Text / (256 ^ 3))
-                bytes(183) = Math.Abs(Math.Floor(txtG2RedOrbs.Text / (256 ^ 2)) Mod 256)
-                bytes(184) = Math.Abs(Math.Floor(txtG2RedOrbs.Text / 256) Mod 256)
-                bytes(185) = Math.Abs(txtG2RedOrbs.Text Mod 256)
-            Else
-                Dim tempOrbs As Long
-                tempOrbs = (2147483648 + txtG2RedOrbs.Text)
-                bytes(182) = Math.Floor(tempOrbs / (256 ^ 3)) + 128
-                bytes(183) = Math.Abs(Math.Floor(tempOrbs / (256 ^ 2)) Mod 256)
-                bytes(184) = Math.Abs(Math.Floor(tempOrbs / 256) Mod 256)
-                bytes(185) = Math.Abs(tempOrbs Mod 256)
-            End If
+            WInt32(bytes, &HB6, txtG2RedOrbs.Text)
 
             bytes(204) = txtG2HealthExt.Text
             bytes(205) = txtG2MagicExt.Text
@@ -591,19 +531,8 @@ Public Class GoW2
                 End If
             Next
 
-            If txtG2SecsPlayed.Text >= 0 Then
-                bytes(2110) = Math.Floor(txtG2SecsPlayed.Text / (256 ^ 3))
-                bytes(2111) = Math.Abs(Math.Floor(txtG2SecsPlayed.Text / (256 ^ 2)) Mod 256)
-                bytes(2112) = Math.Abs(Math.Floor(txtG2SecsPlayed.Text / 256) Mod 256)
-                bytes(2113) = Math.Abs(txtG2SecsPlayed.Text Mod 256)
-            Else
-                Dim tempSecs As Long
-                tempSecs = (2147483648 + txtG2SecsPlayed.Text)
-                bytes(2110) = Math.Floor(tempSecs / (256 ^ 3)) + 128
-                bytes(2111) = Math.Abs(Math.Floor(tempSecs / (256 ^ 2)) Mod 256)
-                bytes(2112) = Math.Abs(Math.Floor(tempSecs / 256) Mod 256)
-                bytes(2113) = Math.Abs(tempSecs Mod 256)
-            End If
+            WInt32(bytes, &H83E, txtG2SecsPlayed.Text)
+
 
 
             bytes(2114) = Math.Abs(chkG2Frozen.Checked * 1)
@@ -645,8 +574,8 @@ Public Class GoW2
                 bytes((bytes.Length - 5) + (i + 1) / 2) = Integer.Parse(Mid(csum, i, 2), System.Globalization.NumberStyles.HexNumber)
             Next
 
-            Dim filemast As Ps3File = manager.Files.FirstOrDefault(Function(t) t.PFDEntry.file_name = "MASTER.BIN")
-            Dim bytesmast = filemast.DecryptToBytes
+
+            Dim bytesmast = FileToBytes("MASTER.BIN")
 
             bytesmast(4 + 16 * Val(slotnum)) = 202
             bytesmast(5 + 16 * Val(slotnum)) = 254
@@ -662,13 +591,12 @@ Public Class GoW2
             bytesmast(14 + 16 * Val(slotnum)) = bytes(2115)
             bytesmast(15 + 16 * Val(slotnum)) = bytes(2124)
 
-            filemast.Encrypt(bytesmast)
+            BytesToFile("MASTER.BIN", bytesmast)
+
 
         End If
 
-
-        file.Encrypt(bytes)
-        manager.ReBuildChanges()
+        BytesToFile(filename, bytes)
 
         MsgBox("Save Completed")
     End Sub
@@ -687,7 +615,7 @@ Public Class GoW2
     End Sub
 
     Private Sub txtG2File_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtG2Folder.TextChanged
-        filename = UCase(txtG2Folder.Text)
+        folder = UCase(txtG2Folder.Text)
     End Sub
 
     Private Sub btnG2Treasures_Click(sender As System.Object, e As System.EventArgs) Handles btnG2Master.Click
@@ -977,12 +905,12 @@ Public Class GoW2
     Private Sub btnG2Restart_Click(sender As System.Object, e As System.EventArgs) Handles btnG2Restart.Click
         If MsgBox("Revert save to start of game?", vbYesNo) = vbYes Then
             modified = False
-            Dim oFileStream As System.IO.FileStream
+
             Dim blankbytes = My.Resources.G2BlankSave
 
-            oFileStream = New System.IO.FileStream(filename, System.IO.FileMode.Create)
-            oFileStream.Write(blankbytes, 0, blankbytes.Length)
-            oFileStream.Close()
+            WUInt32(blankbytes, (blankbytes.Length - 4), 0)
+            BytesToFile(filename, blankbytes)
+
 
             G2openSave()
 
@@ -1019,7 +947,7 @@ Public Class GoW2
                     btnG2Slot10.ForeColor = Color.White
             End Select
 
-            Dim bytes = My.Computer.FileSystem.ReadAllBytes("MASTER.BIN")
+            Dim bytes = FileToBytes("MASTER.BIN")
 
             bytes(8 + 16 * Val(slotnum)) = 0
             bytes(9 + 16 * Val(slotnum)) = 0
@@ -1028,9 +956,7 @@ Public Class GoW2
 
             bytes(13 + 16 * Val(slotnum)) = 1
 
-            oFileStream = New System.IO.FileStream("MASTER.BIN", System.IO.FileMode.Create)
-            oFileStream.Write(bytes, 0, bytes.Length)
-            oFileStream.Close()
+            BytesToFile("MASTER.BIN", bytes)
 
         End If
     End Sub

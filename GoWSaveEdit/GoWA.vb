@@ -1,14 +1,11 @@
 ﻿Imports GoWEditor.PS3FileSystem
+Imports GoWEditor.GoWFuncs
 
 Public Class GoWA
     Public Shared bytes() As Byte
-    Public Shared folder
     Public Shared filename
     Public Shared slotnum = "t"
     Public Shared modified = False
-    Public Shared manager As Ps3SaveManager
-    Public Shared file As Ps3File
-    Public Shared SecureID() As Byte = {&HE1, &H19, &H7F, &H68, &HAC, &HA2, &H3B, &H45, &H9D, &HEC, &H80, &H62, &HFF, &H46, &H19, &H5A}
     Public Shared cllGAch() As Button
     Public Shared cllGAtxt() As TextBox
     Public Shared cllGAcmb() As ComboBox
@@ -32,42 +29,8 @@ Public Class GoWA
     Public Shared kptr2 As UInt16
     Public Shared invcount As Integer
 
-    Private Function FourByteFloat(ByRef bytes, start) As String
-        Return HexToSingle(Hex(bytes(start)).PadLeft(2, "0"c).ToString & Hex(bytes(start + 1)).PadLeft(2, "0"c).ToString & Hex(bytes(start + 2)).PadLeft(2, "0"c).ToString & Hex(bytes(start + 3)).PadLeft(2, "0"c).ToString)
-    End Function
-    Private Function FourByteInt32(ByRef bytes, start) As Int32
-        Dim value = 0
-        For i = 0 To 3
-            value = value + bytes(start + i) * (256 ^ (3 - i))
-        Next
-        Return value
-    End Function
-    Private Function SingleToHex(text As String)
-        Dim b(3) As Byte
-        For i = 0 To 3
-            b(i) = Byte.Parse(Mid(BitConverter.ToString(BitConverter.GetBytes(System.Convert.ToSingle(text))), (13 - (i + 1) * 3), 2), Globalization.NumberStyles.HexNumber)
-        Next
-        Return b
-    End Function
-    Private Sub bInsert(loc As UInt32, ByRef b As Byte())
-        For i = 0 To 3
-            bytes(loc + i) = b(i)
-        Next
-    End Sub
-    Private Function HexToSingle(ByVal hexValue As String) As Single
-        Dim iInputIndex As Integer = 0
-        Dim iOutputIndex As Integer = 0
-        Dim bArray(3) As Byte
 
-        For iInputIndex = 0 To hexValue.Length - 1 Step 2
-            bArray(iOutputIndex) = Byte.Parse(hexValue.Chars(iInputIndex) & hexValue.Chars(iInputIndex + 1), Globalization.NumberStyles.HexNumber)
-            iOutputIndex += 1
-        Next
 
-        Array.Reverse(bArray)
-        Return BitConverter.ToSingle(bArray, 0)
-
-    End Function
     Private Sub btnGABrowse_Click(sender As Object, e As EventArgs) Handles btnGABrowse.Click
         Dim openDlg As New OpenFileDialog()
         openDlg.Filter = "GoWA Save File|DATFEST"
@@ -83,7 +46,7 @@ Public Class GoWA
         GAopenSave()
     End Sub
     Private Sub txtGAFile_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtGAFolder.TextChanged
-        filename = UCase(txtGAFolder.Text)
+        folder = UCase(txtGAFolder.Text)
     End Sub
     Private Sub ClearValues()
 
@@ -120,7 +83,7 @@ Public Class GoWA
         If modified = False Then
             Dim idx
 
-
+            bigendian = True
 
             REM Try
             btnGABrowse.Visible = False
@@ -139,11 +102,17 @@ Public Class GoWA
 
             tctlGAData.Visible = True
 
-            manager = New Ps3SaveManager(txtGAFolder.Text, SecureID)
-            filename = "DAT-" + slotnum
 
-            file = manager.Files.FirstOrDefault(Function(t) t.PFDEntry.file_name = filename)
-            bytes = file.DecryptToBytes
+
+
+            filename = "DAT-" + slotnum
+            If IO.File.Exists(folder + "\PARAM.SFD") Then
+                encrypted = True
+                manager = New Ps3SaveManager(txtGAFolder.Text, SecureID)
+            Else
+                encrypted = False
+            End If
+            bytes = FileToBytes(filename)
 
             ClearValues()
 
@@ -169,20 +138,20 @@ Public Class GoWA
             End Try
 
 
-            txtGAHealth.Text = FourByteFloat(bytes, kptr + &HC)
-            txtGAHealthRegen.Text = FourByteFloat(bytes, kptr + &H10)
-            txtGAMagic.Text = FourByteFloat(bytes, kptr + &H14)
-            txtGAMagicRegen.Text = FourByteFloat(bytes, kptr + &H18)
-            txtGARage.Text = FourByteFloat(bytes, kptr + &H24)
-            txtGARageRegen.Text = FourByteFloat(bytes, kptr + &H28)
-            txtGARedOrbs.Text = FourByteFloat(bytes, kptr + &H30)
+            txtGAHealth.Text = RSingle(bytes, kptr + &HC)
+            txtGAHealthRegen.Text = RSingle(bytes, kptr + &H10)
+            txtGAMagic.Text = RSingle(bytes, kptr + &H14)
+            txtGAMagicRegen.Text = RSingle(bytes, kptr + &H18)
+            txtGARage.Text = RSingle(bytes, kptr + &H24)
+            txtGARageRegen.Text = RSingle(bytes, kptr + &H28)
+            txtGARedOrbs.Text = RSingle(bytes, kptr + &H30)
 
 
             chkGASwim.Checked = (bytes(kptr + &H5E) = &H50)
 
-            txtGAXpos.Text = Math.Round(Val(FourByteFloat(bytes, kptr + &H38)), 3)
-            txtGAHeight.Text = Math.Round(Val(FourByteFloat(bytes, kptr + &H3C)), 3)
-            txtGAYPos.Text = Math.Round(Val(FourByteFloat(bytes, kptr + &H40)), 3)
+            txtGAXpos.Text = Math.Round(RSingle(bytes, kptr + &H38), 3)
+            txtGAHeight.Text = Math.Round(RSingle(bytes, kptr + &H3C), 3)
+            txtGAYPos.Text = Math.Round(RSingle(bytes, kptr + &H40), 3)
 
 
             chkGAFrozen.Checked = (bytes(kptr + &HCC) = 1)
@@ -236,7 +205,7 @@ Public Class GoWA
             cllGAWepLvl(item).Text = bytes(loc + &H4) + 1
             cllGAWepUnl(item).Checked = (bytes(loc + &H5))
             If item < 5 Then cllGAWepSel(item).Checked = (bytes(loc + &H6))
-            cllGAWepOrbs(item).Text = FourByteInt32(bytes, loc + &H9)
+            cllGAWepOrbs(item).Text = RInt32(bytes, loc + &H9)
         End If
 
 
@@ -318,22 +287,23 @@ Public Class GoWA
 
     End Sub
     Private Sub btnGASave_Click(sender As Object, e As EventArgs) Handles btnGASave.Click
-        file = manager.Files.FirstOrDefault(Function(t) t.PFDEntry.file_name = filename)
+
+
 
         modified = False
 
 
-        bInsert(kptr + &HC, SingleToHex(txtGAHealth.Text))
-        bInsert(kptr + &H10, SingleToHex(txtGAHealthRegen.Text))
-        bInsert(kptr + &H14, SingleToHex(txtGAMagic.Text))
-        bInsert(kptr + &H18, SingleToHex(txtGAMagicRegen.Text))
-        bInsert(kptr + &H24, SingleToHex(txtGARage.Text))
-        bInsert(kptr + &H28, SingleToHex(txtGARageRegen.Text))
-        bInsert(kptr + &H30, SingleToHex(txtGARedOrbs.Text))
+        WSingle(bytes, kptr + &HC, txtGAHealth.Text)
+        WSingle(bytes, kptr + &H10, txtGAHealthRegen.Text)
+        WSingle(bytes, kptr + &H14, txtGAMagic.Text)
+        WSingle(bytes, kptr + &H18, txtGAMagicRegen.Text)
+        WSingle(bytes, kptr + &H24, txtGARage.Text)
+        WSingle(bytes, kptr + &H28, txtGARageRegen.Text)
+        WSingle(bytes, kptr + &H30, txtGARedOrbs.Text)
 
-        bInsert(kptr + &H38, SingleToHex(txtGAXpos.Text))
-        bInsert(kptr + &H3C, SingleToHex(txtGAHeight.Text))
-        bInsert(kptr + &H40, SingleToHex(txtGAYPos.Text))
+        WSingle(bytes, kptr + &H38, txtGAXpos.Text)
+        WSingle(bytes, kptr + &H3C, txtGAHeight.Text)
+        WSingle(bytes, kptr + &H40, txtGAYPos.Text)
 
         bytes(kptr + &H5E) = &H8 + (&H48 * chkGASwim.Checked * -1)
         bytes(kptr + &HCC) = chkGAFrozen.Checked * -1
@@ -394,8 +364,7 @@ Public Class GoWA
 
 
 
-        file.Encrypt(bytes)
-        manager.ReBuildChanges()
+        BytesToFile(filename, bytes)
 
         MsgBox("Save Completed")
     End Sub
