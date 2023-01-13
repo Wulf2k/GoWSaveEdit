@@ -72,7 +72,7 @@ Partial Class Main
         Me.btnSendMoney.Name = "btnSendMoney"
         Me.btnSendMoney.Size = New System.Drawing.Size(126, 42)
         Me.btnSendMoney.TabIndex = 4
-        Me.btnSendMoney.Text = "Send Wulf Stripper Money via Paypal"
+        Me.btnSendMoney.Text = "Support via Paypal"
         Me.btnSendMoney.UseVisualStyleBackColor = True
         '
         'Main
