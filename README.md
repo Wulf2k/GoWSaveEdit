@@ -19,3 +19,5 @@ Console:
 RPCS3 Emulator:
 
 	GoW1
+
+	GoW2
