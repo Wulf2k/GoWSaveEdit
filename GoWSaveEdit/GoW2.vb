@@ -949,6 +949,8 @@ Public Class GoW2
 
             Dim bytes = FileToBytes("MASTER.BIN")
 
+            WUInt32(bytes, 4 + &H10 * Val(slotnum), &HCAFEBAD4&)
+
             bytes(8 + 16 * Val(slotnum)) = 0
             bytes(9 + 16 * Val(slotnum)) = 0
             bytes(10 + 16 * Val(slotnum)) = 0
