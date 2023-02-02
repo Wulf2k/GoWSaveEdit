@@ -442,7 +442,7 @@ Public Class GoWA
     End Sub
     Private Sub chkSubwepGlitch_CheckedChanged(sender As Object, e As EventArgs) Handles chkSubwepGlitch.CheckedChanged
 
-        clbInventory.SetItemChecked(Math.Floor((cmbSubwep.SelectedIndex - 2) / 3) * 4 + 31, Not chkSubwepGlitch.Checked)
+        clbInventory.SetItemChecked(cmbSubwep.SelectedIndex + &H1B, Not chkSubwepGlitch.Checked)
 
     End Sub
 End Class
