@@ -149,9 +149,9 @@ Public Class GoWA
 
             chkGASwim.Checked = (bytes(kptr + &H5E) = &H50)
 
-            txtGAXpos.Text = Math.Round(RSingle(bytes, kptr + &H38), 3)
-            txtGAHeight.Text = Math.Round(RSingle(bytes, kptr + &H3C), 3)
-            txtGAYPos.Text = Math.Round(RSingle(bytes, kptr + &H40), 3)
+            txtGAXpos.Text = Math.Round(RSingle(bytes, kptr + &H38), 5)
+            txtGAHeight.Text = Math.Round(RSingle(bytes, kptr + &H3C), 5)
+            txtGAYPos.Text = Math.Round(RSingle(bytes, kptr + &H40), 5)
 
 
             chkGAFrozen.Checked = (bytes(kptr + &HCC) = 1)
