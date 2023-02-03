@@ -442,7 +442,18 @@ Public Class GoWA
     End Sub
     Private Sub chkSubwepGlitch_CheckedChanged(sender As Object, e As EventArgs) Handles chkSubwepGlitch.CheckedChanged
 
-        clbInventory.SetItemChecked(cmbSubwep.SelectedIndex + &H1B, Not chkSubwepGlitch.Checked)
+        Dim idx As Int32
+        Dim wepgrp As Int32
+
+        idx = cmbSubwep.SelectedIndex - 2 'Weapon groups start at idx 2
+        wepgrp = Math.Floor(idx / 3) 'Weapon groups are listed in the pulldown in groups of three
+
+        idx = idx - wepgrp * 3 'Are we subwep level 1/2/3?
+        idx = idx + wepgrp * 4 'Pad for subwepBase
+        idx = idx + 28 'pad for start of weapon values
+
+
+        clbInventory.SetItemChecked(idx, Not chkSubwepGlitch.Checked)
 
     End Sub
 End Class
