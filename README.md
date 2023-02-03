@@ -21,3 +21,5 @@ RPCS3 Emulator:
 	GoW1
 
 	GoW2
+
+	GoW: Ascension
