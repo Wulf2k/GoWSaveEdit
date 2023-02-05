@@ -106,7 +106,7 @@ Public Class GoWA
 
 
             filename = "DAT-" + slotnum
-            If IO.File.Exists(folder + "\PARAM.SFD") Then
+            If IO.File.Exists(folder + "\PARAM.PFD") Then
                 encrypted = True
                 manager = New Ps3SaveManager(txtGAFolder.Text, SecureID)
             Else

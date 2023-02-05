@@ -62,7 +62,7 @@ Public Class GoW2
         btnG2Slot10.BackColor = Color.LightGray
         btnG2Slot10.ForeColor = Color.Black
 
-        If IO.File.Exists(folder + "\PARAM.SFD") Then
+        If IO.File.Exists(folder + "\PARAM.PFD") Then
             encrypted = True
             manager = New Ps3SaveManager(txtG2Folder.Text, SecureID)
         Else

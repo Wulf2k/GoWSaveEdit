@@ -57,7 +57,7 @@ Public Class GoW1
 
 
 
-        If IO.File.Exists(folder + "\PARAM.SFD") Then
+        If IO.File.Exists(folder + "\PARAM.PFD") Then
             encrypted = True
             manager = New Ps3SaveManager(txtG1Folder.Text, SecureID)
         Else
@@ -72,10 +72,11 @@ Public Class GoW1
             btnG1Master.BackColor = Color.Black
             btnG1Master.ForeColor = Color.White
 
-            filename = "MASTER.BIN"
+
             tctlG1Data.Visible = False
             gbG1Master.Visible = True
 
+            filename = "MASTER.BIN"
             bytes = FileToBytes(filename)
 
 
@@ -99,7 +100,7 @@ Public Class GoW1
                     btnG1Slot3.Visible = True
                     btnG1Slot4.Visible = True
                 Else
-                    MsgBox("This file's opening bytes are not GoW-standard.  Decryption has failed or save slot #1 is empty.  Unless you've manually modified this value, this program will probably crash now.")
+                    MsgBox($"This file's opening bytes are not GoW-standard.  Decryption has failed or save slot #1 is empty.  Unless you've manually modified this value, this program will probably crash now. {bytes(4)} {bytes(7)}")
                 End If
             End If
 
