@@ -1,4 +1,5 @@
 ﻿Imports GoWEditor.PS3FileSystem
+Imports GoWEditor.GoWFuncs
 
 Public Class GoW3
 
@@ -22,6 +23,14 @@ Public Class GoW3
 
 
         End If
+
+    End Sub
+
+    Private Sub btnG3Save_Click(sender As Object, e As EventArgs) Handles btnG3Save.Click
+
+    End Sub
+
+    Private Sub btnG3Browse_Click(sender As Object, e As EventArgs) Handles btnG3Browse.Click
 
     End Sub
 End Class

@@ -58,7 +58,6 @@ Partial Class Main
         '
         'btnGoW3
         '
-        Me.btnGoW3.Enabled = False
         Me.btnGoW3.Location = New System.Drawing.Point(12, 41)
         Me.btnGoW3.Name = "btnGoW3"
         Me.btnGoW3.Size = New System.Drawing.Size(106, 35)
