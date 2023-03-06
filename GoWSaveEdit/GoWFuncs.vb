@@ -24,7 +24,13 @@ Public Class GoWFuncs
         REM TODO: ...Why is this not acting like it's zero-indexed?
         Return BitConverter.ToSingle(ba, 1)
     End Function
+    Shared Function RUInt32(ByRef bytes() As Byte, start As Int32) As UInt32
+        Dim ba(4) As Byte
+        Array.Copy(bytes, start, ba, 0, 4)
+        If bigendian Then Array.Reverse(ba)
 
+        Return BitConverter.ToUInt32(ba, 1)
+    End Function
 
     Shared Sub WInt16(ByRef bytes() As Byte, start As Int32, val As Int16)
         Dim ba(2) As Byte
