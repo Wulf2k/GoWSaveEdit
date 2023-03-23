@@ -42,6 +42,9 @@ Public Class GoWA
         Main.Close()
     End Sub
     Private Sub btnGAOpen_Click(sender As Object, e As EventArgs) Handles btnGAOpen.Click
+
+        SecureID = GoWASecureID
+
         slotnum = "1"
         GAopenSave()
     End Sub
@@ -369,6 +372,7 @@ Public Class GoWA
         MsgBox("Save Completed")
     End Sub
     Private Sub GoWA_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
 
 
 

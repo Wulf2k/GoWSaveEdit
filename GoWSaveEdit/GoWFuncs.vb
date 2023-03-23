@@ -7,7 +7,12 @@ Public Class GoWFuncs
     Public Shared file As Ps3File
     Public Shared filename
     Public Shared folder
-    Public Shared SecureID() As Byte = {&H82, &H21, &H42, &HD2, &H27, &H74, &H97, &H6, &H62, &H25, &H46, &HE6, &HE7, &H20, &H6, &H27}
+
+    Public Shared SecureID() As Byte = {}
+    Public Shared GoW1SecureID() As Byte = {&H82, &H21, &H42, &HD2, &H27, &H74, &H97, &H6, &H62, &H25, &H46, &HE6, &HE7, &H20, &H6, &H27}
+    Public Shared GoW2SecureID() As Byte = {&H82, &H21, &H42, &HD2, &H27, &H74, &H97, &H6, &H62, &H25, &H46, &HE6, &HE7, &H20, &H6, &H27}
+    Public Shared GoW3SecureID() As Byte = {&HD6, &H48, &H5E, &H21, &HCF, &HB9, &H7, &H85, &H44, &HFB, &H1, &H83, &HE8, &H23, &H92, &H3E}
+    Public Shared GoWASecureID() As Byte = {&HE1, &H19, &H7F, &H68, &HAC, &HA2, &H3B, &H45, &H9D, &HEC, &H80, &H62, &HFF, &H46, &H19, &H5A}
 
     Shared Function RInt32(ByRef bytes() As Byte, start As Int32) As Int32
         Dim ba(3) As Byte
@@ -78,7 +83,7 @@ Public Class GoWFuncs
     End Function
     Shared Sub BytesToFile(name As String, b As Byte())
         If encrypted Then
-            Dim f As Ps3File = manager.Files.FirstOrDefault(Function(t) t.PFDEntry.file_name = "MASTER.BIN")
+            Dim f As Ps3File = manager.Files.FirstOrDefault(Function(t) t.PFDEntry.file_name = name)
             f.Encrypt(b)
             manager.ReBuildChanges()
         Else

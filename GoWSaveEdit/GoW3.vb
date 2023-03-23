@@ -13,7 +13,7 @@ Public Class GoW3
 
     Private Sub btnG3Open_Click(sender As Object, e As EventArgs) Handles btnG3Open.Click
 
-        SecureID = {&HD6, &H48, &H5E, &H21, &HCF, &HB9, &H7, &H85, &H44, &HFB, &H1, &H83, &HE8, &H23, &H92, &H3E}
+        SecureID = GoW3SecureID
 
         manager = New Ps3SaveManager(txtG3File.Text, SecureID)
 

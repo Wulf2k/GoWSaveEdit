@@ -29,6 +29,8 @@ Public Class GoW2
 
     Private Sub G2openSave()
 
+        SecureID = GoW2SecureID
+
         btnG2Master.BackColor = Color.LightGray
         btnG2Master.ForeColor = Color.Black
 

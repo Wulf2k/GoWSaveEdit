@@ -40,6 +40,9 @@ Public Class GoW1
 
 
     Private Sub G1openSave()
+
+        SecureID = GoW1SecureID
+
         btnG1Master.BackColor = Color.LightGray
         btnG1Master.ForeColor = Color.Black
 

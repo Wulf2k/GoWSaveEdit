@@ -636,7 +636,7 @@ Namespace PS3FileSystem
             End Get
             Set(value As Byte())
                 If value.Length <> 16 Then
-                    Throw New Exception("SecureFileID must nbe 16 bytes in length")
+                    Throw New Exception("SecureFileID must be 16 bytes in length")
                 End If
                 m_securefileid = value
             End Set
@@ -672,7 +672,7 @@ Namespace PS3FileSystem
         ''' <returns>byte array of the decrypted file</returns>
         Public Function Decrypt(stream As Stream, entryname As String) As Byte()
             If SecureFileID Is Nothing OrElse SecureFileID.Length <> 16 Then
-                DoProgress((If(SecureFileID Is Nothing, "SecureFileID needed to preform the encryption!", "SecureFileID is not valid! length must be 16 bytes long (128bit)")), MessageType.[Error])
+                DoProgress((If(SecureFileID Is Nothing, "SecureFileID needed to perform the encryption!", "SecureFileID is not valid! length must be 16 bytes long (128bit)")), MessageType.[Error])
                 Return Nothing
             End If
             Dim ent = New PFDEntry()
