@@ -101,7 +101,13 @@ Partial Class GoW1
         Me.lblG1Rage = New System.Windows.Forms.Label()
         Me.lblG1Magic = New System.Windows.Forms.Label()
         Me.lblG1Health = New System.Windows.Forms.Label()
-        Me.tabG1Misc = New System.Windows.Forms.TabPage()
+        Me.tabG1Warp = New System.Windows.Forms.TabPage()
+        Me.cmbG1checkpointCat = New System.Windows.Forms.ComboBox()
+        Me.chkG1Wad2Active = New System.Windows.Forms.CheckBox()
+        Me.chkG1Wad1Active = New System.Windows.Forms.CheckBox()
+        Me.cmbG1Checkpoints = New System.Windows.Forms.ComboBox()
+        Me.chkG1WorldIdle = New System.Windows.Forms.CheckBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.lblG1Warning = New System.Windows.Forms.Label()
         Me.lblG1CamWad = New System.Windows.Forms.Label()
         Me.txtG1CamWad = New System.Windows.Forms.TextBox()
@@ -114,22 +120,40 @@ Partial Class GoW1
         Me.lblG1Xpos = New System.Windows.Forms.Label()
         Me.lblG1Ypos = New System.Windows.Forms.Label()
         Me.lblG1Height = New System.Windows.Forms.Label()
-        Me.txtG1Height = New System.Windows.Forms.TextBox()
+        Me.txtG1Zpos = New System.Windows.Forms.TextBox()
         Me.txtG1YPos = New System.Windows.Forms.TextBox()
         Me.txtG1Xpos = New System.Windows.Forms.TextBox()
+        Me.tabG1Globals = New System.Windows.Forms.TabPage()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.txtG1SoundMode = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.chkG1EndGame = New System.Windows.Forms.CheckBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.txtG1SoundVol = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.txtG1MusVol = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.chkG1PUFT = New System.Windows.Forms.CheckBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.chkG1DeFlicker = New System.Windows.Forms.CheckBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.chkG1Wide = New System.Windows.Forms.CheckBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.chkG1Vib = New System.Windows.Forms.CheckBox()
         Me.btnG1Master = New System.Windows.Forms.Button()
         Me.btnG1Slot1 = New System.Windows.Forms.Button()
         Me.btnG1Slot2 = New System.Windows.Forms.Button()
         Me.btnG1Slot3 = New System.Windows.Forms.Button()
         Me.btnG1Slot4 = New System.Windows.Forms.Button()
         Me.gbG1Master = New System.Windows.Forms.GroupBox()
-        Me.chkG1WorldIdle = New System.Windows.Forms.CheckBox()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
         Me.tctlG1Data.SuspendLayout()
         Me.tabG1Char.SuspendLayout()
         Me.gbG1Costume.SuspendLayout()
         Me.gbG1Difficulty.SuspendLayout()
-        Me.tabG1Misc.SuspendLayout()
+        Me.tabG1Warp.SuspendLayout()
+        Me.tabG1Globals.SuspendLayout()
         Me.gbG1Master.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -239,7 +263,8 @@ Partial Class GoW1
         'tctlG1Data
         '
         Me.tctlG1Data.Controls.Add(Me.tabG1Char)
-        Me.tctlG1Data.Controls.Add(Me.tabG1Misc)
+        Me.tctlG1Data.Controls.Add(Me.tabG1Warp)
+        Me.tctlG1Data.Controls.Add(Me.tabG1Globals)
         Me.tctlG1Data.Location = New System.Drawing.Point(2, 75)
         Me.tctlG1Data.Name = "tctlG1Data"
         Me.tctlG1Data.SelectedIndex = 0
@@ -902,38 +927,96 @@ Partial Class GoW1
         Me.lblG1Health.TabIndex = 0
         Me.lblG1Health.Text = "Health"
         '
-        'tabG1Misc
+        'tabG1Warp
         '
-        Me.tabG1Misc.Controls.Add(Me.chkG1WorldIdle)
-        Me.tabG1Misc.Controls.Add(Me.Label1)
-        Me.tabG1Misc.Controls.Add(Me.lblG1Warning)
-        Me.tabG1Misc.Controls.Add(Me.lblG1CamWad)
-        Me.tabG1Misc.Controls.Add(Me.txtG1CamWad)
-        Me.tabG1Misc.Controls.Add(Me.lblG1Camera)
-        Me.tabG1Misc.Controls.Add(Me.txtG1Camera)
-        Me.tabG1Misc.Controls.Add(Me.lblG1Wad2)
-        Me.tabG1Misc.Controls.Add(Me.lblG1Wad1)
-        Me.tabG1Misc.Controls.Add(Me.txtG1Wad2)
-        Me.tabG1Misc.Controls.Add(Me.txtG1Wad1)
-        Me.tabG1Misc.Controls.Add(Me.lblG1Xpos)
-        Me.tabG1Misc.Controls.Add(Me.lblG1Ypos)
-        Me.tabG1Misc.Controls.Add(Me.lblG1Height)
-        Me.tabG1Misc.Controls.Add(Me.txtG1Height)
-        Me.tabG1Misc.Controls.Add(Me.txtG1YPos)
-        Me.tabG1Misc.Controls.Add(Me.txtG1Xpos)
-        Me.tabG1Misc.Location = New System.Drawing.Point(4, 22)
-        Me.tabG1Misc.Name = "tabG1Misc"
-        Me.tabG1Misc.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabG1Misc.Size = New System.Drawing.Size(571, 335)
-        Me.tabG1Misc.TabIndex = 1
-        Me.tabG1Misc.Text = "Misc"
-        Me.tabG1Misc.UseVisualStyleBackColor = True
+        Me.tabG1Warp.Controls.Add(Me.Label12)
+        Me.tabG1Warp.Controls.Add(Me.Label11)
+        Me.tabG1Warp.Controls.Add(Me.cmbG1checkpointCat)
+        Me.tabG1Warp.Controls.Add(Me.chkG1Wad2Active)
+        Me.tabG1Warp.Controls.Add(Me.chkG1Wad1Active)
+        Me.tabG1Warp.Controls.Add(Me.cmbG1Checkpoints)
+        Me.tabG1Warp.Controls.Add(Me.chkG1WorldIdle)
+        Me.tabG1Warp.Controls.Add(Me.Label1)
+        Me.tabG1Warp.Controls.Add(Me.lblG1Warning)
+        Me.tabG1Warp.Controls.Add(Me.lblG1CamWad)
+        Me.tabG1Warp.Controls.Add(Me.txtG1CamWad)
+        Me.tabG1Warp.Controls.Add(Me.lblG1Camera)
+        Me.tabG1Warp.Controls.Add(Me.txtG1Camera)
+        Me.tabG1Warp.Controls.Add(Me.lblG1Wad2)
+        Me.tabG1Warp.Controls.Add(Me.lblG1Wad1)
+        Me.tabG1Warp.Controls.Add(Me.txtG1Wad2)
+        Me.tabG1Warp.Controls.Add(Me.txtG1Wad1)
+        Me.tabG1Warp.Controls.Add(Me.lblG1Xpos)
+        Me.tabG1Warp.Controls.Add(Me.lblG1Ypos)
+        Me.tabG1Warp.Controls.Add(Me.lblG1Height)
+        Me.tabG1Warp.Controls.Add(Me.txtG1Zpos)
+        Me.tabG1Warp.Controls.Add(Me.txtG1YPos)
+        Me.tabG1Warp.Controls.Add(Me.txtG1Xpos)
+        Me.tabG1Warp.Location = New System.Drawing.Point(4, 22)
+        Me.tabG1Warp.Name = "tabG1Warp"
+        Me.tabG1Warp.Padding = New System.Windows.Forms.Padding(3)
+        Me.tabG1Warp.Size = New System.Drawing.Size(571, 335)
+        Me.tabG1Warp.TabIndex = 1
+        Me.tabG1Warp.Text = "Warp"
+        Me.tabG1Warp.UseVisualStyleBackColor = True
+        '
+        'cmbG1checkpointCat
+        '
+        Me.cmbG1checkpointCat.FormattingEnabled = True
+        Me.cmbG1checkpointCat.Location = New System.Drawing.Point(10, 80)
+        Me.cmbG1checkpointCat.Name = "cmbG1checkpointCat"
+        Me.cmbG1checkpointCat.Size = New System.Drawing.Size(169, 21)
+        Me.cmbG1checkpointCat.TabIndex = 62
+        '
+        'chkG1Wad2Active
+        '
+        Me.chkG1Wad2Active.AutoSize = True
+        Me.chkG1Wad2Active.Location = New System.Drawing.Point(532, 251)
+        Me.chkG1Wad2Active.Name = "chkG1Wad2Active"
+        Me.chkG1Wad2Active.Size = New System.Drawing.Size(15, 14)
+        Me.chkG1Wad2Active.TabIndex = 61
+        Me.chkG1Wad2Active.UseVisualStyleBackColor = True
+        '
+        'chkG1Wad1Active
+        '
+        Me.chkG1Wad1Active.AutoSize = True
+        Me.chkG1Wad1Active.Location = New System.Drawing.Point(532, 226)
+        Me.chkG1Wad1Active.Name = "chkG1Wad1Active"
+        Me.chkG1Wad1Active.Size = New System.Drawing.Size(15, 14)
+        Me.chkG1Wad1Active.TabIndex = 60
+        Me.chkG1Wad1Active.UseVisualStyleBackColor = True
+        '
+        'cmbG1Checkpoints
+        '
+        Me.cmbG1Checkpoints.FormattingEnabled = True
+        Me.cmbG1Checkpoints.Location = New System.Drawing.Point(185, 80)
+        Me.cmbG1Checkpoints.Name = "cmbG1Checkpoints"
+        Me.cmbG1Checkpoints.Size = New System.Drawing.Size(169, 21)
+        Me.cmbG1Checkpoints.TabIndex = 59
+        '
+        'chkG1WorldIdle
+        '
+        Me.chkG1WorldIdle.AutoSize = True
+        Me.chkG1WorldIdle.Location = New System.Drawing.Point(532, 125)
+        Me.chkG1WorldIdle.Name = "chkG1WorldIdle"
+        Me.chkG1WorldIdle.Size = New System.Drawing.Size(15, 14)
+        Me.chkG1WorldIdle.TabIndex = 57
+        Me.chkG1WorldIdle.UseVisualStyleBackColor = True
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(468, 125)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(55, 13)
+        Me.Label1.TabIndex = 58
+        Me.Label1.Text = "World Idle"
         '
         'lblG1Warning
         '
         Me.lblG1Warning.AutoSize = True
         Me.lblG1Warning.ForeColor = System.Drawing.Color.Red
-        Me.lblG1Warning.Location = New System.Drawing.Point(40, 23)
+        Me.lblG1Warning.Location = New System.Drawing.Point(7, 3)
         Me.lblG1Warning.Name = "lblG1Warning"
         Me.lblG1Warning.Size = New System.Drawing.Size(484, 13)
         Me.lblG1Warning.TabIndex = 14
@@ -943,7 +1026,7 @@ Partial Class GoW1
         'lblG1CamWad
         '
         Me.lblG1CamWad.AutoSize = True
-        Me.lblG1CamWad.Location = New System.Drawing.Point(282, 97)
+        Me.lblG1CamWad.Location = New System.Drawing.Point(330, 304)
         Me.lblG1CamWad.Name = "lblG1CamWad"
         Me.lblG1CamWad.Size = New System.Drawing.Size(109, 13)
         Me.lblG1CamWad.TabIndex = 13
@@ -951,7 +1034,7 @@ Partial Class GoW1
         '
         'txtG1CamWad
         '
-        Me.txtG1CamWad.Location = New System.Drawing.Point(399, 94)
+        Me.txtG1CamWad.Location = New System.Drawing.Point(447, 301)
         Me.txtG1CamWad.Name = "txtG1CamWad"
         Me.txtG1CamWad.Size = New System.Drawing.Size(100, 20)
         Me.txtG1CamWad.TabIndex = 56
@@ -959,7 +1042,7 @@ Partial Class GoW1
         'lblG1Camera
         '
         Me.lblG1Camera.AutoSize = True
-        Me.lblG1Camera.Location = New System.Drawing.Point(313, 71)
+        Me.lblG1Camera.Location = New System.Drawing.Point(361, 278)
         Me.lblG1Camera.Name = "lblG1Camera"
         Me.lblG1Camera.Size = New System.Drawing.Size(80, 13)
         Me.lblG1Camera.TabIndex = 11
@@ -967,7 +1050,7 @@ Partial Class GoW1
         '
         'txtG1Camera
         '
-        Me.txtG1Camera.Location = New System.Drawing.Point(399, 68)
+        Me.txtG1Camera.Location = New System.Drawing.Point(447, 275)
         Me.txtG1Camera.Name = "txtG1Camera"
         Me.txtG1Camera.Size = New System.Drawing.Size(100, 20)
         Me.txtG1Camera.TabIndex = 55
@@ -975,39 +1058,39 @@ Partial Class GoW1
         'lblG1Wad2
         '
         Me.lblG1Wad2.AutoSize = True
-        Me.lblG1Wad2.Location = New System.Drawing.Point(40, 175)
+        Me.lblG1Wad2.Location = New System.Drawing.Point(359, 252)
         Me.lblG1Wad2.Name = "lblG1Wad2"
-        Me.lblG1Wad2.Size = New System.Drawing.Size(82, 13)
+        Me.lblG1Wad2.Size = New System.Drawing.Size(49, 13)
         Me.lblG1Wad2.TabIndex = 9
-        Me.lblG1Wad2.Text = "Active WAD #2"
+        Me.lblG1Wad2.Text = "WAD #2"
         '
         'lblG1Wad1
         '
         Me.lblG1Wad1.AutoSize = True
-        Me.lblG1Wad1.Location = New System.Drawing.Point(40, 149)
+        Me.lblG1Wad1.Location = New System.Drawing.Point(359, 226)
         Me.lblG1Wad1.Name = "lblG1Wad1"
-        Me.lblG1Wad1.Size = New System.Drawing.Size(82, 13)
+        Me.lblG1Wad1.Size = New System.Drawing.Size(49, 13)
         Me.lblG1Wad1.TabIndex = 8
-        Me.lblG1Wad1.Text = "Active WAD #1"
+        Me.lblG1Wad1.Text = "WAD #1"
         '
         'txtG1Wad2
         '
-        Me.txtG1Wad2.Location = New System.Drawing.Point(128, 172)
+        Me.txtG1Wad2.Location = New System.Drawing.Point(414, 249)
         Me.txtG1Wad2.Name = "txtG1Wad2"
-        Me.txtG1Wad2.Size = New System.Drawing.Size(100, 20)
+        Me.txtG1Wad2.Size = New System.Drawing.Size(112, 20)
         Me.txtG1Wad2.TabIndex = 54
         '
         'txtG1Wad1
         '
-        Me.txtG1Wad1.Location = New System.Drawing.Point(128, 146)
+        Me.txtG1Wad1.Location = New System.Drawing.Point(414, 223)
         Me.txtG1Wad1.Name = "txtG1Wad1"
-        Me.txtG1Wad1.Size = New System.Drawing.Size(100, 20)
+        Me.txtG1Wad1.Size = New System.Drawing.Size(112, 20)
         Me.txtG1Wad1.TabIndex = 53
         '
         'lblG1Xpos
         '
         Me.lblG1Xpos.AutoSize = True
-        Me.lblG1Xpos.Location = New System.Drawing.Point(84, 71)
+        Me.lblG1Xpos.Location = New System.Drawing.Point(403, 148)
         Me.lblG1Xpos.Name = "lblG1Xpos"
         Me.lblG1Xpos.Size = New System.Drawing.Size(35, 13)
         Me.lblG1Xpos.TabIndex = 5
@@ -1016,7 +1099,7 @@ Partial Class GoW1
         'lblG1Ypos
         '
         Me.lblG1Ypos.AutoSize = True
-        Me.lblG1Ypos.Location = New System.Drawing.Point(84, 97)
+        Me.lblG1Ypos.Location = New System.Drawing.Point(403, 174)
         Me.lblG1Ypos.Name = "lblG1Ypos"
         Me.lblG1Ypos.Size = New System.Drawing.Size(35, 13)
         Me.lblG1Ypos.TabIndex = 4
@@ -1025,32 +1108,195 @@ Partial Class GoW1
         'lblG1Height
         '
         Me.lblG1Height.AutoSize = True
-        Me.lblG1Height.Location = New System.Drawing.Point(84, 123)
+        Me.lblG1Height.Location = New System.Drawing.Point(403, 200)
         Me.lblG1Height.Name = "lblG1Height"
-        Me.lblG1Height.Size = New System.Drawing.Size(38, 13)
+        Me.lblG1Height.Size = New System.Drawing.Size(35, 13)
         Me.lblG1Height.TabIndex = 3
-        Me.lblG1Height.Text = "Height"
+        Me.lblG1Height.Text = "Z Pos"
         '
-        'txtG1Height
+        'txtG1Zpos
         '
-        Me.txtG1Height.Location = New System.Drawing.Point(128, 120)
-        Me.txtG1Height.Name = "txtG1Height"
-        Me.txtG1Height.Size = New System.Drawing.Size(100, 20)
-        Me.txtG1Height.TabIndex = 52
+        Me.txtG1Zpos.Location = New System.Drawing.Point(447, 197)
+        Me.txtG1Zpos.Name = "txtG1Zpos"
+        Me.txtG1Zpos.Size = New System.Drawing.Size(100, 20)
+        Me.txtG1Zpos.TabIndex = 52
         '
         'txtG1YPos
         '
-        Me.txtG1YPos.Location = New System.Drawing.Point(128, 94)
+        Me.txtG1YPos.Location = New System.Drawing.Point(447, 171)
         Me.txtG1YPos.Name = "txtG1YPos"
         Me.txtG1YPos.Size = New System.Drawing.Size(100, 20)
         Me.txtG1YPos.TabIndex = 51
         '
         'txtG1Xpos
         '
-        Me.txtG1Xpos.Location = New System.Drawing.Point(128, 68)
+        Me.txtG1Xpos.Location = New System.Drawing.Point(447, 145)
         Me.txtG1Xpos.Name = "txtG1Xpos"
         Me.txtG1Xpos.Size = New System.Drawing.Size(100, 20)
         Me.txtG1Xpos.TabIndex = 50
+        '
+        'tabG1Globals
+        '
+        Me.tabG1Globals.Controls.Add(Me.Label9)
+        Me.tabG1Globals.Controls.Add(Me.txtG1SoundMode)
+        Me.tabG1Globals.Controls.Add(Me.Label8)
+        Me.tabG1Globals.Controls.Add(Me.chkG1EndGame)
+        Me.tabG1Globals.Controls.Add(Me.Label7)
+        Me.tabG1Globals.Controls.Add(Me.txtG1SoundVol)
+        Me.tabG1Globals.Controls.Add(Me.Label6)
+        Me.tabG1Globals.Controls.Add(Me.txtG1MusVol)
+        Me.tabG1Globals.Controls.Add(Me.Label5)
+        Me.tabG1Globals.Controls.Add(Me.chkG1PUFT)
+        Me.tabG1Globals.Controls.Add(Me.Label4)
+        Me.tabG1Globals.Controls.Add(Me.chkG1DeFlicker)
+        Me.tabG1Globals.Controls.Add(Me.Label3)
+        Me.tabG1Globals.Controls.Add(Me.chkG1Wide)
+        Me.tabG1Globals.Controls.Add(Me.Label2)
+        Me.tabG1Globals.Controls.Add(Me.chkG1Vib)
+        Me.tabG1Globals.Location = New System.Drawing.Point(4, 22)
+        Me.tabG1Globals.Name = "tabG1Globals"
+        Me.tabG1Globals.Size = New System.Drawing.Size(571, 335)
+        Me.tabG1Globals.TabIndex = 2
+        Me.tabG1Globals.Text = "Globals"
+        Me.tabG1Globals.UseVisualStyleBackColor = True
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(7, 144)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(68, 13)
+        Me.Label9.TabIndex = 80
+        Me.Label9.Text = "Sound Mode"
+        '
+        'txtG1SoundMode
+        '
+        Me.txtG1SoundMode.Location = New System.Drawing.Point(75, 141)
+        Me.txtG1SoundMode.Name = "txtG1SoundMode"
+        Me.txtG1SoundMode.Size = New System.Drawing.Size(28, 20)
+        Me.txtG1SoundMode.TabIndex = 79
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(169, 38)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(54, 13)
+        Me.Label8.TabIndex = 78
+        Me.Label8.Text = "EndGame"
+        '
+        'chkG1EndGame
+        '
+        Me.chkG1EndGame.AutoSize = True
+        Me.chkG1EndGame.Location = New System.Drawing.Point(225, 38)
+        Me.chkG1EndGame.Name = "chkG1EndGame"
+        Me.chkG1EndGame.Size = New System.Drawing.Size(15, 14)
+        Me.chkG1EndGame.TabIndex = 77
+        Me.chkG1EndGame.UseVisualStyleBackColor = True
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(7, 118)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(56, 13)
+        Me.Label7.TabIndex = 76
+        Me.Label7.Text = "Sound Vol"
+        '
+        'txtG1SoundVol
+        '
+        Me.txtG1SoundVol.Location = New System.Drawing.Point(75, 115)
+        Me.txtG1SoundVol.Name = "txtG1SoundVol"
+        Me.txtG1SoundVol.Size = New System.Drawing.Size(28, 20)
+        Me.txtG1SoundVol.TabIndex = 75
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(7, 92)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(53, 13)
+        Me.Label6.TabIndex = 74
+        Me.Label6.Text = "Music Vol"
+        '
+        'txtG1MusVol
+        '
+        Me.txtG1MusVol.Location = New System.Drawing.Point(75, 89)
+        Me.txtG1MusVol.Name = "txtG1MusVol"
+        Me.txtG1MusVol.Size = New System.Drawing.Size(28, 20)
+        Me.txtG1MusVol.TabIndex = 73
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(115, 18)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(108, 13)
+        Me.Label5.TabIndex = 72
+        Me.Label5.Text = "Power Up - First Time"
+        '
+        'chkG1PUFT
+        '
+        Me.chkG1PUFT.AutoSize = True
+        Me.chkG1PUFT.Location = New System.Drawing.Point(225, 18)
+        Me.chkG1PUFT.Name = "chkG1PUFT"
+        Me.chkG1PUFT.Size = New System.Drawing.Size(15, 14)
+        Me.chkG1PUFT.TabIndex = 71
+        Me.chkG1PUFT.UseVisualStyleBackColor = True
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(7, 58)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(52, 13)
+        Me.Label4.TabIndex = 70
+        Me.Label4.Text = "DeFlicker"
+        '
+        'chkG1DeFlicker
+        '
+        Me.chkG1DeFlicker.AutoSize = True
+        Me.chkG1DeFlicker.Location = New System.Drawing.Point(75, 58)
+        Me.chkG1DeFlicker.Name = "chkG1DeFlicker"
+        Me.chkG1DeFlicker.Size = New System.Drawing.Size(15, 14)
+        Me.chkG1DeFlicker.TabIndex = 69
+        Me.chkG1DeFlicker.UseVisualStyleBackColor = True
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(7, 38)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(64, 13)
+        Me.Label3.TabIndex = 68
+        Me.Label3.Text = "Widescreen"
+        '
+        'chkG1Wide
+        '
+        Me.chkG1Wide.AutoSize = True
+        Me.chkG1Wide.Location = New System.Drawing.Point(75, 38)
+        Me.chkG1Wide.Name = "chkG1Wide"
+        Me.chkG1Wide.Size = New System.Drawing.Size(15, 14)
+        Me.chkG1Wide.TabIndex = 67
+        Me.chkG1Wide.UseVisualStyleBackColor = True
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(7, 18)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(48, 13)
+        Me.Label2.TabIndex = 66
+        Me.Label2.Text = "Vibration"
+        '
+        'chkG1Vib
+        '
+        Me.chkG1Vib.AutoSize = True
+        Me.chkG1Vib.Location = New System.Drawing.Point(75, 18)
+        Me.chkG1Vib.Name = "chkG1Vib"
+        Me.chkG1Vib.Size = New System.Drawing.Size(15, 14)
+        Me.chkG1Vib.TabIndex = 65
+        Me.chkG1Vib.UseVisualStyleBackColor = True
         '
         'btnG1Master
         '
@@ -1121,23 +1367,27 @@ Partial Class GoW1
         Me.gbG1Master.TabStop = False
         Me.gbG1Master.Visible = False
         '
-        'chkG1WorldIdle
+        'Label11
         '
-        Me.chkG1WorldIdle.AutoSize = True
-        Me.chkG1WorldIdle.Location = New System.Drawing.Point(128, 239)
-        Me.chkG1WorldIdle.Name = "chkG1WorldIdle"
-        Me.chkG1WorldIdle.Size = New System.Drawing.Size(15, 14)
-        Me.chkG1WorldIdle.TabIndex = 57
-        Me.chkG1WorldIdle.UseVisualStyleBackColor = True
+        Me.Label11.AutoSize = True
+        Me.Label11.ForeColor = System.Drawing.Color.Red
+        Me.Label11.Location = New System.Drawing.Point(7, 26)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(450, 13)
+        Me.Label11.TabIndex = 63
+        Me.Label11.Text = "Selecting locations below will change your in-game position, but will not change " &
+    "level variables"
         '
-        'Label1
+        'Label12
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(64, 239)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(55, 13)
-        Me.Label1.TabIndex = 58
-        Me.Label1.Text = "World Idle"
+        Me.Label12.AutoSize = True
+        Me.Label12.ForeColor = System.Drawing.Color.Red
+        Me.Label12.Location = New System.Drawing.Point(7, 39)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(419, 13)
+        Me.Label12.TabIndex = 64
+        Me.Label12.Text = "It is possible that objects / enemies / loading triggers will not be in their exp" &
+    "ected states."
         '
         'GoW1
         '
@@ -1165,8 +1415,10 @@ Partial Class GoW1
         Me.gbG1Costume.PerformLayout()
         Me.gbG1Difficulty.ResumeLayout(False)
         Me.gbG1Difficulty.PerformLayout()
-        Me.tabG1Misc.ResumeLayout(False)
-        Me.tabG1Misc.PerformLayout()
+        Me.tabG1Warp.ResumeLayout(False)
+        Me.tabG1Warp.PerformLayout()
+        Me.tabG1Globals.ResumeLayout(False)
+        Me.tabG1Globals.PerformLayout()
         Me.gbG1Master.ResumeLayout(False)
         Me.gbG1Master.PerformLayout()
         Me.ResumeLayout(False)
@@ -1249,7 +1501,7 @@ Partial Class GoW1
     Friend WithEvents lblG1Rage As System.Windows.Forms.Label
     Friend WithEvents lblG1Magic As System.Windows.Forms.Label
     Friend WithEvents lblG1Health As System.Windows.Forms.Label
-    Friend WithEvents tabG1Misc As System.Windows.Forms.TabPage
+    Friend WithEvents tabG1Warp As System.Windows.Forms.TabPage
     Friend WithEvents lblG1Warning As System.Windows.Forms.Label
     Friend WithEvents lblG1CamWad As System.Windows.Forms.Label
     Friend WithEvents txtG1CamWad As System.Windows.Forms.TextBox
@@ -1262,7 +1514,7 @@ Partial Class GoW1
     Friend WithEvents lblG1Xpos As System.Windows.Forms.Label
     Friend WithEvents lblG1Ypos As System.Windows.Forms.Label
     Friend WithEvents lblG1Height As System.Windows.Forms.Label
-    Friend WithEvents txtG1Height As System.Windows.Forms.TextBox
+    Friend WithEvents txtG1Zpos As System.Windows.Forms.TextBox
     Friend WithEvents txtG1YPos As System.Windows.Forms.TextBox
     Friend WithEvents txtG1Xpos As System.Windows.Forms.TextBox
     Friend WithEvents btnG1Master As System.Windows.Forms.Button
@@ -1276,4 +1528,27 @@ Partial Class GoW1
     Friend WithEvents btnG1Restart As System.Windows.Forms.Button
     Friend WithEvents chkG1WorldIdle As CheckBox
     Friend WithEvents Label1 As Label
+    Friend WithEvents chkG1Wad2Active As CheckBox
+    Friend WithEvents chkG1Wad1Active As CheckBox
+    Friend WithEvents cmbG1Checkpoints As ComboBox
+    Friend WithEvents cmbG1checkpointCat As ComboBox
+    Friend WithEvents tabG1Globals As TabPage
+    Friend WithEvents Label8 As Label
+    Friend WithEvents chkG1EndGame As CheckBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents txtG1SoundVol As TextBox
+    Friend WithEvents Label6 As Label
+    Friend WithEvents txtG1MusVol As TextBox
+    Friend WithEvents Label5 As Label
+    Friend WithEvents chkG1PUFT As CheckBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents chkG1DeFlicker As CheckBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents chkG1Wide As CheckBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents chkG1Vib As CheckBox
+    Friend WithEvents Label9 As Label
+    Friend WithEvents txtG1SoundMode As TextBox
+    Friend WithEvents Label12 As Label
+    Friend WithEvents Label11 As Label
 End Class

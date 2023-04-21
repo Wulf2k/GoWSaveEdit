@@ -15,7 +15,16 @@ Public Class GoW3
 
         SecureID = GoW3SecureID
 
-        manager = New Ps3SaveManager(txtG3File.Text, SecureID)
+
+        If IO.File.Exists(folder + "\PARAM.PFD") Then
+            encrypted = True
+            manager = New Ps3SaveManager(txtG3File.Text, SecureID)
+        Else
+            encrypted = False
+        End If
+
+
+
 
         file = manager.Files.FirstOrDefault(Function(t) t.PFDEntry.file_name = "SAVEDATA")
         If Not file Is Nothing Then
@@ -33,4 +42,6 @@ Public Class GoW3
     Private Sub btnG3Browse_Click(sender As Object, e As EventArgs) Handles btnG3Browse.Click
 
     End Sub
+
+
 End Class
