@@ -26,10 +26,17 @@ Partial Class GoW3
         Me.btnG3Save = New System.Windows.Forms.Button()
         Me.btnG3Open = New System.Windows.Forms.Button()
         Me.lblG1File = New System.Windows.Forms.Label()
-        Me.txtG3File = New System.Windows.Forms.TextBox()
+        Me.txtG3Folder = New System.Windows.Forms.TextBox()
         Me.tabSaves = New System.Windows.Forms.TabControl()
         Me.tabUser = New System.Windows.Forms.TabPage()
         Me.gpDefCostume = New System.Windows.Forms.GroupBox()
+        Me.rbCost8 = New System.Windows.Forms.RadioButton()
+        Me.rbCost7 = New System.Windows.Forms.RadioButton()
+        Me.rbCost6 = New System.Windows.Forms.RadioButton()
+        Me.rbCost5 = New System.Windows.Forms.RadioButton()
+        Me.rbCost4 = New System.Windows.Forms.RadioButton()
+        Me.rbCost3 = New System.Windows.Forms.RadioButton()
+        Me.rbCost2 = New System.Windows.Forms.RadioButton()
         Me.rbCost1 = New System.Windows.Forms.RadioButton()
         Me.gpChallsBeaten = New System.Windows.Forms.GroupBox()
         Me.CheckBox20 = New System.Windows.Forms.CheckBox()
@@ -56,13 +63,6 @@ Partial Class GoW3
         Me.CheckBox12 = New System.Windows.Forms.CheckBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.tabSave = New System.Windows.Forms.TabPage()
-        Me.rbCost2 = New System.Windows.Forms.RadioButton()
-        Me.rbCost3 = New System.Windows.Forms.RadioButton()
-        Me.rbCost4 = New System.Windows.Forms.RadioButton()
-        Me.rbCost5 = New System.Windows.Forms.RadioButton()
-        Me.rbCost6 = New System.Windows.Forms.RadioButton()
-        Me.rbCost7 = New System.Windows.Forms.RadioButton()
-        Me.rbCost8 = New System.Windows.Forms.RadioButton()
         Me.tabSaves.SuspendLayout()
         Me.tabUser.SuspendLayout()
         Me.gpDefCostume.SuspendLayout()
@@ -106,13 +106,13 @@ Partial Class GoW3
         Me.lblG1File.TabIndex = 6
         Me.lblG1File.Text = "File:"
         '
-        'txtG3File
+        'txtG3Folder
         '
-        Me.txtG3File.Location = New System.Drawing.Point(49, 12)
-        Me.txtG3File.Name = "txtG3File"
-        Me.txtG3File.Size = New System.Drawing.Size(440, 20)
-        Me.txtG3File.TabIndex = 0
-        Me.txtG3File.Text = "D:\emus\ps3\dev_hdd0\home\00000001\savedata\BCUS98111-USERDATA\Param.sfo"
+        Me.txtG3Folder.Location = New System.Drawing.Point(49, 12)
+        Me.txtG3Folder.Name = "txtG3Folder"
+        Me.txtG3Folder.Size = New System.Drawing.Size(440, 20)
+        Me.txtG3Folder.TabIndex = 0
+        Me.txtG3Folder.Text = "D:\emus\ps3\dev_hdd0\home\00000001\savedata\BCUS98111-USERDATA\"
         '
         'tabSaves
         '
@@ -153,6 +153,83 @@ Partial Class GoW3
         Me.gpDefCostume.TabIndex = 37
         Me.gpDefCostume.TabStop = False
         Me.gpDefCostume.Text = "Default Costume"
+        '
+        'rbCost8
+        '
+        Me.rbCost8.AutoSize = True
+        Me.rbCost8.Location = New System.Drawing.Point(6, 185)
+        Me.rbCost8.Name = "rbCost8"
+        Me.rbCost8.Size = New System.Drawing.Size(131, 17)
+        Me.rbCost8.TabIndex = 7
+        Me.rbCost8.TabStop = True
+        Me.rbCost8.Text = "Deimos (DLC required)"
+        Me.rbCost8.UseVisualStyleBackColor = True
+        '
+        'rbCost7
+        '
+        Me.rbCost7.AutoSize = True
+        Me.rbCost7.Location = New System.Drawing.Point(6, 161)
+        Me.rbCost7.Name = "rbCost7"
+        Me.rbCost7.Size = New System.Drawing.Size(66, 17)
+        Me.rbCost7.TabIndex = 6
+        Me.rbCost7.TabStop = True
+        Me.rbCost7.Text = "Dominus"
+        Me.rbCost7.UseVisualStyleBackColor = True
+        '
+        'rbCost6
+        '
+        Me.rbCost6.AutoSize = True
+        Me.rbCost6.Location = New System.Drawing.Point(7, 137)
+        Me.rbCost6.Name = "rbCost6"
+        Me.rbCost6.Size = New System.Drawing.Size(107, 17)
+        Me.rbCost6.TabIndex = 5
+        Me.rbCost6.TabStop = True
+        Me.rbCost6.Text = "Forgotten Warrior"
+        Me.rbCost6.UseVisualStyleBackColor = True
+        '
+        'rbCost5
+        '
+        Me.rbCost5.AutoSize = True
+        Me.rbCost5.Location = New System.Drawing.Point(7, 114)
+        Me.rbCost5.Name = "rbCost5"
+        Me.rbCost5.Size = New System.Drawing.Size(112, 17)
+        Me.rbCost5.TabIndex = 4
+        Me.rbCost5.TabStop = True
+        Me.rbCost5.Text = "Phantom of Chaos"
+        Me.rbCost5.UseVisualStyleBackColor = True
+        '
+        'rbCost4
+        '
+        Me.rbCost4.AutoSize = True
+        Me.rbCost4.Location = New System.Drawing.Point(7, 90)
+        Me.rbCost4.Name = "rbCost4"
+        Me.rbCost4.Size = New System.Drawing.Size(72, 17)
+        Me.rbCost4.TabIndex = 3
+        Me.rbCost4.TabStop = True
+        Me.rbCost4.Text = "Morpheus"
+        Me.rbCost4.UseVisualStyleBackColor = True
+        '
+        'rbCost3
+        '
+        Me.rbCost3.AutoSize = True
+        Me.rbCost3.Location = New System.Drawing.Point(7, 66)
+        Me.rbCost3.Name = "rbCost3"
+        Me.rbCost3.Size = New System.Drawing.Size(54, 17)
+        Me.rbCost3.TabIndex = 2
+        Me.rbCost3.TabStop = True
+        Me.rbCost3.Text = "Apollo"
+        Me.rbCost3.UseVisualStyleBackColor = True
+        '
+        'rbCost2
+        '
+        Me.rbCost2.AutoSize = True
+        Me.rbCost2.Location = New System.Drawing.Point(7, 43)
+        Me.rbCost2.Name = "rbCost2"
+        Me.rbCost2.Size = New System.Drawing.Size(79, 17)
+        Me.rbCost2.TabIndex = 1
+        Me.rbCost2.TabStop = True
+        Me.rbCost2.Text = "Fear Kratos"
+        Me.rbCost2.UseVisualStyleBackColor = True
         '
         'rbCost1
         '
@@ -435,83 +512,6 @@ Partial Class GoW3
         Me.tabSave.Text = "SaveData"
         Me.tabSave.UseVisualStyleBackColor = True
         '
-        'rbCost2
-        '
-        Me.rbCost2.AutoSize = True
-        Me.rbCost2.Location = New System.Drawing.Point(7, 43)
-        Me.rbCost2.Name = "rbCost2"
-        Me.rbCost2.Size = New System.Drawing.Size(79, 17)
-        Me.rbCost2.TabIndex = 1
-        Me.rbCost2.TabStop = True
-        Me.rbCost2.Text = "Fear Kratos"
-        Me.rbCost2.UseVisualStyleBackColor = True
-        '
-        'rbCost3
-        '
-        Me.rbCost3.AutoSize = True
-        Me.rbCost3.Location = New System.Drawing.Point(7, 66)
-        Me.rbCost3.Name = "rbCost3"
-        Me.rbCost3.Size = New System.Drawing.Size(54, 17)
-        Me.rbCost3.TabIndex = 2
-        Me.rbCost3.TabStop = True
-        Me.rbCost3.Text = "Apollo"
-        Me.rbCost3.UseVisualStyleBackColor = True
-        '
-        'rbCost4
-        '
-        Me.rbCost4.AutoSize = True
-        Me.rbCost4.Location = New System.Drawing.Point(7, 90)
-        Me.rbCost4.Name = "rbCost4"
-        Me.rbCost4.Size = New System.Drawing.Size(72, 17)
-        Me.rbCost4.TabIndex = 3
-        Me.rbCost4.TabStop = True
-        Me.rbCost4.Text = "Morpheus"
-        Me.rbCost4.UseVisualStyleBackColor = True
-        '
-        'rbCost5
-        '
-        Me.rbCost5.AutoSize = True
-        Me.rbCost5.Location = New System.Drawing.Point(7, 114)
-        Me.rbCost5.Name = "rbCost5"
-        Me.rbCost5.Size = New System.Drawing.Size(112, 17)
-        Me.rbCost5.TabIndex = 4
-        Me.rbCost5.TabStop = True
-        Me.rbCost5.Text = "Phantom of Chaos"
-        Me.rbCost5.UseVisualStyleBackColor = True
-        '
-        'rbCost6
-        '
-        Me.rbCost6.AutoSize = True
-        Me.rbCost6.Location = New System.Drawing.Point(7, 137)
-        Me.rbCost6.Name = "rbCost6"
-        Me.rbCost6.Size = New System.Drawing.Size(107, 17)
-        Me.rbCost6.TabIndex = 5
-        Me.rbCost6.TabStop = True
-        Me.rbCost6.Text = "Forgotten Warrior"
-        Me.rbCost6.UseVisualStyleBackColor = True
-        '
-        'rbCost7
-        '
-        Me.rbCost7.AutoSize = True
-        Me.rbCost7.Location = New System.Drawing.Point(6, 161)
-        Me.rbCost7.Name = "rbCost7"
-        Me.rbCost7.Size = New System.Drawing.Size(66, 17)
-        Me.rbCost7.TabIndex = 6
-        Me.rbCost7.TabStop = True
-        Me.rbCost7.Text = "Dominus"
-        Me.rbCost7.UseVisualStyleBackColor = True
-        '
-        'rbCost8
-        '
-        Me.rbCost8.AutoSize = True
-        Me.rbCost8.Location = New System.Drawing.Point(6, 185)
-        Me.rbCost8.Name = "rbCost8"
-        Me.rbCost8.Size = New System.Drawing.Size(131, 17)
-        Me.rbCost8.TabIndex = 7
-        Me.rbCost8.TabStop = True
-        Me.rbCost8.Text = "Demios (DLC required)"
-        Me.rbCost8.UseVisualStyleBackColor = True
-        '
         'GoW3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -522,7 +522,7 @@ Partial Class GoW3
         Me.Controls.Add(Me.btnG3Save)
         Me.Controls.Add(Me.btnG3Open)
         Me.Controls.Add(Me.lblG1File)
-        Me.Controls.Add(Me.txtG3File)
+        Me.Controls.Add(Me.txtG3Folder)
         Me.Name = "GoW3"
         Me.Text = "Wulf's God of War 3 Editor"
         Me.tabSaves.ResumeLayout(False)
@@ -541,7 +541,7 @@ Partial Class GoW3
     Friend WithEvents btnG3Save As System.Windows.Forms.Button
     Friend WithEvents btnG3Open As System.Windows.Forms.Button
     Friend WithEvents lblG1File As System.Windows.Forms.Label
-    Friend WithEvents txtG3File As System.Windows.Forms.TextBox
+    Friend WithEvents txtG3Folder As System.Windows.Forms.TextBox
     Friend WithEvents tabSaves As TabControl
     Friend WithEvents tabUser As TabPage
     Friend WithEvents tabSave As TabPage

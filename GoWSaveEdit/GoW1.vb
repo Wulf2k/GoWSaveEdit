@@ -202,14 +202,11 @@ Public Class GoW1
             txtG1BoA.Text = bytes(154) + 1
             txtG1BoC.Text = bytes(155) + 1
 
-            chkG1PRSel.Checked = True
-            chkG1PRSel.Checked = False
-            If bytes(&H9C) = 3 Then chkG1PRSel.Checked = True
-            If bytes(&H9C) = 4 Then chkG1MGSel.Checked = True
-            If bytes(&H9C) = 5 Then chkG1AoHSel.Checked = True
-            If bytes(&H9C) = 6 Then chkG1ZFSel.Checked = True
 
-
+            chkG1PRSel.Checked = (bytes(&H9C) = 3)
+            chkG1MGSel.Checked = (bytes(&H9C) = 4)
+            chkG1AoHSel.Checked = (bytes(&H9C) = 5)
+            chkG1ZFSel.Checked = (bytes(&H9C) = 6)
 
             txtG1GorgonEyes.Text = bytes(157)
             txtG1PhoenixFeathers.Text = bytes(158)
@@ -217,11 +214,13 @@ Public Class GoW1
 
             chkG1PT.Checked = (bytes(&HA0) And 1)
 
-            If ((bytes(161) And 64) = 64) Then chkG1PR.Checked = True Else chkG1PR.Checked = False
-            If ((bytes(161) And 32) = 32) Then chkG1MG.Checked = True Else chkG1MG.Checked = False
-            If ((bytes(161) And 16) = 16) Then chkG1ZF.Checked = True Else chkG1ZF.Checked = False
-            If ((bytes(161) And 8) = 8) Then chkG1AoH.Checked = True Else chkG1AoH.Checked = False
-            If ((bytes(161) And 4) = 4) Then chkG1BoA.Checked = True Else chkG1BoA.Checked = False
+
+            chkG1PR.Checked = bytes(&HA1) And &H4
+            chkG1MG.Checked = bytes(&HA1) And &H8
+            chkG1ZF.Checked = bytes(&HA1) And &H10
+            chkG1AoH.Checked = bytes(&HA1) And &H20
+            chkG1BoA.Checked = bytes(&HA1) And &H40
+
 
             txtG1Camera.Text = ""
             txtG1CamWad.Text = ""
@@ -510,7 +509,11 @@ Public Class GoW1
                 bytes(&HA0) = (bytes(&HA0) And &HFE) Or (chkG1PT.Checked And 1)
 
 
-                bytes(&HA1) = System.Math.Abs((chkG1PR.Checked * 64) + (chkG1MG.Checked * 32) + (chkG1ZF.Checked * 16) + (chkG1AoH.Checked * 8) + (chkG1BoA.Checked * 4))
+                bytes(&HA1) = (chkG1PR.Checked And &H4)
+                bytes(&HA1) = bytes(&HA1) + (chkG1MG.Checked And &H8)
+                bytes(&HA1) = bytes(&HA1) + (chkG1ZF.Checked And &H10)
+                bytes(&HA1) = bytes(&HA1) + (chkG1AoH.Checked And &H20)
+                bytes(&HA1) = bytes(&HA1) + (chkG1BoA.Checked And &H40)
 
 
                 For i = 0 To 23
@@ -916,9 +919,10 @@ Public Class GoW1
 
         checkpoints.Add(New checkpoint("Pandora's Temple", "Vista", "Pand00A", True, "Pand00B", False, "VistaCam2", "WAD_Pand00A", -721.03, 192, -1078.54, &H80400001&))
         checkpoints.Add(New checkpoint("Pandora's Temple", "Bottom of Stairs", "Pand00A", False, "Pand00B", True, "StartCam12", "WAD_Pand00B", 3105.45, -954.92, 1223.56, &H80400001&))
-        checkpoints.Add(New checkpoint("Pandora's Temple", "Entrance", "Pand00C", True, "Pand00B", True, "CombatCam1", "WAD_Pand00B", 1124.11, -4.76, 1232.71, &H80400001&))
+        checkpoints.Add(New checkpoint("Pandora's Temple", "Temple Entrance, Crank", "Pand00C", True, "Pand00B", True, "StartCam22", "WAD_Pand00B", 1520.32, 2, 1220.04, &H80000001&))
+        checkpoints.Add(New checkpoint("Pandora's Temple", "Temple Entrance, Inside", "Pand00C", True, "Pand00B", True, "CombatCam1", "WAD_Pand00B", 1124.11, -4.76, 1232.71, &H80400001&))
 
-        checkpoints.Add(New checkpoint("Rings of Pandora", "Entrance", "Pand00C", True, "Pand00D", True, "Ring1Cam1", "WAD_Pand00C", 470.38, 0, 1238.9, &H80400001&))
+        checkpoints.Add(New checkpoint("Rings of Pandora", "Rings Entrance", "Pand00C", True, "Pand00D", True, "Ring1Cam1", "WAD_Pand00C", 470.38, 0, 1238.9, &H80400001&))
         checkpoints.Add(New checkpoint("Rings of Pandora", "Eye", "Pand00C", True, "Pand00D", True, "CrushCam14", "WAD_Pand00D", -232.6, 0, 3592.32, &H80000001&))
         checkpoints.Add(New checkpoint("Rings of Pandora", "Muse Door", "Pand00C", True, "Pand00D", True, "GldShwrCam1", "WAD_Pand00D", -1505.17, 80, 1232.8, &H80000001&))
         checkpoints.Add(New checkpoint("Rings of Pandora", "Muse Room", "Pand00C", True, "Pand00D", True, "GldShwrCam3", "WAD_Pand00D", -1780.47, 84, 1231.69, &H80000001&))
@@ -946,7 +950,7 @@ Public Class GoW1
         checkpoints.Add(New checkpoint("Challenge of Hades", "Mino Room", "Pand03F", True, "Pand03G", True, "camera4", "WAD_Pand03G", 677.27, -96, 1675.84, &H80400001&))
         checkpoints.Add(New checkpoint("Challenge of Hades", "Architect's Son", "Pand03H", True, "Pand03I", True, "TombCam2", "WAD_Pand03H", 224.44, 688, 1912.26, &H80400001&))
 
-        checkpoints.Add(New checkpoint("Cliffs of Madness", "Entrance", "Pand04AA", True, "Pand00C", False, "camEntrance", "WAD_Pand04AA", 28.32, -61.5, 1332.08, &H80400001&))
+        checkpoints.Add(New checkpoint("Cliffs of Madness", "Hades Entrance", "Pand04AA", True, "Pand00C", False, "camEntrance", "WAD_Pand04AA", 28.32, -61.5, 1332.08, &H80400001&))
         checkpoints.Add(New checkpoint("Cliffs of Madness", "Elevator Save Point", "", False, "Pand04C", True, "Lyr1Cam4", "WAD_Pand04C", -282.33, 753.25, -1429.76, &H80020001&))
         checkpoints.Add(New checkpoint("Cliffs of Madness", "Extending Bridge", "", False, "Pand04E", True, "ZipCam18", "WAD_Pand04E", 774.35, 1491, -1870.91, &H80000001&))
         checkpoints.Add(New checkpoint("Cliffs of Madness", "Shape Puzzle", "Pand04EE", True, "Pand04E", True, "TetrisCam1", "WAD_Pand04EE", 754.23, 880, -4400, &H80040001&))

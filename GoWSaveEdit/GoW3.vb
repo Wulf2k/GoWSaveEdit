@@ -3,10 +3,8 @@ Imports GoWEditor.GoWFuncs
 
 Public Class GoW3
 
-    Dim DecSave(147455) As Byte
     Dim SecureID(15) As Byte
-    Dim manager As Ps3SaveManager
-    Dim file As Ps3File
+    Public Shared bytes() As Byte
 
 
 
@@ -14,24 +12,34 @@ Public Class GoW3
     Private Sub btnG3Open_Click(sender As Object, e As EventArgs) Handles btnG3Open.Click
 
         SecureID = GoW3SecureID
+        folder = UCase(txtG3Folder.Text)
 
 
         If IO.File.Exists(folder + "\PARAM.PFD") Then
             encrypted = True
-            manager = New Ps3SaveManager(txtG3File.Text, SecureID)
+            manager = New Ps3SaveManager(txtG3Folder.Text, SecureID)
         Else
             encrypted = False
         End If
 
+        filename = "SAVEDATA"
+        bytes = FileToBytes(filename)
 
 
+        If txtG3Folder.Text.ToLower.Contains("-userdata") Then
+            tabUser.Enabled = True
+            tabSave.Enabled = False
+            tabSaves.SelectedTab = tabUser
 
-        file = manager.Files.FirstOrDefault(Function(t) t.PFDEntry.file_name = "SAVEDATA")
-        If Not file Is Nothing Then
-            DecSave = file.DecryptToBytes
+
+        Else
+            tabUser.Enabled = False
+            tabSave.Enabled = True
+            tabSaves.SelectedTab = tabSave
 
 
         End If
+
 
     End Sub
 
