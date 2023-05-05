@@ -64,7 +64,6 @@ Partial Class Main
         Me.btnGoW3.TabIndex = 3
         Me.btnGoW3.Text = "God of War 3"
         Me.btnGoW3.UseVisualStyleBackColor = True
-        Me.btnGoW3.Visible = False
         '
         'btnSendMoney
         '

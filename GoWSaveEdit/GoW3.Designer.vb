@@ -29,6 +29,33 @@ Partial Class GoW3
         Me.txtG3Folder = New System.Windows.Forms.TextBox()
         Me.tabSaves = New System.Windows.Forms.TabControl()
         Me.tabUser = New System.Windows.Forms.TabPage()
+        Me.gbOptions = New System.Windows.Forms.GroupBox()
+        Me.chkInvertFreeCam = New System.Windows.Forms.CheckBox()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.chkInvertFlight = New System.Windows.Forms.CheckBox()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.chkShowSubs = New System.Windows.Forms.CheckBox()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.txtTutDisplay = New System.Windows.Forms.TextBox()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.txtScreenScale = New System.Windows.Forms.TextBox()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.txtScreenLocY = New System.Windows.Forms.TextBox()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.txtScreenLocX = New System.Windows.Forms.TextBox()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.txtBrightness = New System.Windows.Forms.TextBox()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.txtSoundMode = New System.Windows.Forms.TextBox()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.txtSpeechVol = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.txtCineVol = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.txtSfxVol = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.txtMusVol = New System.Windows.Forms.TextBox()
         Me.gpDefCostume = New System.Windows.Forms.GroupBox()
         Me.rbCost8 = New System.Windows.Forms.RadioButton()
         Me.rbCost7 = New System.Windows.Forms.RadioButton()
@@ -39,35 +66,38 @@ Partial Class GoW3
         Me.rbCost2 = New System.Windows.Forms.RadioButton()
         Me.rbCost1 = New System.Windows.Forms.RadioButton()
         Me.gpChallsBeaten = New System.Windows.Forms.GroupBox()
-        Me.CheckBox20 = New System.Windows.Forms.CheckBox()
+        Me.chkCh7 = New System.Windows.Forms.CheckBox()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.CheckBox21 = New System.Windows.Forms.CheckBox()
+        Me.chkCh6 = New System.Windows.Forms.CheckBox()
         Me.Label13 = New System.Windows.Forms.Label()
-        Me.CheckBox22 = New System.Windows.Forms.CheckBox()
+        Me.chkCh5 = New System.Windows.Forms.CheckBox()
         Me.Label14 = New System.Windows.Forms.Label()
-        Me.CheckBox18 = New System.Windows.Forms.CheckBox()
+        Me.chkCh4 = New System.Windows.Forms.CheckBox()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.CheckBox19 = New System.Windows.Forms.CheckBox()
+        Me.chkCh3 = New System.Windows.Forms.CheckBox()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.CheckBox17 = New System.Windows.Forms.CheckBox()
+        Me.chkCh2 = New System.Windows.Forms.CheckBox()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.CheckBox16 = New System.Windows.Forms.CheckBox()
+        Me.chkCh1 = New System.Windows.Forms.CheckBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.gpDiffsBeaten = New System.Windows.Forms.GroupBox()
-        Me.CheckBox14 = New System.Windows.Forms.CheckBox()
+        Me.chkBeatVeryHard = New System.Windows.Forms.CheckBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.CheckBox15 = New System.Windows.Forms.CheckBox()
+        Me.chkBeatHard = New System.Windows.Forms.CheckBox()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.CheckBox13 = New System.Windows.Forms.CheckBox()
+        Me.chkBeatNormal = New System.Windows.Forms.CheckBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.CheckBox12 = New System.Windows.Forms.CheckBox()
+        Me.chkBeatEasy = New System.Windows.Forms.CheckBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.tabSave = New System.Windows.Forms.TabPage()
+        Me.Label25 = New System.Windows.Forms.Label()
         Me.tabSaves.SuspendLayout()
         Me.tabUser.SuspendLayout()
+        Me.gbOptions.SuspendLayout()
         Me.gpDefCostume.SuspendLayout()
         Me.gpChallsBeaten.SuspendLayout()
         Me.gpDiffsBeaten.SuspendLayout()
+        Me.tabSave.SuspendLayout()
         Me.SuspendLayout()
         '
         'btnG3Browse
@@ -121,21 +151,274 @@ Partial Class GoW3
         Me.tabSaves.Location = New System.Drawing.Point(12, 75)
         Me.tabSaves.Name = "tabSaves"
         Me.tabSaves.SelectedIndex = 0
-        Me.tabSaves.Size = New System.Drawing.Size(1053, 785)
+        Me.tabSaves.Size = New System.Drawing.Size(566, 582)
         Me.tabSaves.TabIndex = 9
         '
         'tabUser
         '
+        Me.tabUser.Controls.Add(Me.gbOptions)
         Me.tabUser.Controls.Add(Me.gpDefCostume)
         Me.tabUser.Controls.Add(Me.gpChallsBeaten)
         Me.tabUser.Controls.Add(Me.gpDiffsBeaten)
         Me.tabUser.Location = New System.Drawing.Point(4, 22)
         Me.tabUser.Name = "tabUser"
         Me.tabUser.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabUser.Size = New System.Drawing.Size(1045, 759)
+        Me.tabUser.Size = New System.Drawing.Size(558, 556)
         Me.tabUser.TabIndex = 0
         Me.tabUser.Text = "UserData"
         Me.tabUser.UseVisualStyleBackColor = True
+        '
+        'gbOptions
+        '
+        Me.gbOptions.Controls.Add(Me.chkInvertFreeCam)
+        Me.gbOptions.Controls.Add(Me.Label24)
+        Me.gbOptions.Controls.Add(Me.chkInvertFlight)
+        Me.gbOptions.Controls.Add(Me.Label23)
+        Me.gbOptions.Controls.Add(Me.chkShowSubs)
+        Me.gbOptions.Controls.Add(Me.Label22)
+        Me.gbOptions.Controls.Add(Me.Label17)
+        Me.gbOptions.Controls.Add(Me.txtTutDisplay)
+        Me.gbOptions.Controls.Add(Me.Label18)
+        Me.gbOptions.Controls.Add(Me.txtScreenScale)
+        Me.gbOptions.Controls.Add(Me.Label19)
+        Me.gbOptions.Controls.Add(Me.txtScreenLocY)
+        Me.gbOptions.Controls.Add(Me.Label20)
+        Me.gbOptions.Controls.Add(Me.txtScreenLocX)
+        Me.gbOptions.Controls.Add(Me.Label21)
+        Me.gbOptions.Controls.Add(Me.txtBrightness)
+        Me.gbOptions.Controls.Add(Me.Label16)
+        Me.gbOptions.Controls.Add(Me.txtSoundMode)
+        Me.gbOptions.Controls.Add(Me.Label15)
+        Me.gbOptions.Controls.Add(Me.txtSpeechVol)
+        Me.gbOptions.Controls.Add(Me.Label1)
+        Me.gbOptions.Controls.Add(Me.txtCineVol)
+        Me.gbOptions.Controls.Add(Me.Label2)
+        Me.gbOptions.Controls.Add(Me.txtSfxVol)
+        Me.gbOptions.Controls.Add(Me.Label3)
+        Me.gbOptions.Controls.Add(Me.txtMusVol)
+        Me.gbOptions.Location = New System.Drawing.Point(6, 6)
+        Me.gbOptions.Name = "gbOptions"
+        Me.gbOptions.Size = New System.Drawing.Size(256, 298)
+        Me.gbOptions.TabIndex = 38
+        Me.gbOptions.TabStop = False
+        Me.gbOptions.Text = "Options"
+        '
+        'chkInvertFreeCam
+        '
+        Me.chkInvertFreeCam.AutoSize = True
+        Me.chkInvertFreeCam.Location = New System.Drawing.Point(220, 79)
+        Me.chkInvertFreeCam.Name = "chkInvertFreeCam"
+        Me.chkInvertFreeCam.Size = New System.Drawing.Size(15, 14)
+        Me.chkInvertFreeCam.TabIndex = 107
+        Me.chkInvertFreeCam.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.chkInvertFreeCam.UseVisualStyleBackColor = True
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Location = New System.Drawing.Point(137, 80)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(79, 13)
+        Me.Label24.TabIndex = 106
+        Me.Label24.Text = "Invert FreeCam"
+        '
+        'chkInvertFlight
+        '
+        Me.chkInvertFlight.AutoSize = True
+        Me.chkInvertFlight.Location = New System.Drawing.Point(220, 53)
+        Me.chkInvertFlight.Name = "chkInvertFlight"
+        Me.chkInvertFlight.Size = New System.Drawing.Size(15, 14)
+        Me.chkInvertFlight.TabIndex = 105
+        Me.chkInvertFlight.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.chkInvertFlight.UseVisualStyleBackColor = True
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Location = New System.Drawing.Point(137, 54)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(62, 13)
+        Me.Label23.TabIndex = 104
+        Me.Label23.Text = "Invert Flight"
+        '
+        'chkShowSubs
+        '
+        Me.chkShowSubs.AutoSize = True
+        Me.chkShowSubs.Location = New System.Drawing.Point(220, 27)
+        Me.chkShowSubs.Name = "chkShowSubs"
+        Me.chkShowSubs.Size = New System.Drawing.Size(15, 14)
+        Me.chkShowSubs.TabIndex = 103
+        Me.chkShowSubs.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.chkShowSubs.UseVisualStyleBackColor = True
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Location = New System.Drawing.Point(137, 28)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(61, 13)
+        Me.Label22.TabIndex = 102
+        Me.Label22.Text = "Show Subs"
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(10, 261)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(79, 13)
+        Me.Label17.TabIndex = 100
+        Me.Label17.Text = "Tutorial Display"
+        '
+        'txtTutDisplay
+        '
+        Me.txtTutDisplay.Location = New System.Drawing.Point(93, 258)
+        Me.txtTutDisplay.Name = "txtTutDisplay"
+        Me.txtTutDisplay.Size = New System.Drawing.Size(28, 20)
+        Me.txtTutDisplay.TabIndex = 99
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Location = New System.Drawing.Point(10, 183)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(71, 13)
+        Me.Label18.TabIndex = 98
+        Me.Label18.Text = "Screen Scale"
+        '
+        'txtScreenScale
+        '
+        Me.txtScreenScale.Location = New System.Drawing.Point(93, 180)
+        Me.txtScreenScale.Name = "txtScreenScale"
+        Me.txtScreenScale.Size = New System.Drawing.Size(28, 20)
+        Me.txtScreenScale.TabIndex = 97
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Location = New System.Drawing.Point(10, 235)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(72, 13)
+        Me.Label19.TabIndex = 96
+        Me.Label19.Text = "Screen Loc Y"
+        '
+        'txtScreenLocY
+        '
+        Me.txtScreenLocY.Location = New System.Drawing.Point(93, 232)
+        Me.txtScreenLocY.Name = "txtScreenLocY"
+        Me.txtScreenLocY.Size = New System.Drawing.Size(28, 20)
+        Me.txtScreenLocY.TabIndex = 95
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Location = New System.Drawing.Point(10, 209)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(72, 13)
+        Me.Label20.TabIndex = 94
+        Me.Label20.Text = "Screen Loc X"
+        '
+        'txtScreenLocX
+        '
+        Me.txtScreenLocX.Location = New System.Drawing.Point(93, 206)
+        Me.txtScreenLocX.Name = "txtScreenLocX"
+        Me.txtScreenLocX.Size = New System.Drawing.Size(28, 20)
+        Me.txtScreenLocX.TabIndex = 93
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Location = New System.Drawing.Point(10, 157)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(56, 13)
+        Me.Label21.TabIndex = 92
+        Me.Label21.Text = "Brightness"
+        '
+        'txtBrightness
+        '
+        Me.txtBrightness.Location = New System.Drawing.Point(93, 154)
+        Me.txtBrightness.Name = "txtBrightness"
+        Me.txtBrightness.Size = New System.Drawing.Size(28, 20)
+        Me.txtBrightness.TabIndex = 91
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(10, 131)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(68, 13)
+        Me.Label16.TabIndex = 90
+        Me.Label16.Text = "Sound Mode"
+        '
+        'txtSoundMode
+        '
+        Me.txtSoundMode.Location = New System.Drawing.Point(93, 128)
+        Me.txtSoundMode.Name = "txtSoundMode"
+        Me.txtSoundMode.Size = New System.Drawing.Size(28, 20)
+        Me.txtSoundMode.TabIndex = 89
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(10, 53)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(62, 13)
+        Me.Label15.TabIndex = 88
+        Me.Label15.Text = "Speech Vol"
+        '
+        'txtSpeechVol
+        '
+        Me.txtSpeechVol.Location = New System.Drawing.Point(93, 50)
+        Me.txtSpeechVol.Name = "txtSpeechVol"
+        Me.txtSpeechVol.Size = New System.Drawing.Size(28, 20)
+        Me.txtSpeechVol.TabIndex = 87
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(10, 105)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(71, 13)
+        Me.Label1.TabIndex = 86
+        Me.Label1.Text = "Cinematic Vol"
+        '
+        'txtCineVol
+        '
+        Me.txtCineVol.Location = New System.Drawing.Point(93, 102)
+        Me.txtCineVol.Name = "txtCineVol"
+        Me.txtCineVol.Size = New System.Drawing.Size(28, 20)
+        Me.txtCineVol.TabIndex = 85
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(10, 79)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(45, 13)
+        Me.Label2.TabIndex = 84
+        Me.Label2.Text = "SFX Vol"
+        '
+        'txtSfxVol
+        '
+        Me.txtSfxVol.Location = New System.Drawing.Point(93, 76)
+        Me.txtSfxVol.Name = "txtSfxVol"
+        Me.txtSfxVol.Size = New System.Drawing.Size(28, 20)
+        Me.txtSfxVol.TabIndex = 83
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(10, 27)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(53, 13)
+        Me.Label3.TabIndex = 82
+        Me.Label3.Text = "Music Vol"
+        '
+        'txtMusVol
+        '
+        Me.txtMusVol.Location = New System.Drawing.Point(93, 24)
+        Me.txtMusVol.Name = "txtMusVol"
+        Me.txtMusVol.Size = New System.Drawing.Size(28, 20)
+        Me.txtMusVol.TabIndex = 81
         '
         'gpDefCostume
         '
@@ -147,7 +430,7 @@ Partial Class GoW3
         Me.gpDefCostume.Controls.Add(Me.rbCost3)
         Me.gpDefCostume.Controls.Add(Me.rbCost2)
         Me.gpDefCostume.Controls.Add(Me.rbCost1)
-        Me.gpDefCostume.Location = New System.Drawing.Point(130, 11)
+        Me.gpDefCostume.Location = New System.Drawing.Point(6, 310)
         Me.gpDefCostume.Name = "gpDefCostume"
         Me.gpDefCostume.Size = New System.Drawing.Size(145, 215)
         Me.gpDefCostume.TabIndex = 37
@@ -244,36 +527,36 @@ Partial Class GoW3
         '
         'gpChallsBeaten
         '
-        Me.gpChallsBeaten.Controls.Add(Me.CheckBox20)
+        Me.gpChallsBeaten.Controls.Add(Me.chkCh7)
         Me.gpChallsBeaten.Controls.Add(Me.Label12)
-        Me.gpChallsBeaten.Controls.Add(Me.CheckBox21)
+        Me.gpChallsBeaten.Controls.Add(Me.chkCh6)
         Me.gpChallsBeaten.Controls.Add(Me.Label13)
-        Me.gpChallsBeaten.Controls.Add(Me.CheckBox22)
+        Me.gpChallsBeaten.Controls.Add(Me.chkCh5)
         Me.gpChallsBeaten.Controls.Add(Me.Label14)
-        Me.gpChallsBeaten.Controls.Add(Me.CheckBox18)
+        Me.gpChallsBeaten.Controls.Add(Me.chkCh4)
         Me.gpChallsBeaten.Controls.Add(Me.Label10)
-        Me.gpChallsBeaten.Controls.Add(Me.CheckBox19)
+        Me.gpChallsBeaten.Controls.Add(Me.chkCh3)
         Me.gpChallsBeaten.Controls.Add(Me.Label11)
-        Me.gpChallsBeaten.Controls.Add(Me.CheckBox17)
+        Me.gpChallsBeaten.Controls.Add(Me.chkCh2)
         Me.gpChallsBeaten.Controls.Add(Me.Label9)
-        Me.gpChallsBeaten.Controls.Add(Me.CheckBox16)
+        Me.gpChallsBeaten.Controls.Add(Me.chkCh1)
         Me.gpChallsBeaten.Controls.Add(Me.Label8)
-        Me.gpChallsBeaten.Location = New System.Drawing.Point(6, 117)
+        Me.gpChallsBeaten.Location = New System.Drawing.Point(268, 117)
         Me.gpChallsBeaten.Name = "gpChallsBeaten"
         Me.gpChallsBeaten.Size = New System.Drawing.Size(118, 168)
         Me.gpChallsBeaten.TabIndex = 36
         Me.gpChallsBeaten.TabStop = False
         Me.gpChallsBeaten.Text = "Challenges Beaten"
         '
-        'CheckBox20
+        'chkCh7
         '
-        Me.CheckBox20.AutoSize = True
-        Me.CheckBox20.Location = New System.Drawing.Point(75, 136)
-        Me.CheckBox20.Name = "CheckBox20"
-        Me.CheckBox20.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox20.TabIndex = 41
-        Me.CheckBox20.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.CheckBox20.UseVisualStyleBackColor = True
+        Me.chkCh7.AutoSize = True
+        Me.chkCh7.Location = New System.Drawing.Point(75, 136)
+        Me.chkCh7.Name = "chkCh7"
+        Me.chkCh7.Size = New System.Drawing.Size(15, 14)
+        Me.chkCh7.TabIndex = 41
+        Me.chkCh7.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.chkCh7.UseVisualStyleBackColor = True
         '
         'Label12
         '
@@ -285,15 +568,15 @@ Partial Class GoW3
         Me.Label12.Text = "Challenge 7"
         Me.Label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'CheckBox21
+        'chkCh6
         '
-        Me.CheckBox21.AutoSize = True
-        Me.CheckBox21.Location = New System.Drawing.Point(75, 116)
-        Me.CheckBox21.Name = "CheckBox21"
-        Me.CheckBox21.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox21.TabIndex = 40
-        Me.CheckBox21.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.CheckBox21.UseVisualStyleBackColor = True
+        Me.chkCh6.AutoSize = True
+        Me.chkCh6.Location = New System.Drawing.Point(75, 116)
+        Me.chkCh6.Name = "chkCh6"
+        Me.chkCh6.Size = New System.Drawing.Size(15, 14)
+        Me.chkCh6.TabIndex = 40
+        Me.chkCh6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.chkCh6.UseVisualStyleBackColor = True
         '
         'Label13
         '
@@ -305,15 +588,15 @@ Partial Class GoW3
         Me.Label13.Text = "Challenge 6"
         Me.Label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'CheckBox22
+        'chkCh5
         '
-        Me.CheckBox22.AutoSize = True
-        Me.CheckBox22.Location = New System.Drawing.Point(75, 96)
-        Me.CheckBox22.Name = "CheckBox22"
-        Me.CheckBox22.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox22.TabIndex = 39
-        Me.CheckBox22.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.CheckBox22.UseVisualStyleBackColor = True
+        Me.chkCh5.AutoSize = True
+        Me.chkCh5.Location = New System.Drawing.Point(75, 96)
+        Me.chkCh5.Name = "chkCh5"
+        Me.chkCh5.Size = New System.Drawing.Size(15, 14)
+        Me.chkCh5.TabIndex = 39
+        Me.chkCh5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.chkCh5.UseVisualStyleBackColor = True
         '
         'Label14
         '
@@ -325,15 +608,15 @@ Partial Class GoW3
         Me.Label14.Text = "Challenge 5"
         Me.Label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'CheckBox18
+        'chkCh4
         '
-        Me.CheckBox18.AutoSize = True
-        Me.CheckBox18.Location = New System.Drawing.Point(75, 76)
-        Me.CheckBox18.Name = "CheckBox18"
-        Me.CheckBox18.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox18.TabIndex = 38
-        Me.CheckBox18.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.CheckBox18.UseVisualStyleBackColor = True
+        Me.chkCh4.AutoSize = True
+        Me.chkCh4.Location = New System.Drawing.Point(75, 76)
+        Me.chkCh4.Name = "chkCh4"
+        Me.chkCh4.Size = New System.Drawing.Size(15, 14)
+        Me.chkCh4.TabIndex = 38
+        Me.chkCh4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.chkCh4.UseVisualStyleBackColor = True
         '
         'Label10
         '
@@ -345,15 +628,15 @@ Partial Class GoW3
         Me.Label10.Text = "Challenge 4"
         Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'CheckBox19
+        'chkCh3
         '
-        Me.CheckBox19.AutoSize = True
-        Me.CheckBox19.Location = New System.Drawing.Point(75, 56)
-        Me.CheckBox19.Name = "CheckBox19"
-        Me.CheckBox19.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox19.TabIndex = 37
-        Me.CheckBox19.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.CheckBox19.UseVisualStyleBackColor = True
+        Me.chkCh3.AutoSize = True
+        Me.chkCh3.Location = New System.Drawing.Point(75, 56)
+        Me.chkCh3.Name = "chkCh3"
+        Me.chkCh3.Size = New System.Drawing.Size(15, 14)
+        Me.chkCh3.TabIndex = 37
+        Me.chkCh3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.chkCh3.UseVisualStyleBackColor = True
         '
         'Label11
         '
@@ -365,15 +648,15 @@ Partial Class GoW3
         Me.Label11.Text = "Challenge 3"
         Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'CheckBox17
+        'chkCh2
         '
-        Me.CheckBox17.AutoSize = True
-        Me.CheckBox17.Location = New System.Drawing.Point(75, 36)
-        Me.CheckBox17.Name = "CheckBox17"
-        Me.CheckBox17.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox17.TabIndex = 36
-        Me.CheckBox17.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.CheckBox17.UseVisualStyleBackColor = True
+        Me.chkCh2.AutoSize = True
+        Me.chkCh2.Location = New System.Drawing.Point(75, 36)
+        Me.chkCh2.Name = "chkCh2"
+        Me.chkCh2.Size = New System.Drawing.Size(15, 14)
+        Me.chkCh2.TabIndex = 36
+        Me.chkCh2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.chkCh2.UseVisualStyleBackColor = True
         '
         'Label9
         '
@@ -385,15 +668,15 @@ Partial Class GoW3
         Me.Label9.Text = "Challenge 2"
         Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'CheckBox16
+        'chkCh1
         '
-        Me.CheckBox16.AutoSize = True
-        Me.CheckBox16.Location = New System.Drawing.Point(75, 16)
-        Me.CheckBox16.Name = "CheckBox16"
-        Me.CheckBox16.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox16.TabIndex = 35
-        Me.CheckBox16.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.CheckBox16.UseVisualStyleBackColor = True
+        Me.chkCh1.AutoSize = True
+        Me.chkCh1.Location = New System.Drawing.Point(75, 16)
+        Me.chkCh1.Name = "chkCh1"
+        Me.chkCh1.Size = New System.Drawing.Size(15, 14)
+        Me.chkCh1.TabIndex = 35
+        Me.chkCh1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.chkCh1.UseVisualStyleBackColor = True
         '
         'Label8
         '
@@ -407,30 +690,30 @@ Partial Class GoW3
         '
         'gpDiffsBeaten
         '
-        Me.gpDiffsBeaten.Controls.Add(Me.CheckBox14)
+        Me.gpDiffsBeaten.Controls.Add(Me.chkBeatVeryHard)
         Me.gpDiffsBeaten.Controls.Add(Me.Label6)
-        Me.gpDiffsBeaten.Controls.Add(Me.CheckBox15)
+        Me.gpDiffsBeaten.Controls.Add(Me.chkBeatHard)
         Me.gpDiffsBeaten.Controls.Add(Me.Label7)
-        Me.gpDiffsBeaten.Controls.Add(Me.CheckBox13)
+        Me.gpDiffsBeaten.Controls.Add(Me.chkBeatNormal)
         Me.gpDiffsBeaten.Controls.Add(Me.Label5)
-        Me.gpDiffsBeaten.Controls.Add(Me.CheckBox12)
+        Me.gpDiffsBeaten.Controls.Add(Me.chkBeatEasy)
         Me.gpDiffsBeaten.Controls.Add(Me.Label4)
-        Me.gpDiffsBeaten.Location = New System.Drawing.Point(6, 6)
+        Me.gpDiffsBeaten.Location = New System.Drawing.Point(268, 6)
         Me.gpDiffsBeaten.Name = "gpDiffsBeaten"
-        Me.gpDiffsBeaten.Size = New System.Drawing.Size(113, 105)
+        Me.gpDiffsBeaten.Size = New System.Drawing.Size(118, 105)
         Me.gpDiffsBeaten.TabIndex = 35
         Me.gpDiffsBeaten.TabStop = False
         Me.gpDiffsBeaten.Text = "Difficulties Beaten"
         '
-        'CheckBox14
+        'chkBeatVeryHard
         '
-        Me.CheckBox14.AutoSize = True
-        Me.CheckBox14.Location = New System.Drawing.Point(83, 76)
-        Me.CheckBox14.Name = "CheckBox14"
-        Me.CheckBox14.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox14.TabIndex = 24
-        Me.CheckBox14.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.CheckBox14.UseVisualStyleBackColor = True
+        Me.chkBeatVeryHard.AutoSize = True
+        Me.chkBeatVeryHard.Location = New System.Drawing.Point(83, 76)
+        Me.chkBeatVeryHard.Name = "chkBeatVeryHard"
+        Me.chkBeatVeryHard.Size = New System.Drawing.Size(15, 14)
+        Me.chkBeatVeryHard.TabIndex = 24
+        Me.chkBeatVeryHard.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.chkBeatVeryHard.UseVisualStyleBackColor = True
         '
         'Label6
         '
@@ -442,15 +725,15 @@ Partial Class GoW3
         Me.Label6.Text = "Very Hard"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'CheckBox15
+        'chkBeatHard
         '
-        Me.CheckBox15.AutoSize = True
-        Me.CheckBox15.Location = New System.Drawing.Point(83, 56)
-        Me.CheckBox15.Name = "CheckBox15"
-        Me.CheckBox15.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox15.TabIndex = 23
-        Me.CheckBox15.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.CheckBox15.UseVisualStyleBackColor = True
+        Me.chkBeatHard.AutoSize = True
+        Me.chkBeatHard.Location = New System.Drawing.Point(83, 56)
+        Me.chkBeatHard.Name = "chkBeatHard"
+        Me.chkBeatHard.Size = New System.Drawing.Size(15, 14)
+        Me.chkBeatHard.TabIndex = 23
+        Me.chkBeatHard.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.chkBeatHard.UseVisualStyleBackColor = True
         '
         'Label7
         '
@@ -462,15 +745,15 @@ Partial Class GoW3
         Me.Label7.Text = "Hard"
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'CheckBox13
+        'chkBeatNormal
         '
-        Me.CheckBox13.AutoSize = True
-        Me.CheckBox13.Location = New System.Drawing.Point(83, 36)
-        Me.CheckBox13.Name = "CheckBox13"
-        Me.CheckBox13.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox13.TabIndex = 22
-        Me.CheckBox13.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.CheckBox13.UseVisualStyleBackColor = True
+        Me.chkBeatNormal.AutoSize = True
+        Me.chkBeatNormal.Location = New System.Drawing.Point(83, 36)
+        Me.chkBeatNormal.Name = "chkBeatNormal"
+        Me.chkBeatNormal.Size = New System.Drawing.Size(15, 14)
+        Me.chkBeatNormal.TabIndex = 22
+        Me.chkBeatNormal.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.chkBeatNormal.UseVisualStyleBackColor = True
         '
         'Label5
         '
@@ -482,15 +765,15 @@ Partial Class GoW3
         Me.Label5.Text = "Normal"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'CheckBox12
+        'chkBeatEasy
         '
-        Me.CheckBox12.AutoSize = True
-        Me.CheckBox12.Location = New System.Drawing.Point(83, 16)
-        Me.CheckBox12.Name = "CheckBox12"
-        Me.CheckBox12.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox12.TabIndex = 21
-        Me.CheckBox12.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.CheckBox12.UseVisualStyleBackColor = True
+        Me.chkBeatEasy.AutoSize = True
+        Me.chkBeatEasy.Location = New System.Drawing.Point(83, 16)
+        Me.chkBeatEasy.Name = "chkBeatEasy"
+        Me.chkBeatEasy.Size = New System.Drawing.Size(15, 14)
+        Me.chkBeatEasy.TabIndex = 21
+        Me.chkBeatEasy.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.chkBeatEasy.UseVisualStyleBackColor = True
         '
         'Label4
         '
@@ -504,19 +787,29 @@ Partial Class GoW3
         '
         'tabSave
         '
+        Me.tabSave.Controls.Add(Me.Label25)
         Me.tabSave.Location = New System.Drawing.Point(4, 22)
         Me.tabSave.Name = "tabSave"
         Me.tabSave.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabSave.Size = New System.Drawing.Size(1045, 759)
+        Me.tabSave.Size = New System.Drawing.Size(558, 556)
         Me.tabSave.TabIndex = 1
         Me.tabSave.Text = "SaveData"
         Me.tabSave.UseVisualStyleBackColor = True
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Location = New System.Drawing.Point(110, 264)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(327, 13)
+        Me.Label25.TabIndex = 0
+        Me.Label25.Text = "This version of the editor currently only supports USERDATA folders"
         '
         'GoW3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1077, 872)
+        Me.ClientSize = New System.Drawing.Size(584, 666)
         Me.Controls.Add(Me.tabSaves)
         Me.Controls.Add(Me.btnG3Browse)
         Me.Controls.Add(Me.btnG3Save)
@@ -527,12 +820,16 @@ Partial Class GoW3
         Me.Text = "Wulf's God of War 3 Editor"
         Me.tabSaves.ResumeLayout(False)
         Me.tabUser.ResumeLayout(False)
+        Me.gbOptions.ResumeLayout(False)
+        Me.gbOptions.PerformLayout()
         Me.gpDefCostume.ResumeLayout(False)
         Me.gpDefCostume.PerformLayout()
         Me.gpChallsBeaten.ResumeLayout(False)
         Me.gpChallsBeaten.PerformLayout()
         Me.gpDiffsBeaten.ResumeLayout(False)
         Me.gpDiffsBeaten.PerformLayout()
+        Me.tabSave.ResumeLayout(False)
+        Me.tabSave.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -548,28 +845,28 @@ Partial Class GoW3
     Friend WithEvents gpDefCostume As GroupBox
     Friend WithEvents rbCost1 As RadioButton
     Friend WithEvents gpChallsBeaten As GroupBox
-    Friend WithEvents CheckBox20 As CheckBox
+    Friend WithEvents chkCh7 As CheckBox
     Friend WithEvents Label12 As Label
-    Friend WithEvents CheckBox21 As CheckBox
+    Friend WithEvents chkCh6 As CheckBox
     Friend WithEvents Label13 As Label
-    Friend WithEvents CheckBox22 As CheckBox
+    Friend WithEvents chkCh5 As CheckBox
     Friend WithEvents Label14 As Label
-    Friend WithEvents CheckBox18 As CheckBox
+    Friend WithEvents chkCh4 As CheckBox
     Friend WithEvents Label10 As Label
-    Friend WithEvents CheckBox19 As CheckBox
+    Friend WithEvents chkCh3 As CheckBox
     Friend WithEvents Label11 As Label
-    Friend WithEvents CheckBox17 As CheckBox
+    Friend WithEvents chkCh2 As CheckBox
     Friend WithEvents Label9 As Label
-    Friend WithEvents CheckBox16 As CheckBox
+    Friend WithEvents chkCh1 As CheckBox
     Friend WithEvents Label8 As Label
     Friend WithEvents gpDiffsBeaten As GroupBox
-    Friend WithEvents CheckBox14 As CheckBox
+    Friend WithEvents chkBeatVeryHard As CheckBox
     Friend WithEvents Label6 As Label
-    Friend WithEvents CheckBox15 As CheckBox
+    Friend WithEvents chkBeatHard As CheckBox
     Friend WithEvents Label7 As Label
-    Friend WithEvents CheckBox13 As CheckBox
+    Friend WithEvents chkBeatNormal As CheckBox
     Friend WithEvents Label5 As Label
-    Friend WithEvents CheckBox12 As CheckBox
+    Friend WithEvents chkBeatEasy As CheckBox
     Friend WithEvents Label4 As Label
     Friend WithEvents rbCost8 As RadioButton
     Friend WithEvents rbCost7 As RadioButton
@@ -578,4 +875,32 @@ Partial Class GoW3
     Friend WithEvents rbCost4 As RadioButton
     Friend WithEvents rbCost3 As RadioButton
     Friend WithEvents rbCost2 As RadioButton
+    Friend WithEvents gbOptions As GroupBox
+    Friend WithEvents chkInvertFreeCam As CheckBox
+    Friend WithEvents Label24 As Label
+    Friend WithEvents chkInvertFlight As CheckBox
+    Friend WithEvents Label23 As Label
+    Friend WithEvents chkShowSubs As CheckBox
+    Friend WithEvents Label22 As Label
+    Friend WithEvents Label17 As Label
+    Friend WithEvents txtTutDisplay As TextBox
+    Friend WithEvents Label18 As Label
+    Friend WithEvents txtScreenScale As TextBox
+    Friend WithEvents Label19 As Label
+    Friend WithEvents txtScreenLocY As TextBox
+    Friend WithEvents Label20 As Label
+    Friend WithEvents txtScreenLocX As TextBox
+    Friend WithEvents Label21 As Label
+    Friend WithEvents txtBrightness As TextBox
+    Friend WithEvents Label16 As Label
+    Friend WithEvents txtSoundMode As TextBox
+    Friend WithEvents Label15 As Label
+    Friend WithEvents txtSpeechVol As TextBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents txtCineVol As TextBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents txtSfxVol As TextBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents txtMusVol As TextBox
+    Friend WithEvents Label25 As Label
 End Class
