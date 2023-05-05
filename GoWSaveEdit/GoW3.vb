@@ -59,14 +59,14 @@ Public Class GoW3
             chkInvertFlight.Checked = (bytes(&H1A) = 1)
             chkInvertFreeCam.Checked = (bytes(&H1B) = 1)
 
-            rbCost1.Checked = (bytes(&H1E) = 0)
-            rbCost2.Checked = (bytes(&H1E) = 1)
-            rbCost3.Checked = (bytes(&H1E) = 2)
-            rbCost4.Checked = (bytes(&H1E) = 3)
-            rbCost5.Checked = (bytes(&H1E) = 4)
-            rbCost6.Checked = (bytes(&H1E) = 5)
-            rbCost7.Checked = (bytes(&H1E) = 6)
-            rbCost8.Checked = (bytes(&H1E) = 7)
+            rbCost1.Checked = (bytes(&H1D) = 0)
+            rbCost2.Checked = (bytes(&H1D) = 1)
+            rbCost3.Checked = (bytes(&H1D) = 2)
+            rbCost4.Checked = (bytes(&H1D) = 3)
+            rbCost5.Checked = (bytes(&H1D) = 4)
+            rbCost6.Checked = (bytes(&H1D) = 5)
+            rbCost7.Checked = (bytes(&H1D) = 6)
+            rbCost8.Checked = (bytes(&H1D) = 7)
 
         Else
             tabUser.Enabled = False
@@ -127,14 +127,14 @@ Public Class GoW3
             chkInvertFreeCam.Checked = (bytes(&H1B) = 1)
 
 
-            If rbCost1.Checked Then bytes(&H1E) = 0
-            If rbCost2.Checked Then bytes(&H1E) = 1
-            If rbCost3.Checked Then bytes(&H1E) = 2
-            If rbCost4.Checked Then bytes(&H1E) = 3
-            If rbCost5.Checked Then bytes(&H1E) = 4
-            If rbCost6.Checked Then bytes(&H1E) = 5
-            If rbCost7.Checked Then bytes(&H1E) = 6
-            If rbCost8.Checked Then bytes(&H1E) = 7
+            If rbCost1.Checked Then bytes(&H1D) = 0
+            If rbCost2.Checked Then bytes(&H1D) = 1
+            If rbCost3.Checked Then bytes(&H1D) = 2
+            If rbCost4.Checked Then bytes(&H1D) = 3
+            If rbCost5.Checked Then bytes(&H1D) = 4
+            If rbCost6.Checked Then bytes(&H1D) = 5
+            If rbCost7.Checked Then bytes(&H1D) = 6
+            If rbCost8.Checked Then bytes(&H1D) = 7
 
         Else
 
