@@ -11,6 +11,8 @@ Console:
 	GoW1
 
 	GoW2
+	
+	GoW3
 
 	GoW: Ascension
 
@@ -21,5 +23,7 @@ RPCS3 Emulator:
 	GoW1
 
 	GoW2
+	
+	GoW3
 
 	GoW: Ascension
