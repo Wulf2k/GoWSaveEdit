@@ -14,6 +14,13 @@ Public Class GoWFuncs
     Public Shared GoW3SecureID() As Byte = {&HD6, &H48, &H5E, &H21, &HCF, &HB9, &H7, &H85, &H44, &HFB, &H1, &H83, &HE8, &H23, &H92, &H3E}
     Public Shared GoWASecureID() As Byte = {&HE1, &H19, &H7F, &H68, &HAC, &HA2, &H3B, &H45, &H9D, &HEC, &H80, &H62, &HFF, &H46, &H19, &H5A}
 
+    Shared Function RInt16(ByRef bytes() As Byte, start As Int32) As Int16
+        Dim ba(1) As Byte
+        Array.Copy(bytes, start, ba, 0, 2)
+        If bigendian Then Array.Reverse(ba)
+
+        Return BitConverter.ToInt16(ba, 0)
+    End Function
     Shared Function RInt32(ByRef bytes() As Byte, start As Int32) As Int32
         Dim ba(3) As Byte
         Array.Copy(bytes, start, ba, 0, 4)
@@ -27,6 +34,9 @@ Public Class GoWFuncs
         If bigendian Then Array.Reverse(ba)
 
         Return BitConverter.ToSingle(ba, 0)
+    End Function
+    Shared Function RStrAscii(ByRef bytes() As Byte, start As Int32, Optional count As Int32 = &H100) As String
+        Return Text.Encoding.ASCII.GetString(bytes, start, count)
     End Function
     Shared Function RUInt32(ByRef bytes() As Byte, start As Int32) As UInt32
         Dim ba(3) As Byte
@@ -56,6 +66,11 @@ Public Class GoWFuncs
         If bigendian Then Array.Reverse(ba)
 
         Array.Copy(ba, 0, bytes, start, 4)
+    End Sub
+    Shared Sub WStrAscii(ByRef bytes() As Byte, start As Int32, txt As String)
+        Dim ba() As Byte
+        ba = Text.Encoding.ASCII.GetBytes(txt)
+        Array.Copy(ba, 0, bytes, start, ba.Length)
     End Sub
     Shared Sub WUInt16(ByRef bytes() As Byte, start As Int32, val As UInt16)
         Dim ba(1) As Byte

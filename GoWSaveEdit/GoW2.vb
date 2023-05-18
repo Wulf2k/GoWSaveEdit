@@ -104,15 +104,15 @@ Public Class GoW2
                 btnG2Slot10.Visible = True
             End If
 
-            If (bytes(162) And 1) = 1 Then chkG2CyclopsEyesMaster.Checked = True Else chkG2CyclopsEyesMaster.Checked = False
-            If (bytes(163) And 1) = 1 Then chkG2BeatEMaster.Checked = True Else chkG2BeatEMaster.Checked = False
+            If (bytes(&HA2) And 1) = 1 Then chkG2CyclopsEyesMaster.Checked = True Else chkG2CyclopsEyesMaster.Checked = False
+            If (bytes(&HA3) And 1) = 1 Then chkG2BeatEMaster.Checked = True Else chkG2BeatEMaster.Checked = False
             If (bytes(163) And 2) = 2 Then chkG2BeatNMaster.Checked = True Else chkG2BeatNMaster.Checked = False
             If (bytes(163) And 4) = 4 Then chkG2BeatHMaster.Checked = True Else chkG2BeatHMaster.Checked = False
             If (bytes(163) And 8) = 8 Then chkG2BeatVHMaster.Checked = True Else chkG2BeatVHMaster.Checked = False
             If (bytes(163) And 16) = 16 Then chkG2MortalRankMaster.Checked = True Else chkG2MortalRankMaster.Checked = False
             If (bytes(163) And 32) = 32 Then chkG2SpartanRankMaster.Checked = True Else chkG2SpartanRankMaster.Checked = False
             If (bytes(163) And 64) = 64 Then chkG2GodRankMaster.Checked = True Else chkG2GodRankMaster.Checked = False
-            If (bytes(163) And 128) = 128 Then chkG2TitanRankMaster.Checked = True Else chkG2TitanRankMaster.Checked = False
+            If (bytes(&HA3) And 128) = 128 Then chkG2TitanRankMaster.Checked = True Else chkG2TitanRankMaster.Checked = False
 
             modified = False
 
