@@ -75,13 +75,24 @@ Public Class GoW3
             tabSave.Enabled = True
             tabSaves.SelectedTab = tabSave
 
-            Dim sfobytes = FileToBytes("PARAM.SFO")
 
-            txtSaveDesc.Text = RStrAscii(sfobytes, &H1B0, 68)
+            bigendian = False
+            Dim sfobytes = FileToBytes("PARAM.SFO", True)
+
+            'Ugly, ugly hack, ew, icky.  Bad Wulf.  Bad!
+            Dim txtOffset = RInt16(sfobytes, &HC)
+            If txtOffset = &H140 Then txtOffset = &H158
+            If txtOffset = &H190 Then txtOffset = &H1B0
+            txtSaveDesc.Text = RStrAscii(sfobytes, txtOffset, 68)
             txtSaveDesc.Text = txtSaveDesc.Text.Replace(Chr(10), Environment.NewLine)
 
-            txtSaveArea.Text = RStrAscii(sfobytes, &H9FC, &H7F)
+            'Still bad hack.  You suck Wulf.
+            If txtOffset = &H158 Then txtOffset = &H9B0
+            If txtOffset = &H1B0 Then txtOffset = &H9FC
+
+            txtSaveArea.Text = RStrAscii(sfobytes, txtOffset, &H7F)
             txtSaveArea.Text = txtSaveArea.Text.Replace(Chr(10), Environment.NewLine)
+            bigendian = True
 
             Dim Sec1Size = RInt16(bytes, &H4)
             Dim CamSize = RInt16(bytes, &H6 + Sec1Size)
@@ -238,7 +249,7 @@ Public Class GoW3
             Dim CamSize = RInt16(bytes, &H6 + Sec1Size)
 
 
-            Dim sfobytes = FileToBytes("PARAM.SFO")
+            Dim sfobytes = FileToBytes("PARAM.SFO", True)
             Dim desc As String
             Dim area As String
 
@@ -249,10 +260,21 @@ Public Class GoW3
             area = area.Replace(Environment.NewLine, Chr(10))
 
 
-            WStrAscii(sfobytes, &H1B0, desc + Chr(0))
-            WStrAscii(sfobytes, &H9FC, area + Chr(0))
+            bigendian = False
+            'Ugly, ugly hack, ew, icky.  Bad Wulf.  Bad!
+            Dim txtOffset = RInt16(sfobytes, &HC)
+            If txtOffset = &H140 Then txtOffset = &H158
+            If txtOffset = &H190 Then txtOffset = &H1B0
 
-            BytesToFile("PARAM.SFO", sfobytes)
+            WStrAscii(sfobytes, txtOffset, desc + Chr(0))
+
+            'Still bad hack.  You suck Wulf.
+            If txtOffset = &H158 Then txtOffset = &H9B0
+            If txtOffset = &H1B0 Then txtOffset = &H9FC
+            WStrAscii(sfobytes, txtOffset, area + Chr(0))
+
+            BytesToFile("PARAM.SFO", sfobytes, True)
+            bigendian = True
 
             Dim PlayerLoc = RInt16(bytes, &H46)
             WSingle(bytes, PlayerLoc + &H7C, Convert.ToSingle(txtXPos.Text))

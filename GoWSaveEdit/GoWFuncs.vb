@@ -88,16 +88,16 @@ Public Class GoWFuncs
     End Sub
 
 
-    Shared Function FileToBytes(name As String) As Byte()
-        If encrypted Then
+    Shared Function FileToBytes(name As String, Optional raw As Boolean = False) As Byte()
+        If encrypted And Not raw Then
             file = manager.Files.FirstOrDefault(Function(t) t.PFDEntry.file_name = name)
             Return file.DecryptToBytes
         Else
             Return IO.File.ReadAllBytes(folder + "\" + name)
         End If
     End Function
-    Shared Sub BytesToFile(name As String, b As Byte())
-        If encrypted Then
+    Shared Sub BytesToFile(name As String, b As Byte(), Optional raw As Boolean = False)
+        If encrypted And Not raw Then
             Dim f As Ps3File = manager.Files.FirstOrDefault(Function(t) t.PFDEntry.file_name = name)
             f.Encrypt(b)
             manager.ReBuildChanges()

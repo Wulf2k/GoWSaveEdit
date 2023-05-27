@@ -90,6 +90,59 @@ Partial Class GoW3
         Me.chkBeatEasy = New System.Windows.Forms.CheckBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.tabSave = New System.Windows.Forms.TabPage()
+        Me.txtSaveArea = New System.Windows.Forms.TextBox()
+        Me.txtSaveDesc = New System.Windows.Forms.TextBox()
+        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.txtXPos = New System.Windows.Forms.TextBox()
+        Me.Label25 = New System.Windows.Forms.Label()
+        Me.Label26 = New System.Windows.Forms.Label()
+        Me.Label54 = New System.Windows.Forms.Label()
+        Me.txtYPos = New System.Windows.Forms.TextBox()
+        Me.txtRedOrbs = New System.Windows.Forms.TextBox()
+        Me.Label27 = New System.Windows.Forms.Label()
+        Me.chkMagicInfinite = New System.Windows.Forms.CheckBox()
+        Me.txtZPos = New System.Windows.Forms.TextBox()
+        Me.chkHealthInfinite = New System.Windows.Forms.CheckBox()
+        Me.txtCurrHealth = New System.Windows.Forms.TextBox()
+        Me.chkItemInfinite = New System.Windows.Forms.CheckBox()
+        Me.txtCurrMagic = New System.Windows.Forms.TextBox()
+        Me.Label53 = New System.Windows.Forms.Label()
+        Me.txtCurrItem = New System.Windows.Forms.TextBox()
+        Me.Label52 = New System.Windows.Forms.Label()
+        Me.txtHealthExt = New System.Windows.Forms.TextBox()
+        Me.Label51 = New System.Windows.Forms.Label()
+        Me.txtMagicExt = New System.Windows.Forms.TextBox()
+        Me.lblG1Rage = New System.Windows.Forms.Label()
+        Me.txtItemExt = New System.Windows.Forms.TextBox()
+        Me.lblG1Magic = New System.Windows.Forms.Label()
+        Me.lblG1Health = New System.Windows.Forms.Label()
+        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.rbCurrDiff3 = New System.Windows.Forms.RadioButton()
+        Me.rbCurrDiff2 = New System.Windows.Forms.RadioButton()
+        Me.rbCurrDiff1 = New System.Windows.Forms.RadioButton()
+        Me.rbCurrDiff0 = New System.Windows.Forms.RadioButton()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.rbCurrCost7 = New System.Windows.Forms.RadioButton()
+        Me.rbCurrCost6 = New System.Windows.Forms.RadioButton()
+        Me.rbCurrCost5 = New System.Windows.Forms.RadioButton()
+        Me.rbCurrCost4 = New System.Windows.Forms.RadioButton()
+        Me.rbCurrCost3 = New System.Windows.Forms.RadioButton()
+        Me.rbCurrCost2 = New System.Windows.Forms.RadioButton()
+        Me.rbCurrCost1 = New System.Windows.Forms.RadioButton()
+        Me.rbCurrCost0 = New System.Windows.Forms.RadioButton()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Label43 = New System.Windows.Forms.Label()
+        Me.chkBladeOfOlympus = New System.Windows.Forms.CheckBox()
+        Me.Label46 = New System.Windows.Forms.Label()
+        Me.chkIcarusWings = New System.Windows.Forms.CheckBox()
+        Me.chkBoreasIcestorm = New System.Windows.Forms.CheckBox()
+        Me.Label50 = New System.Windows.Forms.Label()
+        Me.chkGoldenFleece = New System.Windows.Forms.CheckBox()
+        Me.Label49 = New System.Windows.Forms.Label()
+        Me.Label47 = New System.Windows.Forms.Label()
+        Me.chkPoseidonsTrident = New System.Windows.Forms.CheckBox()
+        Me.Label48 = New System.Windows.Forms.Label()
+        Me.chkBladeOfOlympusRage = New System.Windows.Forms.CheckBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Label35 = New System.Windows.Forms.Label()
         Me.Label42 = New System.Windows.Forms.Label()
@@ -133,59 +186,6 @@ Partial Class GoW3
         Me.chkCestusUnlock = New System.Windows.Forms.CheckBox()
         Me.txtCestusLevel = New System.Windows.Forms.TextBox()
         Me.Label31 = New System.Windows.Forms.Label()
-        Me.txtZPos = New System.Windows.Forms.TextBox()
-        Me.Label27 = New System.Windows.Forms.Label()
-        Me.txtYPos = New System.Windows.Forms.TextBox()
-        Me.Label26 = New System.Windows.Forms.Label()
-        Me.txtXPos = New System.Windows.Forms.TextBox()
-        Me.Label25 = New System.Windows.Forms.Label()
-        Me.Label43 = New System.Windows.Forms.Label()
-        Me.Label46 = New System.Windows.Forms.Label()
-        Me.chkBoreasIcestorm = New System.Windows.Forms.CheckBox()
-        Me.chkGoldenFleece = New System.Windows.Forms.CheckBox()
-        Me.Label47 = New System.Windows.Forms.Label()
-        Me.Label48 = New System.Windows.Forms.Label()
-        Me.chkBladeOfOlympusRage = New System.Windows.Forms.CheckBox()
-        Me.chkPoseidonsTrident = New System.Windows.Forms.CheckBox()
-        Me.Label49 = New System.Windows.Forms.Label()
-        Me.Label50 = New System.Windows.Forms.Label()
-        Me.chkIcarusWings = New System.Windows.Forms.CheckBox()
-        Me.chkBladeOfOlympus = New System.Windows.Forms.CheckBox()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.txtCurrHealth = New System.Windows.Forms.TextBox()
-        Me.txtCurrMagic = New System.Windows.Forms.TextBox()
-        Me.txtCurrItem = New System.Windows.Forms.TextBox()
-        Me.txtItemExt = New System.Windows.Forms.TextBox()
-        Me.txtMagicExt = New System.Windows.Forms.TextBox()
-        Me.txtHealthExt = New System.Windows.Forms.TextBox()
-        Me.lblG1Rage = New System.Windows.Forms.Label()
-        Me.lblG1Magic = New System.Windows.Forms.Label()
-        Me.lblG1Health = New System.Windows.Forms.Label()
-        Me.Label51 = New System.Windows.Forms.Label()
-        Me.Label52 = New System.Windows.Forms.Label()
-        Me.Label53 = New System.Windows.Forms.Label()
-        Me.chkMagicInfinite = New System.Windows.Forms.CheckBox()
-        Me.chkHealthInfinite = New System.Windows.Forms.CheckBox()
-        Me.chkItemInfinite = New System.Windows.Forms.CheckBox()
-        Me.txtRedOrbs = New System.Windows.Forms.TextBox()
-        Me.Label54 = New System.Windows.Forms.Label()
-        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.rbCurrCost7 = New System.Windows.Forms.RadioButton()
-        Me.rbCurrCost6 = New System.Windows.Forms.RadioButton()
-        Me.rbCurrCost5 = New System.Windows.Forms.RadioButton()
-        Me.rbCurrCost4 = New System.Windows.Forms.RadioButton()
-        Me.rbCurrCost3 = New System.Windows.Forms.RadioButton()
-        Me.rbCurrCost2 = New System.Windows.Forms.RadioButton()
-        Me.rbCurrCost1 = New System.Windows.Forms.RadioButton()
-        Me.rbCurrCost0 = New System.Windows.Forms.RadioButton()
-        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
-        Me.rbCurrDiff3 = New System.Windows.Forms.RadioButton()
-        Me.rbCurrDiff2 = New System.Windows.Forms.RadioButton()
-        Me.rbCurrDiff1 = New System.Windows.Forms.RadioButton()
-        Me.rbCurrDiff0 = New System.Windows.Forms.RadioButton()
-        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
-        Me.txtSaveDesc = New System.Windows.Forms.TextBox()
-        Me.txtSaveArea = New System.Windows.Forms.TextBox()
         Me.tabSaves.SuspendLayout()
         Me.tabUser.SuspendLayout()
         Me.gbOptions.SuspendLayout()
@@ -193,12 +193,12 @@ Partial Class GoW3
         Me.gpChallsBeaten.SuspendLayout()
         Me.gpDiffsBeaten.SuspendLayout()
         Me.tabSave.SuspendLayout()
+        Me.GroupBox6.SuspendLayout()
+        Me.GroupBox5.SuspendLayout()
+        Me.GroupBox4.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
-        Me.GroupBox3.SuspendLayout()
-        Me.GroupBox4.SuspendLayout()
-        Me.GroupBox5.SuspendLayout()
-        Me.GroupBox6.SuspendLayout()
         Me.SuspendLayout()
         '
         'btnG3Browse
@@ -903,6 +903,534 @@ Partial Class GoW3
         Me.tabSave.Text = "SaveData"
         Me.tabSave.UseVisualStyleBackColor = True
         '
+        'txtSaveArea
+        '
+        Me.txtSaveArea.Location = New System.Drawing.Point(206, 20)
+        Me.txtSaveArea.MaxLength = 22
+        Me.txtSaveArea.Multiline = True
+        Me.txtSaveArea.Name = "txtSaveArea"
+        Me.txtSaveArea.Size = New System.Drawing.Size(373, 36)
+        Me.txtSaveArea.TabIndex = 88
+        '
+        'txtSaveDesc
+        '
+        Me.txtSaveDesc.Location = New System.Drawing.Point(206, 63)
+        Me.txtSaveDesc.MaxLength = 68
+        Me.txtSaveDesc.Multiline = True
+        Me.txtSaveDesc.Name = "txtSaveDesc"
+        Me.txtSaveDesc.Size = New System.Drawing.Size(373, 93)
+        Me.txtSaveDesc.TabIndex = 87
+        '
+        'GroupBox6
+        '
+        Me.GroupBox6.Controls.Add(Me.txtXPos)
+        Me.GroupBox6.Controls.Add(Me.Label25)
+        Me.GroupBox6.Controls.Add(Me.Label26)
+        Me.GroupBox6.Controls.Add(Me.Label54)
+        Me.GroupBox6.Controls.Add(Me.txtYPos)
+        Me.GroupBox6.Controls.Add(Me.txtRedOrbs)
+        Me.GroupBox6.Controls.Add(Me.Label27)
+        Me.GroupBox6.Controls.Add(Me.chkMagicInfinite)
+        Me.GroupBox6.Controls.Add(Me.txtZPos)
+        Me.GroupBox6.Controls.Add(Me.chkHealthInfinite)
+        Me.GroupBox6.Controls.Add(Me.txtCurrHealth)
+        Me.GroupBox6.Controls.Add(Me.chkItemInfinite)
+        Me.GroupBox6.Controls.Add(Me.txtCurrMagic)
+        Me.GroupBox6.Controls.Add(Me.Label53)
+        Me.GroupBox6.Controls.Add(Me.txtCurrItem)
+        Me.GroupBox6.Controls.Add(Me.Label52)
+        Me.GroupBox6.Controls.Add(Me.txtHealthExt)
+        Me.GroupBox6.Controls.Add(Me.Label51)
+        Me.GroupBox6.Controls.Add(Me.txtMagicExt)
+        Me.GroupBox6.Controls.Add(Me.lblG1Rage)
+        Me.GroupBox6.Controls.Add(Me.txtItemExt)
+        Me.GroupBox6.Controls.Add(Me.lblG1Magic)
+        Me.GroupBox6.Controls.Add(Me.lblG1Health)
+        Me.GroupBox6.Location = New System.Drawing.Point(206, 162)
+        Me.GroupBox6.Name = "GroupBox6"
+        Me.GroupBox6.Size = New System.Drawing.Size(373, 280)
+        Me.GroupBox6.TabIndex = 86
+        Me.GroupBox6.TabStop = False
+        Me.GroupBox6.Text = "Kratos"
+        '
+        'txtXPos
+        '
+        Me.txtXPos.Location = New System.Drawing.Point(59, 155)
+        Me.txtXPos.Name = "txtXPos"
+        Me.txtXPos.Size = New System.Drawing.Size(75, 20)
+        Me.txtXPos.TabIndex = 1
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Location = New System.Drawing.Point(23, 158)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(30, 13)
+        Me.Label25.TabIndex = 0
+        Me.Label25.Text = "xPos"
+        '
+        'Label26
+        '
+        Me.Label26.AutoSize = True
+        Me.Label26.Location = New System.Drawing.Point(23, 184)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(30, 13)
+        Me.Label26.TabIndex = 2
+        Me.Label26.Text = "yPos"
+        '
+        'Label54
+        '
+        Me.Label54.AutoSize = True
+        Me.Label54.Location = New System.Drawing.Point(4, 112)
+        Me.Label54.Name = "Label54"
+        Me.Label54.Size = New System.Drawing.Size(52, 13)
+        Me.Label54.TabIndex = 83
+        Me.Label54.Text = "Red Orbs"
+        '
+        'txtYPos
+        '
+        Me.txtYPos.Location = New System.Drawing.Point(59, 181)
+        Me.txtYPos.Name = "txtYPos"
+        Me.txtYPos.Size = New System.Drawing.Size(75, 20)
+        Me.txtYPos.TabIndex = 3
+        '
+        'txtRedOrbs
+        '
+        Me.txtRedOrbs.Location = New System.Drawing.Point(59, 109)
+        Me.txtRedOrbs.Name = "txtRedOrbs"
+        Me.txtRedOrbs.Size = New System.Drawing.Size(75, 20)
+        Me.txtRedOrbs.TabIndex = 82
+        '
+        'Label27
+        '
+        Me.Label27.AutoSize = True
+        Me.Label27.Location = New System.Drawing.Point(23, 210)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(30, 13)
+        Me.Label27.TabIndex = 4
+        Me.Label27.Text = "zPos"
+        '
+        'chkMagicInfinite
+        '
+        Me.chkMagicInfinite.AutoSize = True
+        Me.chkMagicInfinite.Location = New System.Drawing.Point(208, 60)
+        Me.chkMagicInfinite.Name = "chkMagicInfinite"
+        Me.chkMagicInfinite.Size = New System.Drawing.Size(15, 14)
+        Me.chkMagicInfinite.TabIndex = 80
+        Me.chkMagicInfinite.UseVisualStyleBackColor = True
+        '
+        'txtZPos
+        '
+        Me.txtZPos.Location = New System.Drawing.Point(59, 207)
+        Me.txtZPos.Name = "txtZPos"
+        Me.txtZPos.Size = New System.Drawing.Size(75, 20)
+        Me.txtZPos.TabIndex = 5
+        '
+        'chkHealthInfinite
+        '
+        Me.chkHealthInfinite.AutoSize = True
+        Me.chkHealthInfinite.Location = New System.Drawing.Point(208, 34)
+        Me.chkHealthInfinite.Name = "chkHealthInfinite"
+        Me.chkHealthInfinite.Size = New System.Drawing.Size(15, 14)
+        Me.chkHealthInfinite.TabIndex = 79
+        Me.chkHealthInfinite.UseVisualStyleBackColor = True
+        '
+        'txtCurrHealth
+        '
+        Me.txtCurrHealth.Location = New System.Drawing.Point(59, 31)
+        Me.txtCurrHealth.Name = "txtCurrHealth"
+        Me.txtCurrHealth.Size = New System.Drawing.Size(75, 20)
+        Me.txtCurrHealth.TabIndex = 64
+        '
+        'chkItemInfinite
+        '
+        Me.chkItemInfinite.AutoSize = True
+        Me.chkItemInfinite.Location = New System.Drawing.Point(208, 86)
+        Me.chkItemInfinite.Name = "chkItemInfinite"
+        Me.chkItemInfinite.Size = New System.Drawing.Size(15, 14)
+        Me.chkItemInfinite.TabIndex = 81
+        Me.chkItemInfinite.UseVisualStyleBackColor = True
+        '
+        'txtCurrMagic
+        '
+        Me.txtCurrMagic.Location = New System.Drawing.Point(59, 57)
+        Me.txtCurrMagic.Name = "txtCurrMagic"
+        Me.txtCurrMagic.Size = New System.Drawing.Size(75, 20)
+        Me.txtCurrMagic.TabIndex = 65
+        '
+        'Label53
+        '
+        Me.Label53.AutoSize = True
+        Me.Label53.Location = New System.Drawing.Point(198, 15)
+        Me.Label53.Name = "Label53"
+        Me.Label53.Size = New System.Drawing.Size(38, 13)
+        Me.Label53.TabIndex = 78
+        Me.Label53.Text = "Infinite"
+        '
+        'txtCurrItem
+        '
+        Me.txtCurrItem.Location = New System.Drawing.Point(59, 83)
+        Me.txtCurrItem.Name = "txtCurrItem"
+        Me.txtCurrItem.Size = New System.Drawing.Size(75, 20)
+        Me.txtCurrItem.TabIndex = 66
+        '
+        'Label52
+        '
+        Me.Label52.AutoSize = True
+        Me.Label52.Location = New System.Drawing.Point(137, 15)
+        Me.Label52.Name = "Label52"
+        Me.Label52.Size = New System.Drawing.Size(58, 13)
+        Me.Label52.TabIndex = 77
+        Me.Label52.Text = "Extensions"
+        '
+        'txtHealthExt
+        '
+        Me.txtHealthExt.Location = New System.Drawing.Point(140, 31)
+        Me.txtHealthExt.Name = "txtHealthExt"
+        Me.txtHealthExt.Size = New System.Drawing.Size(55, 20)
+        Me.txtHealthExt.TabIndex = 67
+        '
+        'Label51
+        '
+        Me.Label51.AutoSize = True
+        Me.Label51.Location = New System.Drawing.Point(77, 15)
+        Me.Label51.Name = "Label51"
+        Me.Label51.Size = New System.Drawing.Size(41, 13)
+        Me.Label51.TabIndex = 76
+        Me.Label51.Text = "Current"
+        '
+        'txtMagicExt
+        '
+        Me.txtMagicExt.Location = New System.Drawing.Point(140, 57)
+        Me.txtMagicExt.Name = "txtMagicExt"
+        Me.txtMagicExt.Size = New System.Drawing.Size(55, 20)
+        Me.txtMagicExt.TabIndex = 68
+        '
+        'lblG1Rage
+        '
+        Me.lblG1Rage.AutoSize = True
+        Me.lblG1Rage.Location = New System.Drawing.Point(4, 86)
+        Me.lblG1Rage.Name = "lblG1Rage"
+        Me.lblG1Rage.Size = New System.Drawing.Size(27, 13)
+        Me.lblG1Rage.TabIndex = 75
+        Me.lblG1Rage.Text = "Item"
+        '
+        'txtItemExt
+        '
+        Me.txtItemExt.Location = New System.Drawing.Point(140, 83)
+        Me.txtItemExt.Name = "txtItemExt"
+        Me.txtItemExt.Size = New System.Drawing.Size(55, 20)
+        Me.txtItemExt.TabIndex = 69
+        '
+        'lblG1Magic
+        '
+        Me.lblG1Magic.AutoSize = True
+        Me.lblG1Magic.Location = New System.Drawing.Point(4, 60)
+        Me.lblG1Magic.Name = "lblG1Magic"
+        Me.lblG1Magic.Size = New System.Drawing.Size(36, 13)
+        Me.lblG1Magic.TabIndex = 74
+        Me.lblG1Magic.Text = "Magic"
+        '
+        'lblG1Health
+        '
+        Me.lblG1Health.AutoSize = True
+        Me.lblG1Health.Location = New System.Drawing.Point(4, 34)
+        Me.lblG1Health.Name = "lblG1Health"
+        Me.lblG1Health.Size = New System.Drawing.Size(38, 13)
+        Me.lblG1Health.TabIndex = 73
+        Me.lblG1Health.Text = "Health"
+        '
+        'GroupBox5
+        '
+        Me.GroupBox5.Controls.Add(Me.rbCurrDiff3)
+        Me.GroupBox5.Controls.Add(Me.rbCurrDiff2)
+        Me.GroupBox5.Controls.Add(Me.rbCurrDiff1)
+        Me.GroupBox5.Controls.Add(Me.rbCurrDiff0)
+        Me.GroupBox5.Location = New System.Drawing.Point(17, 241)
+        Me.GroupBox5.Name = "GroupBox5"
+        Me.GroupBox5.Size = New System.Drawing.Size(183, 122)
+        Me.GroupBox5.TabIndex = 85
+        Me.GroupBox5.TabStop = False
+        Me.GroupBox5.Text = "Difficulty"
+        '
+        'rbCurrDiff3
+        '
+        Me.rbCurrDiff3.AutoSize = True
+        Me.rbCurrDiff3.Location = New System.Drawing.Point(7, 90)
+        Me.rbCurrDiff3.Name = "rbCurrDiff3"
+        Me.rbCurrDiff3.Size = New System.Drawing.Size(72, 17)
+        Me.rbCurrDiff3.TabIndex = 3
+        Me.rbCurrDiff3.TabStop = True
+        Me.rbCurrDiff3.Text = "Very Hard"
+        Me.rbCurrDiff3.UseVisualStyleBackColor = True
+        '
+        'rbCurrDiff2
+        '
+        Me.rbCurrDiff2.AutoSize = True
+        Me.rbCurrDiff2.Location = New System.Drawing.Point(7, 66)
+        Me.rbCurrDiff2.Name = "rbCurrDiff2"
+        Me.rbCurrDiff2.Size = New System.Drawing.Size(48, 17)
+        Me.rbCurrDiff2.TabIndex = 2
+        Me.rbCurrDiff2.TabStop = True
+        Me.rbCurrDiff2.Text = "Hard"
+        Me.rbCurrDiff2.UseVisualStyleBackColor = True
+        '
+        'rbCurrDiff1
+        '
+        Me.rbCurrDiff1.AutoSize = True
+        Me.rbCurrDiff1.Location = New System.Drawing.Point(7, 43)
+        Me.rbCurrDiff1.Name = "rbCurrDiff1"
+        Me.rbCurrDiff1.Size = New System.Drawing.Size(58, 17)
+        Me.rbCurrDiff1.TabIndex = 1
+        Me.rbCurrDiff1.TabStop = True
+        Me.rbCurrDiff1.Text = "Normal"
+        Me.rbCurrDiff1.UseVisualStyleBackColor = True
+        '
+        'rbCurrDiff0
+        '
+        Me.rbCurrDiff0.AutoSize = True
+        Me.rbCurrDiff0.Location = New System.Drawing.Point(6, 19)
+        Me.rbCurrDiff0.Name = "rbCurrDiff0"
+        Me.rbCurrDiff0.Size = New System.Drawing.Size(48, 17)
+        Me.rbCurrDiff0.TabIndex = 0
+        Me.rbCurrDiff0.TabStop = True
+        Me.rbCurrDiff0.Text = "Easy"
+        Me.rbCurrDiff0.UseVisualStyleBackColor = True
+        '
+        'GroupBox4
+        '
+        Me.GroupBox4.Controls.Add(Me.rbCurrCost7)
+        Me.GroupBox4.Controls.Add(Me.rbCurrCost6)
+        Me.GroupBox4.Controls.Add(Me.rbCurrCost5)
+        Me.GroupBox4.Controls.Add(Me.rbCurrCost4)
+        Me.GroupBox4.Controls.Add(Me.rbCurrCost3)
+        Me.GroupBox4.Controls.Add(Me.rbCurrCost2)
+        Me.GroupBox4.Controls.Add(Me.rbCurrCost1)
+        Me.GroupBox4.Controls.Add(Me.rbCurrCost0)
+        Me.GroupBox4.Location = New System.Drawing.Point(17, 20)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(183, 215)
+        Me.GroupBox4.TabIndex = 84
+        Me.GroupBox4.TabStop = False
+        Me.GroupBox4.Text = "Costume"
+        '
+        'rbCurrCost7
+        '
+        Me.rbCurrCost7.AutoSize = True
+        Me.rbCurrCost7.Location = New System.Drawing.Point(6, 185)
+        Me.rbCurrCost7.Name = "rbCurrCost7"
+        Me.rbCurrCost7.Size = New System.Drawing.Size(131, 17)
+        Me.rbCurrCost7.TabIndex = 7
+        Me.rbCurrCost7.TabStop = True
+        Me.rbCurrCost7.Text = "Deimos (DLC required)"
+        Me.rbCurrCost7.UseVisualStyleBackColor = True
+        '
+        'rbCurrCost6
+        '
+        Me.rbCurrCost6.AutoSize = True
+        Me.rbCurrCost6.Location = New System.Drawing.Point(6, 161)
+        Me.rbCurrCost6.Name = "rbCurrCost6"
+        Me.rbCurrCost6.Size = New System.Drawing.Size(66, 17)
+        Me.rbCurrCost6.TabIndex = 6
+        Me.rbCurrCost6.TabStop = True
+        Me.rbCurrCost6.Text = "Dominus"
+        Me.rbCurrCost6.UseVisualStyleBackColor = True
+        '
+        'rbCurrCost5
+        '
+        Me.rbCurrCost5.AutoSize = True
+        Me.rbCurrCost5.Location = New System.Drawing.Point(7, 137)
+        Me.rbCurrCost5.Name = "rbCurrCost5"
+        Me.rbCurrCost5.Size = New System.Drawing.Size(107, 17)
+        Me.rbCurrCost5.TabIndex = 5
+        Me.rbCurrCost5.TabStop = True
+        Me.rbCurrCost5.Text = "Forgotten Warrior"
+        Me.rbCurrCost5.UseVisualStyleBackColor = True
+        '
+        'rbCurrCost4
+        '
+        Me.rbCurrCost4.AutoSize = True
+        Me.rbCurrCost4.Location = New System.Drawing.Point(7, 114)
+        Me.rbCurrCost4.Name = "rbCurrCost4"
+        Me.rbCurrCost4.Size = New System.Drawing.Size(112, 17)
+        Me.rbCurrCost4.TabIndex = 4
+        Me.rbCurrCost4.TabStop = True
+        Me.rbCurrCost4.Text = "Phantom of Chaos"
+        Me.rbCurrCost4.UseVisualStyleBackColor = True
+        '
+        'rbCurrCost3
+        '
+        Me.rbCurrCost3.AutoSize = True
+        Me.rbCurrCost3.Location = New System.Drawing.Point(7, 90)
+        Me.rbCurrCost3.Name = "rbCurrCost3"
+        Me.rbCurrCost3.Size = New System.Drawing.Size(72, 17)
+        Me.rbCurrCost3.TabIndex = 3
+        Me.rbCurrCost3.TabStop = True
+        Me.rbCurrCost3.Text = "Morpheus"
+        Me.rbCurrCost3.UseVisualStyleBackColor = True
+        '
+        'rbCurrCost2
+        '
+        Me.rbCurrCost2.AutoSize = True
+        Me.rbCurrCost2.Location = New System.Drawing.Point(7, 66)
+        Me.rbCurrCost2.Name = "rbCurrCost2"
+        Me.rbCurrCost2.Size = New System.Drawing.Size(54, 17)
+        Me.rbCurrCost2.TabIndex = 2
+        Me.rbCurrCost2.TabStop = True
+        Me.rbCurrCost2.Text = "Apollo"
+        Me.rbCurrCost2.UseVisualStyleBackColor = True
+        '
+        'rbCurrCost1
+        '
+        Me.rbCurrCost1.AutoSize = True
+        Me.rbCurrCost1.Location = New System.Drawing.Point(7, 43)
+        Me.rbCurrCost1.Name = "rbCurrCost1"
+        Me.rbCurrCost1.Size = New System.Drawing.Size(79, 17)
+        Me.rbCurrCost1.TabIndex = 1
+        Me.rbCurrCost1.TabStop = True
+        Me.rbCurrCost1.Text = "Fear Kratos"
+        Me.rbCurrCost1.UseVisualStyleBackColor = True
+        '
+        'rbCurrCost0
+        '
+        Me.rbCurrCost0.AutoSize = True
+        Me.rbCurrCost0.Location = New System.Drawing.Point(6, 19)
+        Me.rbCurrCost0.Name = "rbCurrCost0"
+        Me.rbCurrCost0.Size = New System.Drawing.Size(55, 17)
+        Me.rbCurrCost0.TabIndex = 0
+        Me.rbCurrCost0.TabStop = True
+        Me.rbCurrCost0.Text = "Kratos"
+        Me.rbCurrCost0.UseVisualStyleBackColor = True
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.Label43)
+        Me.GroupBox3.Controls.Add(Me.chkBladeOfOlympus)
+        Me.GroupBox3.Controls.Add(Me.Label46)
+        Me.GroupBox3.Controls.Add(Me.chkIcarusWings)
+        Me.GroupBox3.Controls.Add(Me.chkBoreasIcestorm)
+        Me.GroupBox3.Controls.Add(Me.Label50)
+        Me.GroupBox3.Controls.Add(Me.chkGoldenFleece)
+        Me.GroupBox3.Controls.Add(Me.Label49)
+        Me.GroupBox3.Controls.Add(Me.Label47)
+        Me.GroupBox3.Controls.Add(Me.chkPoseidonsTrident)
+        Me.GroupBox3.Controls.Add(Me.Label48)
+        Me.GroupBox3.Controls.Add(Me.chkBladeOfOlympusRage)
+        Me.GroupBox3.Location = New System.Drawing.Point(372, 448)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(207, 208)
+        Me.GroupBox3.TabIndex = 63
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Equipment"
+        '
+        'Label43
+        '
+        Me.Label43.AutoSize = True
+        Me.Label43.Location = New System.Drawing.Point(12, 27)
+        Me.Label43.Name = "Label43"
+        Me.Label43.Size = New System.Drawing.Size(94, 13)
+        Me.Label43.TabIndex = 52
+        Me.Label43.Text = "Poseidon's Trident"
+        '
+        'chkBladeOfOlympus
+        '
+        Me.chkBladeOfOlympus.AutoSize = True
+        Me.chkBladeOfOlympus.Location = New System.Drawing.Point(168, 52)
+        Me.chkBladeOfOlympus.Name = "chkBladeOfOlympus"
+        Me.chkBladeOfOlympus.Size = New System.Drawing.Size(15, 14)
+        Me.chkBladeOfOlympus.TabIndex = 53
+        Me.chkBladeOfOlympus.UseVisualStyleBackColor = True
+        '
+        'Label46
+        '
+        Me.Label46.AutoSize = True
+        Me.Label46.Location = New System.Drawing.Point(12, 105)
+        Me.Label46.Name = "Label46"
+        Me.Label46.Size = New System.Drawing.Size(83, 13)
+        Me.Label46.TabIndex = 58
+        Me.Label46.Text = "Boreas Icestorm"
+        '
+        'chkIcarusWings
+        '
+        Me.chkIcarusWings.AutoSize = True
+        Me.chkIcarusWings.Location = New System.Drawing.Point(168, 156)
+        Me.chkIcarusWings.Name = "chkIcarusWings"
+        Me.chkIcarusWings.Size = New System.Drawing.Size(15, 14)
+        Me.chkIcarusWings.TabIndex = 61
+        Me.chkIcarusWings.UseVisualStyleBackColor = True
+        '
+        'chkBoreasIcestorm
+        '
+        Me.chkBoreasIcestorm.AutoSize = True
+        Me.chkBoreasIcestorm.Location = New System.Drawing.Point(168, 104)
+        Me.chkBoreasIcestorm.Name = "chkBoreasIcestorm"
+        Me.chkBoreasIcestorm.Size = New System.Drawing.Size(15, 14)
+        Me.chkBoreasIcestorm.TabIndex = 57
+        Me.chkBoreasIcestorm.UseVisualStyleBackColor = True
+        '
+        'Label50
+        '
+        Me.Label50.AutoSize = True
+        Me.Label50.Location = New System.Drawing.Point(12, 53)
+        Me.Label50.Name = "Label50"
+        Me.Label50.Size = New System.Drawing.Size(89, 13)
+        Me.Label50.TabIndex = 54
+        Me.Label50.Text = "Blade of Olympus"
+        '
+        'chkGoldenFleece
+        '
+        Me.chkGoldenFleece.AutoSize = True
+        Me.chkGoldenFleece.Location = New System.Drawing.Point(168, 130)
+        Me.chkGoldenFleece.Name = "chkGoldenFleece"
+        Me.chkGoldenFleece.Size = New System.Drawing.Size(15, 14)
+        Me.chkGoldenFleece.TabIndex = 59
+        Me.chkGoldenFleece.UseVisualStyleBackColor = True
+        '
+        'Label49
+        '
+        Me.Label49.AutoSize = True
+        Me.Label49.Location = New System.Drawing.Point(12, 157)
+        Me.Label49.Name = "Label49"
+        Me.Label49.Size = New System.Drawing.Size(69, 13)
+        Me.Label49.TabIndex = 62
+        Me.Label49.Text = "Icarus Wings"
+        '
+        'Label47
+        '
+        Me.Label47.AutoSize = True
+        Me.Label47.Location = New System.Drawing.Point(12, 131)
+        Me.Label47.Name = "Label47"
+        Me.Label47.Size = New System.Drawing.Size(76, 13)
+        Me.Label47.TabIndex = 60
+        Me.Label47.Text = "Golden Fleece"
+        '
+        'chkPoseidonsTrident
+        '
+        Me.chkPoseidonsTrident.AutoSize = True
+        Me.chkPoseidonsTrident.Location = New System.Drawing.Point(168, 26)
+        Me.chkPoseidonsTrident.Name = "chkPoseidonsTrident"
+        Me.chkPoseidonsTrident.Size = New System.Drawing.Size(15, 14)
+        Me.chkPoseidonsTrident.TabIndex = 51
+        Me.chkPoseidonsTrident.UseVisualStyleBackColor = True
+        '
+        'Label48
+        '
+        Me.Label48.AutoSize = True
+        Me.Label48.Location = New System.Drawing.Point(12, 79)
+        Me.Label48.Name = "Label48"
+        Me.Label48.Size = New System.Drawing.Size(149, 13)
+        Me.Label48.TabIndex = 56
+        Me.Label48.Text = "Blade of Olympus (Permarage)"
+        '
+        'chkBladeOfOlympusRage
+        '
+        Me.chkBladeOfOlympusRage.AutoSize = True
+        Me.chkBladeOfOlympusRage.Location = New System.Drawing.Point(168, 78)
+        Me.chkBladeOfOlympusRage.Name = "chkBladeOfOlympusRage"
+        Me.chkBladeOfOlympusRage.Size = New System.Drawing.Size(15, 14)
+        Me.chkBladeOfOlympusRage.TabIndex = 55
+        Me.chkBladeOfOlympusRage.UseVisualStyleBackColor = True
+        '
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.Label35)
@@ -1317,534 +1845,6 @@ Partial Class GoW3
         Me.Label31.TabIndex = 16
         Me.Label31.Text = "Nemean Cestus"
         '
-        'txtZPos
-        '
-        Me.txtZPos.Location = New System.Drawing.Point(59, 207)
-        Me.txtZPos.Name = "txtZPos"
-        Me.txtZPos.Size = New System.Drawing.Size(75, 20)
-        Me.txtZPos.TabIndex = 5
-        '
-        'Label27
-        '
-        Me.Label27.AutoSize = True
-        Me.Label27.Location = New System.Drawing.Point(23, 210)
-        Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(30, 13)
-        Me.Label27.TabIndex = 4
-        Me.Label27.Text = "zPos"
-        '
-        'txtYPos
-        '
-        Me.txtYPos.Location = New System.Drawing.Point(59, 181)
-        Me.txtYPos.Name = "txtYPos"
-        Me.txtYPos.Size = New System.Drawing.Size(75, 20)
-        Me.txtYPos.TabIndex = 3
-        '
-        'Label26
-        '
-        Me.Label26.AutoSize = True
-        Me.Label26.Location = New System.Drawing.Point(23, 184)
-        Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(30, 13)
-        Me.Label26.TabIndex = 2
-        Me.Label26.Text = "yPos"
-        '
-        'txtXPos
-        '
-        Me.txtXPos.Location = New System.Drawing.Point(59, 155)
-        Me.txtXPos.Name = "txtXPos"
-        Me.txtXPos.Size = New System.Drawing.Size(75, 20)
-        Me.txtXPos.TabIndex = 1
-        '
-        'Label25
-        '
-        Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(23, 158)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(30, 13)
-        Me.Label25.TabIndex = 0
-        Me.Label25.Text = "xPos"
-        '
-        'Label43
-        '
-        Me.Label43.AutoSize = True
-        Me.Label43.Location = New System.Drawing.Point(12, 27)
-        Me.Label43.Name = "Label43"
-        Me.Label43.Size = New System.Drawing.Size(94, 13)
-        Me.Label43.TabIndex = 52
-        Me.Label43.Text = "Poseidon's Trident"
-        '
-        'Label46
-        '
-        Me.Label46.AutoSize = True
-        Me.Label46.Location = New System.Drawing.Point(12, 105)
-        Me.Label46.Name = "Label46"
-        Me.Label46.Size = New System.Drawing.Size(83, 13)
-        Me.Label46.TabIndex = 58
-        Me.Label46.Text = "Boreas Icestorm"
-        '
-        'chkBoreasIcestorm
-        '
-        Me.chkBoreasIcestorm.AutoSize = True
-        Me.chkBoreasIcestorm.Location = New System.Drawing.Point(168, 104)
-        Me.chkBoreasIcestorm.Name = "chkBoreasIcestorm"
-        Me.chkBoreasIcestorm.Size = New System.Drawing.Size(15, 14)
-        Me.chkBoreasIcestorm.TabIndex = 57
-        Me.chkBoreasIcestorm.UseVisualStyleBackColor = True
-        '
-        'chkGoldenFleece
-        '
-        Me.chkGoldenFleece.AutoSize = True
-        Me.chkGoldenFleece.Location = New System.Drawing.Point(168, 130)
-        Me.chkGoldenFleece.Name = "chkGoldenFleece"
-        Me.chkGoldenFleece.Size = New System.Drawing.Size(15, 14)
-        Me.chkGoldenFleece.TabIndex = 59
-        Me.chkGoldenFleece.UseVisualStyleBackColor = True
-        '
-        'Label47
-        '
-        Me.Label47.AutoSize = True
-        Me.Label47.Location = New System.Drawing.Point(12, 131)
-        Me.Label47.Name = "Label47"
-        Me.Label47.Size = New System.Drawing.Size(76, 13)
-        Me.Label47.TabIndex = 60
-        Me.Label47.Text = "Golden Fleece"
-        '
-        'Label48
-        '
-        Me.Label48.AutoSize = True
-        Me.Label48.Location = New System.Drawing.Point(12, 79)
-        Me.Label48.Name = "Label48"
-        Me.Label48.Size = New System.Drawing.Size(149, 13)
-        Me.Label48.TabIndex = 56
-        Me.Label48.Text = "Blade of Olympus (Permarage)"
-        '
-        'chkBladeOfOlympusRage
-        '
-        Me.chkBladeOfOlympusRage.AutoSize = True
-        Me.chkBladeOfOlympusRage.Location = New System.Drawing.Point(168, 78)
-        Me.chkBladeOfOlympusRage.Name = "chkBladeOfOlympusRage"
-        Me.chkBladeOfOlympusRage.Size = New System.Drawing.Size(15, 14)
-        Me.chkBladeOfOlympusRage.TabIndex = 55
-        Me.chkBladeOfOlympusRage.UseVisualStyleBackColor = True
-        '
-        'chkPoseidonsTrident
-        '
-        Me.chkPoseidonsTrident.AutoSize = True
-        Me.chkPoseidonsTrident.Location = New System.Drawing.Point(168, 26)
-        Me.chkPoseidonsTrident.Name = "chkPoseidonsTrident"
-        Me.chkPoseidonsTrident.Size = New System.Drawing.Size(15, 14)
-        Me.chkPoseidonsTrident.TabIndex = 51
-        Me.chkPoseidonsTrident.UseVisualStyleBackColor = True
-        '
-        'Label49
-        '
-        Me.Label49.AutoSize = True
-        Me.Label49.Location = New System.Drawing.Point(12, 157)
-        Me.Label49.Name = "Label49"
-        Me.Label49.Size = New System.Drawing.Size(69, 13)
-        Me.Label49.TabIndex = 62
-        Me.Label49.Text = "Icarus Wings"
-        '
-        'Label50
-        '
-        Me.Label50.AutoSize = True
-        Me.Label50.Location = New System.Drawing.Point(12, 53)
-        Me.Label50.Name = "Label50"
-        Me.Label50.Size = New System.Drawing.Size(89, 13)
-        Me.Label50.TabIndex = 54
-        Me.Label50.Text = "Blade of Olympus"
-        '
-        'chkIcarusWings
-        '
-        Me.chkIcarusWings.AutoSize = True
-        Me.chkIcarusWings.Location = New System.Drawing.Point(168, 156)
-        Me.chkIcarusWings.Name = "chkIcarusWings"
-        Me.chkIcarusWings.Size = New System.Drawing.Size(15, 14)
-        Me.chkIcarusWings.TabIndex = 61
-        Me.chkIcarusWings.UseVisualStyleBackColor = True
-        '
-        'chkBladeOfOlympus
-        '
-        Me.chkBladeOfOlympus.AutoSize = True
-        Me.chkBladeOfOlympus.Location = New System.Drawing.Point(168, 52)
-        Me.chkBladeOfOlympus.Name = "chkBladeOfOlympus"
-        Me.chkBladeOfOlympus.Size = New System.Drawing.Size(15, 14)
-        Me.chkBladeOfOlympus.TabIndex = 53
-        Me.chkBladeOfOlympus.UseVisualStyleBackColor = True
-        '
-        'GroupBox3
-        '
-        Me.GroupBox3.Controls.Add(Me.Label43)
-        Me.GroupBox3.Controls.Add(Me.chkBladeOfOlympus)
-        Me.GroupBox3.Controls.Add(Me.Label46)
-        Me.GroupBox3.Controls.Add(Me.chkIcarusWings)
-        Me.GroupBox3.Controls.Add(Me.chkBoreasIcestorm)
-        Me.GroupBox3.Controls.Add(Me.Label50)
-        Me.GroupBox3.Controls.Add(Me.chkGoldenFleece)
-        Me.GroupBox3.Controls.Add(Me.Label49)
-        Me.GroupBox3.Controls.Add(Me.Label47)
-        Me.GroupBox3.Controls.Add(Me.chkPoseidonsTrident)
-        Me.GroupBox3.Controls.Add(Me.Label48)
-        Me.GroupBox3.Controls.Add(Me.chkBladeOfOlympusRage)
-        Me.GroupBox3.Location = New System.Drawing.Point(372, 448)
-        Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(207, 208)
-        Me.GroupBox3.TabIndex = 63
-        Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "And the other stuff"
-        '
-        'txtCurrHealth
-        '
-        Me.txtCurrHealth.Location = New System.Drawing.Point(59, 31)
-        Me.txtCurrHealth.Name = "txtCurrHealth"
-        Me.txtCurrHealth.Size = New System.Drawing.Size(75, 20)
-        Me.txtCurrHealth.TabIndex = 64
-        '
-        'txtCurrMagic
-        '
-        Me.txtCurrMagic.Location = New System.Drawing.Point(59, 57)
-        Me.txtCurrMagic.Name = "txtCurrMagic"
-        Me.txtCurrMagic.Size = New System.Drawing.Size(75, 20)
-        Me.txtCurrMagic.TabIndex = 65
-        '
-        'txtCurrItem
-        '
-        Me.txtCurrItem.Location = New System.Drawing.Point(59, 83)
-        Me.txtCurrItem.Name = "txtCurrItem"
-        Me.txtCurrItem.Size = New System.Drawing.Size(75, 20)
-        Me.txtCurrItem.TabIndex = 66
-        '
-        'txtItemExt
-        '
-        Me.txtItemExt.Location = New System.Drawing.Point(140, 83)
-        Me.txtItemExt.Name = "txtItemExt"
-        Me.txtItemExt.Size = New System.Drawing.Size(55, 20)
-        Me.txtItemExt.TabIndex = 69
-        '
-        'txtMagicExt
-        '
-        Me.txtMagicExt.Location = New System.Drawing.Point(140, 57)
-        Me.txtMagicExt.Name = "txtMagicExt"
-        Me.txtMagicExt.Size = New System.Drawing.Size(55, 20)
-        Me.txtMagicExt.TabIndex = 68
-        '
-        'txtHealthExt
-        '
-        Me.txtHealthExt.Location = New System.Drawing.Point(140, 31)
-        Me.txtHealthExt.Name = "txtHealthExt"
-        Me.txtHealthExt.Size = New System.Drawing.Size(55, 20)
-        Me.txtHealthExt.TabIndex = 67
-        '
-        'lblG1Rage
-        '
-        Me.lblG1Rage.AutoSize = True
-        Me.lblG1Rage.Location = New System.Drawing.Point(4, 86)
-        Me.lblG1Rage.Name = "lblG1Rage"
-        Me.lblG1Rage.Size = New System.Drawing.Size(27, 13)
-        Me.lblG1Rage.TabIndex = 75
-        Me.lblG1Rage.Text = "Item"
-        '
-        'lblG1Magic
-        '
-        Me.lblG1Magic.AutoSize = True
-        Me.lblG1Magic.Location = New System.Drawing.Point(4, 60)
-        Me.lblG1Magic.Name = "lblG1Magic"
-        Me.lblG1Magic.Size = New System.Drawing.Size(36, 13)
-        Me.lblG1Magic.TabIndex = 74
-        Me.lblG1Magic.Text = "Magic"
-        '
-        'lblG1Health
-        '
-        Me.lblG1Health.AutoSize = True
-        Me.lblG1Health.Location = New System.Drawing.Point(4, 34)
-        Me.lblG1Health.Name = "lblG1Health"
-        Me.lblG1Health.Size = New System.Drawing.Size(38, 13)
-        Me.lblG1Health.TabIndex = 73
-        Me.lblG1Health.Text = "Health"
-        '
-        'Label51
-        '
-        Me.Label51.AutoSize = True
-        Me.Label51.Location = New System.Drawing.Point(77, 15)
-        Me.Label51.Name = "Label51"
-        Me.Label51.Size = New System.Drawing.Size(41, 13)
-        Me.Label51.TabIndex = 76
-        Me.Label51.Text = "Current"
-        '
-        'Label52
-        '
-        Me.Label52.AutoSize = True
-        Me.Label52.Location = New System.Drawing.Point(137, 15)
-        Me.Label52.Name = "Label52"
-        Me.Label52.Size = New System.Drawing.Size(58, 13)
-        Me.Label52.TabIndex = 77
-        Me.Label52.Text = "Extensions"
-        '
-        'Label53
-        '
-        Me.Label53.AutoSize = True
-        Me.Label53.Location = New System.Drawing.Point(198, 15)
-        Me.Label53.Name = "Label53"
-        Me.Label53.Size = New System.Drawing.Size(38, 13)
-        Me.Label53.TabIndex = 78
-        Me.Label53.Text = "Infinite"
-        '
-        'chkMagicInfinite
-        '
-        Me.chkMagicInfinite.AutoSize = True
-        Me.chkMagicInfinite.Location = New System.Drawing.Point(208, 60)
-        Me.chkMagicInfinite.Name = "chkMagicInfinite"
-        Me.chkMagicInfinite.Size = New System.Drawing.Size(15, 14)
-        Me.chkMagicInfinite.TabIndex = 80
-        Me.chkMagicInfinite.UseVisualStyleBackColor = True
-        '
-        'chkHealthInfinite
-        '
-        Me.chkHealthInfinite.AutoSize = True
-        Me.chkHealthInfinite.Location = New System.Drawing.Point(208, 34)
-        Me.chkHealthInfinite.Name = "chkHealthInfinite"
-        Me.chkHealthInfinite.Size = New System.Drawing.Size(15, 14)
-        Me.chkHealthInfinite.TabIndex = 79
-        Me.chkHealthInfinite.UseVisualStyleBackColor = True
-        '
-        'chkItemInfinite
-        '
-        Me.chkItemInfinite.AutoSize = True
-        Me.chkItemInfinite.Location = New System.Drawing.Point(208, 86)
-        Me.chkItemInfinite.Name = "chkItemInfinite"
-        Me.chkItemInfinite.Size = New System.Drawing.Size(15, 14)
-        Me.chkItemInfinite.TabIndex = 81
-        Me.chkItemInfinite.UseVisualStyleBackColor = True
-        '
-        'txtRedOrbs
-        '
-        Me.txtRedOrbs.Location = New System.Drawing.Point(59, 109)
-        Me.txtRedOrbs.Name = "txtRedOrbs"
-        Me.txtRedOrbs.Size = New System.Drawing.Size(75, 20)
-        Me.txtRedOrbs.TabIndex = 82
-        '
-        'Label54
-        '
-        Me.Label54.AutoSize = True
-        Me.Label54.Location = New System.Drawing.Point(4, 112)
-        Me.Label54.Name = "Label54"
-        Me.Label54.Size = New System.Drawing.Size(52, 13)
-        Me.Label54.TabIndex = 83
-        Me.Label54.Text = "Red Orbs"
-        '
-        'GroupBox4
-        '
-        Me.GroupBox4.Controls.Add(Me.rbCurrCost7)
-        Me.GroupBox4.Controls.Add(Me.rbCurrCost6)
-        Me.GroupBox4.Controls.Add(Me.rbCurrCost5)
-        Me.GroupBox4.Controls.Add(Me.rbCurrCost4)
-        Me.GroupBox4.Controls.Add(Me.rbCurrCost3)
-        Me.GroupBox4.Controls.Add(Me.rbCurrCost2)
-        Me.GroupBox4.Controls.Add(Me.rbCurrCost1)
-        Me.GroupBox4.Controls.Add(Me.rbCurrCost0)
-        Me.GroupBox4.Location = New System.Drawing.Point(17, 20)
-        Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(183, 215)
-        Me.GroupBox4.TabIndex = 84
-        Me.GroupBox4.TabStop = False
-        Me.GroupBox4.Text = "Costume"
-        '
-        'rbCurrCost7
-        '
-        Me.rbCurrCost7.AutoSize = True
-        Me.rbCurrCost7.Location = New System.Drawing.Point(6, 185)
-        Me.rbCurrCost7.Name = "rbCurrCost7"
-        Me.rbCurrCost7.Size = New System.Drawing.Size(131, 17)
-        Me.rbCurrCost7.TabIndex = 7
-        Me.rbCurrCost7.TabStop = True
-        Me.rbCurrCost7.Text = "Deimos (DLC required)"
-        Me.rbCurrCost7.UseVisualStyleBackColor = True
-        '
-        'rbCurrCost6
-        '
-        Me.rbCurrCost6.AutoSize = True
-        Me.rbCurrCost6.Location = New System.Drawing.Point(6, 161)
-        Me.rbCurrCost6.Name = "rbCurrCost6"
-        Me.rbCurrCost6.Size = New System.Drawing.Size(66, 17)
-        Me.rbCurrCost6.TabIndex = 6
-        Me.rbCurrCost6.TabStop = True
-        Me.rbCurrCost6.Text = "Dominus"
-        Me.rbCurrCost6.UseVisualStyleBackColor = True
-        '
-        'rbCurrCost5
-        '
-        Me.rbCurrCost5.AutoSize = True
-        Me.rbCurrCost5.Location = New System.Drawing.Point(7, 137)
-        Me.rbCurrCost5.Name = "rbCurrCost5"
-        Me.rbCurrCost5.Size = New System.Drawing.Size(107, 17)
-        Me.rbCurrCost5.TabIndex = 5
-        Me.rbCurrCost5.TabStop = True
-        Me.rbCurrCost5.Text = "Forgotten Warrior"
-        Me.rbCurrCost5.UseVisualStyleBackColor = True
-        '
-        'rbCurrCost4
-        '
-        Me.rbCurrCost4.AutoSize = True
-        Me.rbCurrCost4.Location = New System.Drawing.Point(7, 114)
-        Me.rbCurrCost4.Name = "rbCurrCost4"
-        Me.rbCurrCost4.Size = New System.Drawing.Size(112, 17)
-        Me.rbCurrCost4.TabIndex = 4
-        Me.rbCurrCost4.TabStop = True
-        Me.rbCurrCost4.Text = "Phantom of Chaos"
-        Me.rbCurrCost4.UseVisualStyleBackColor = True
-        '
-        'rbCurrCost3
-        '
-        Me.rbCurrCost3.AutoSize = True
-        Me.rbCurrCost3.Location = New System.Drawing.Point(7, 90)
-        Me.rbCurrCost3.Name = "rbCurrCost3"
-        Me.rbCurrCost3.Size = New System.Drawing.Size(72, 17)
-        Me.rbCurrCost3.TabIndex = 3
-        Me.rbCurrCost3.TabStop = True
-        Me.rbCurrCost3.Text = "Morpheus"
-        Me.rbCurrCost3.UseVisualStyleBackColor = True
-        '
-        'rbCurrCost2
-        '
-        Me.rbCurrCost2.AutoSize = True
-        Me.rbCurrCost2.Location = New System.Drawing.Point(7, 66)
-        Me.rbCurrCost2.Name = "rbCurrCost2"
-        Me.rbCurrCost2.Size = New System.Drawing.Size(54, 17)
-        Me.rbCurrCost2.TabIndex = 2
-        Me.rbCurrCost2.TabStop = True
-        Me.rbCurrCost2.Text = "Apollo"
-        Me.rbCurrCost2.UseVisualStyleBackColor = True
-        '
-        'rbCurrCost1
-        '
-        Me.rbCurrCost1.AutoSize = True
-        Me.rbCurrCost1.Location = New System.Drawing.Point(7, 43)
-        Me.rbCurrCost1.Name = "rbCurrCost1"
-        Me.rbCurrCost1.Size = New System.Drawing.Size(79, 17)
-        Me.rbCurrCost1.TabIndex = 1
-        Me.rbCurrCost1.TabStop = True
-        Me.rbCurrCost1.Text = "Fear Kratos"
-        Me.rbCurrCost1.UseVisualStyleBackColor = True
-        '
-        'rbCurrCost0
-        '
-        Me.rbCurrCost0.AutoSize = True
-        Me.rbCurrCost0.Location = New System.Drawing.Point(6, 19)
-        Me.rbCurrCost0.Name = "rbCurrCost0"
-        Me.rbCurrCost0.Size = New System.Drawing.Size(55, 17)
-        Me.rbCurrCost0.TabIndex = 0
-        Me.rbCurrCost0.TabStop = True
-        Me.rbCurrCost0.Text = "Kratos"
-        Me.rbCurrCost0.UseVisualStyleBackColor = True
-        '
-        'GroupBox5
-        '
-        Me.GroupBox5.Controls.Add(Me.rbCurrDiff3)
-        Me.GroupBox5.Controls.Add(Me.rbCurrDiff2)
-        Me.GroupBox5.Controls.Add(Me.rbCurrDiff1)
-        Me.GroupBox5.Controls.Add(Me.rbCurrDiff0)
-        Me.GroupBox5.Location = New System.Drawing.Point(17, 241)
-        Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(183, 122)
-        Me.GroupBox5.TabIndex = 85
-        Me.GroupBox5.TabStop = False
-        Me.GroupBox5.Text = "Difficulty"
-        '
-        'rbCurrDiff3
-        '
-        Me.rbCurrDiff3.AutoSize = True
-        Me.rbCurrDiff3.Location = New System.Drawing.Point(7, 90)
-        Me.rbCurrDiff3.Name = "rbCurrDiff3"
-        Me.rbCurrDiff3.Size = New System.Drawing.Size(72, 17)
-        Me.rbCurrDiff3.TabIndex = 3
-        Me.rbCurrDiff3.TabStop = True
-        Me.rbCurrDiff3.Text = "Very Hard"
-        Me.rbCurrDiff3.UseVisualStyleBackColor = True
-        '
-        'rbCurrDiff2
-        '
-        Me.rbCurrDiff2.AutoSize = True
-        Me.rbCurrDiff2.Location = New System.Drawing.Point(7, 66)
-        Me.rbCurrDiff2.Name = "rbCurrDiff2"
-        Me.rbCurrDiff2.Size = New System.Drawing.Size(48, 17)
-        Me.rbCurrDiff2.TabIndex = 2
-        Me.rbCurrDiff2.TabStop = True
-        Me.rbCurrDiff2.Text = "Hard"
-        Me.rbCurrDiff2.UseVisualStyleBackColor = True
-        '
-        'rbCurrDiff1
-        '
-        Me.rbCurrDiff1.AutoSize = True
-        Me.rbCurrDiff1.Location = New System.Drawing.Point(7, 43)
-        Me.rbCurrDiff1.Name = "rbCurrDiff1"
-        Me.rbCurrDiff1.Size = New System.Drawing.Size(58, 17)
-        Me.rbCurrDiff1.TabIndex = 1
-        Me.rbCurrDiff1.TabStop = True
-        Me.rbCurrDiff1.Text = "Normal"
-        Me.rbCurrDiff1.UseVisualStyleBackColor = True
-        '
-        'rbCurrDiff0
-        '
-        Me.rbCurrDiff0.AutoSize = True
-        Me.rbCurrDiff0.Location = New System.Drawing.Point(6, 19)
-        Me.rbCurrDiff0.Name = "rbCurrDiff0"
-        Me.rbCurrDiff0.Size = New System.Drawing.Size(48, 17)
-        Me.rbCurrDiff0.TabIndex = 0
-        Me.rbCurrDiff0.TabStop = True
-        Me.rbCurrDiff0.Text = "Easy"
-        Me.rbCurrDiff0.UseVisualStyleBackColor = True
-        '
-        'GroupBox6
-        '
-        Me.GroupBox6.Controls.Add(Me.txtXPos)
-        Me.GroupBox6.Controls.Add(Me.Label25)
-        Me.GroupBox6.Controls.Add(Me.Label26)
-        Me.GroupBox6.Controls.Add(Me.Label54)
-        Me.GroupBox6.Controls.Add(Me.txtYPos)
-        Me.GroupBox6.Controls.Add(Me.txtRedOrbs)
-        Me.GroupBox6.Controls.Add(Me.Label27)
-        Me.GroupBox6.Controls.Add(Me.chkMagicInfinite)
-        Me.GroupBox6.Controls.Add(Me.txtZPos)
-        Me.GroupBox6.Controls.Add(Me.chkHealthInfinite)
-        Me.GroupBox6.Controls.Add(Me.txtCurrHealth)
-        Me.GroupBox6.Controls.Add(Me.chkItemInfinite)
-        Me.GroupBox6.Controls.Add(Me.txtCurrMagic)
-        Me.GroupBox6.Controls.Add(Me.Label53)
-        Me.GroupBox6.Controls.Add(Me.txtCurrItem)
-        Me.GroupBox6.Controls.Add(Me.Label52)
-        Me.GroupBox6.Controls.Add(Me.txtHealthExt)
-        Me.GroupBox6.Controls.Add(Me.Label51)
-        Me.GroupBox6.Controls.Add(Me.txtMagicExt)
-        Me.GroupBox6.Controls.Add(Me.lblG1Rage)
-        Me.GroupBox6.Controls.Add(Me.txtItemExt)
-        Me.GroupBox6.Controls.Add(Me.lblG1Magic)
-        Me.GroupBox6.Controls.Add(Me.lblG1Health)
-        Me.GroupBox6.Location = New System.Drawing.Point(206, 162)
-        Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(373, 280)
-        Me.GroupBox6.TabIndex = 86
-        Me.GroupBox6.TabStop = False
-        Me.GroupBox6.Text = "Kratos"
-        '
-        'txtSaveDesc
-        '
-        Me.txtSaveDesc.Location = New System.Drawing.Point(206, 63)
-        Me.txtSaveDesc.MaxLength = 68
-        Me.txtSaveDesc.Multiline = True
-        Me.txtSaveDesc.Name = "txtSaveDesc"
-        Me.txtSaveDesc.Size = New System.Drawing.Size(373, 93)
-        Me.txtSaveDesc.TabIndex = 87
-        '
-        'txtSaveArea
-        '
-        Me.txtSaveArea.Location = New System.Drawing.Point(206, 20)
-        Me.txtSaveArea.MaxLength = 22
-        Me.txtSaveArea.Multiline = True
-        Me.txtSaveArea.Name = "txtSaveArea"
-        Me.txtSaveArea.Size = New System.Drawing.Size(373, 36)
-        Me.txtSaveArea.TabIndex = 88
-        '
         'GoW3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1870,18 +1870,18 @@ Partial Class GoW3
         Me.gpDiffsBeaten.PerformLayout()
         Me.tabSave.ResumeLayout(False)
         Me.tabSave.PerformLayout()
+        Me.GroupBox6.ResumeLayout(False)
+        Me.GroupBox6.PerformLayout()
+        Me.GroupBox5.ResumeLayout(False)
+        Me.GroupBox5.PerformLayout()
+        Me.GroupBox4.ResumeLayout(False)
+        Me.GroupBox4.PerformLayout()
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        Me.GroupBox3.ResumeLayout(False)
-        Me.GroupBox3.PerformLayout()
-        Me.GroupBox4.ResumeLayout(False)
-        Me.GroupBox4.PerformLayout()
-        Me.GroupBox5.ResumeLayout(False)
-        Me.GroupBox5.PerformLayout()
-        Me.GroupBox6.ResumeLayout(False)
-        Me.GroupBox6.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
