@@ -102,6 +102,8 @@ Partial Class GoW1
         Me.lblG1Magic = New System.Windows.Forms.Label()
         Me.lblG1Health = New System.Windows.Forms.Label()
         Me.tabG1Warp = New System.Windows.Forms.TabPage()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
         Me.cmbG1checkpointCat = New System.Windows.Forms.ComboBox()
         Me.chkG1Wad2Active = New System.Windows.Forms.CheckBox()
         Me.chkG1Wad1Active = New System.Windows.Forms.CheckBox()
@@ -146,8 +148,9 @@ Partial Class GoW1
         Me.btnG1Slot3 = New System.Windows.Forms.Button()
         Me.btnG1Slot4 = New System.Windows.Forms.Button()
         Me.gbG1Master = New System.Windows.Forms.GroupBox()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.txtMpegsSeen = New System.Windows.Forms.TextBox()
+        Me.btnMakeMpegsSkippable = New System.Windows.Forms.Button()
         Me.tctlG1Data.SuspendLayout()
         Me.tabG1Char.SuspendLayout()
         Me.gbG1Costume.SuspendLayout()
@@ -274,6 +277,9 @@ Partial Class GoW1
         '
         'tabG1Char
         '
+        Me.tabG1Char.Controls.Add(Me.btnMakeMpegsSkippable)
+        Me.tabG1Char.Controls.Add(Me.Label13)
+        Me.tabG1Char.Controls.Add(Me.txtMpegsSeen)
         Me.tabG1Char.Controls.Add(Me.btnG1Restart)
         Me.tabG1Char.Controls.Add(Me.txtG1SecsPlayed)
         Me.tabG1Char.Controls.Add(Me.lblG1SecsPlayed)
@@ -960,6 +966,28 @@ Partial Class GoW1
         Me.tabG1Warp.Text = "Warp"
         Me.tabG1Warp.UseVisualStyleBackColor = True
         '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.ForeColor = System.Drawing.Color.Red
+        Me.Label12.Location = New System.Drawing.Point(7, 39)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(419, 13)
+        Me.Label12.TabIndex = 64
+        Me.Label12.Text = "It is possible that objects / enemies / loading triggers will not be in their exp" &
+    "ected states."
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.ForeColor = System.Drawing.Color.Red
+        Me.Label11.Location = New System.Drawing.Point(7, 26)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(450, 13)
+        Me.Label11.TabIndex = 63
+        Me.Label11.Text = "Selecting locations below will change your in-game position, but will not change " &
+    "level variables"
+        '
         'cmbG1checkpointCat
         '
         Me.cmbG1checkpointCat.FormattingEnabled = True
@@ -1367,27 +1395,32 @@ Partial Class GoW1
         Me.gbG1Master.TabStop = False
         Me.gbG1Master.Visible = False
         '
-        'Label11
+        'Label13
         '
-        Me.Label11.AutoSize = True
-        Me.Label11.ForeColor = System.Drawing.Color.Red
-        Me.Label11.Location = New System.Drawing.Point(7, 26)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(450, 13)
-        Me.Label11.TabIndex = 63
-        Me.Label11.Text = "Selecting locations below will change your in-game position, but will not change " &
-    "level variables"
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(21, 116)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(86, 13)
+        Me.Label13.TabIndex = 66
+        Me.Label13.Text = "Cinematics Seen"
+        Me.Label13.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
-        'Label12
+        'txtMpegsSeen
         '
-        Me.Label12.AutoSize = True
-        Me.Label12.ForeColor = System.Drawing.Color.Red
-        Me.Label12.Location = New System.Drawing.Point(7, 39)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(419, 13)
-        Me.Label12.TabIndex = 64
-        Me.Label12.Text = "It is possible that objects / enemies / loading triggers will not be in their exp" &
-    "ected states."
+        Me.txtMpegsSeen.Enabled = False
+        Me.txtMpegsSeen.Location = New System.Drawing.Point(113, 113)
+        Me.txtMpegsSeen.Name = "txtMpegsSeen"
+        Me.txtMpegsSeen.Size = New System.Drawing.Size(61, 20)
+        Me.txtMpegsSeen.TabIndex = 67
+        '
+        'btnMakeMpegsSkippable
+        '
+        Me.btnMakeMpegsSkippable.Location = New System.Drawing.Point(176, 111)
+        Me.btnMakeMpegsSkippable.Name = "btnMakeMpegsSkippable"
+        Me.btnMakeMpegsSkippable.Size = New System.Drawing.Size(136, 23)
+        Me.btnMakeMpegsSkippable.TabIndex = 68
+        Me.btnMakeMpegsSkippable.Text = "<-- Make All Skippable"
+        Me.btnMakeMpegsSkippable.UseVisualStyleBackColor = True
         '
         'GoW1
         '
@@ -1551,4 +1584,7 @@ Partial Class GoW1
     Friend WithEvents txtG1SoundMode As TextBox
     Friend WithEvents Label12 As Label
     Friend WithEvents Label11 As Label
+    Friend WithEvents Label13 As Label
+    Friend WithEvents txtMpegsSeen As TextBox
+    Friend WithEvents btnMakeMpegsSkippable As Button
 End Class

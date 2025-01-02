@@ -1,5 +1,6 @@
 ﻿Imports GoWEditor.PS3FileSystem
 Imports GoWEditor.GoWFuncs
+Imports System.Numerics
 
 Public Class GoW2
     Public Shared bytes() As Byte
@@ -259,7 +260,7 @@ Public Class GoW2
                 End If
             Next
 
-            For i = 270 To 293
+            For i = &H10E To &H125
                 If bytes(i) > 0 Then
                     txtG2CamWad.Text = txtG2CamWad.Text + Chr(bytes(i))
                 Else
@@ -267,8 +268,9 @@ Public Class GoW2
                 End If
             Next
 
+            txtMpegsSeen.Text = RInt16(bytes, &H614)
 
-            If bytes(2110) < 128 Then
+            If bytes(&H83E) < 128 Then
                 txtG2SecsPlayed.Text = (bytes(2110) * 16 ^ 6) + (bytes(2111) * 16 ^ 4) + (bytes(2112) * 16 ^ 2) + bytes(2113)
             Else
                 txtG2SecsPlayed.Text = (((bytes(2110) - 128) * 16 ^ 6) + (bytes(2111) * 16 ^ 4) + (bytes(2112) * 16 ^ 2) + bytes(2113)) - 2147483648
@@ -277,7 +279,7 @@ Public Class GoW2
 
 
 
-            If bytes(2115) = 0 Then rdbG2Easy.Checked = True
+            If bytes(&H843) = 0 Then rdbG2Easy.Checked = True
             If bytes(2115) = 1 Then rdbG2Normal.Checked = True
             If bytes(2115) = 2 Then rdbG2Hard.Checked = True
             If bytes(2115) = 3 Then rdbG2VeryHard.Checked = True
@@ -399,7 +401,7 @@ Public Class GoW2
         If filename = "MASTER.BIN" Then
             bytes(162) = Math.Abs(chkG2CyclopsEyesMaster.Checked * 1)
 
-            bytes(163) = Math.Abs(chkG2TitanRankMaster.Checked * 128)
+            bytes(&HA3) = Math.Abs(chkG2TitanRankMaster.Checked * 128)
             bytes(163) = bytes(163) + Math.Abs(chkG2GodRankMaster.Checked * 64)
             bytes(163) = bytes(163) + Math.Abs(chkG2SpartanRankMaster.Checked * 32)
             bytes(163) = bytes(163) + Math.Abs(chkG2MortalRankMaster.Checked * 16)
@@ -529,9 +531,24 @@ Public Class GoW2
                 If (i < txtG2CamWad.TextLength) Then
                     bytes(i + 270) = Asc(txtG2CamWad.Text(i))
                 Else
-                    bytes(i + 270) = 0
+                    bytes(i + &H10E) = 0
                 End If
             Next
+
+            WInt16(bytes, &H614, Val(txtMpegsSeen.Text))
+            If txtMpegsSeen.Text = My.Resources.Gow2Movies.Split(New String() {Environment.NewLine}, StringSplitOptions.None).Count Then
+                Dim lines As String() = My.Resources.Gow2Movies.Split(New String() {Environment.NewLine}, StringSplitOptions.None)
+                Dim tmpsum As ULong = 0
+                Dim tmpsumoffset = &H616
+                For Each line As String In lines
+                    If Not String.IsNullOrWhiteSpace(line) Then
+                        Dim initialValue As ULong = 0
+                        tmpsum = GenerateChecksumUpperCase(line.Trim(), initialValue)
+                        WUInt32(bytes, tmpsumoffset, tmpsum)
+                        tmpsumoffset += 4
+                    End If
+                Next
+            End If
 
             WInt32(bytes, &H83E, txtG2SecsPlayed.Text)
 
@@ -1201,5 +1218,24 @@ Public Class GoW2
 
     Private Sub GoW2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+    End Sub
+
+    Function GenerateChecksumUpperCase(inputString As String, initialValue As BigInteger) As ULong
+        Dim checksum As BigInteger = initialValue
+
+        For Each c As Char In inputString
+            Dim asciiValue As UInteger = Asc(c)
+            If asciiValue >= 97 AndAlso asciiValue <= 122 Then
+                asciiValue -= 32
+            End If
+            checksum = (checksum * 127 + asciiValue)
+        Next
+
+        checksum = checksum And &HFFFFFFFFUL
+        Return checksum
+    End Function
+
+    Private Sub btnMakeMpegsSkippable_Click(sender As Object, e As EventArgs) Handles btnMakeMpegsSkippable.Click
+        txtMpegsSeen.Text = My.Resources.Gow2Movies.Split(New String() {Environment.NewLine}, StringSplitOptions.None).Count
     End Sub
 End Class

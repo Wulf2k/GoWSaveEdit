@@ -1,5 +1,6 @@
 ﻿Imports GoWEditor.PS3FileSystem
 Imports GoWEditor.GoWFuncs
+Imports System.Numerics
 
 Public Class GoW1
 
@@ -51,6 +52,21 @@ Public Class GoW1
     Public Shared slotnum = "t"
     Public Shared modified = False
 
+
+    Function GenerateChecksumUpperCase(inputString As String, initialValue As BigInteger) As ULong
+        Dim checksum As BigInteger = initialValue
+
+        For Each c As Char In inputString
+            Dim asciiValue As UInteger = Asc(c)
+            If asciiValue >= 97 AndAlso asciiValue <= 122 Then
+                asciiValue -= 32
+            End If
+            checksum = (checksum * 127 + asciiValue)
+        Next
+
+        checksum = checksum And &HFFFFFFFFUL
+        Return checksum
+    End Function
 
 
     Private Sub numRangeCheck(ByRef txtbox As TextBox, low As Integer, high As Integer)
@@ -240,6 +256,8 @@ Public Class GoW1
                     i = 210
                 End If
             Next
+
+            txtMpegsSeen.Text = RInt16(bytes, &H28A)
 
             chkG1WorldIdle.Checked = bytes(&H41E)
 
@@ -531,6 +549,21 @@ Public Class GoW1
                         bytes(i + &HC6) = 0
                     End If
                 Next
+
+                WInt16(bytes, &H28A, Val(txtMpegsSeen.Text))
+                If txtMpegsSeen.Text = My.Resources.Gow1Movies.Split(New String() {Environment.NewLine}, StringSplitOptions.None).Count Then
+                    Dim lines As String() = My.Resources.Gow1Movies.Split(New String() {Environment.NewLine}, StringSplitOptions.None)
+                    Dim tmpsum As ULong = 0
+                    Dim tmpsumoffset = &H28E
+                    For Each line As String In lines
+                        If Not String.IsNullOrWhiteSpace(line) Then
+                            Dim initialValue As ULong = 0
+                            tmpsum = GenerateChecksumUpperCase(line.Trim(), initialValue)
+                            WUInt32(bytes, tmpsumoffset, tmpsum)
+                            tmpsumoffset += 4
+                        End If
+                    Next
+                End If
 
                 If chkG1WorldIdle.Checked = True Then
                     bytes(&H41E) = 1
@@ -1023,5 +1056,9 @@ Public Class GoW1
         For Each cp In checkpoints
             If cp.Category = cmbG1checkpointCat.Text Then cmbG1Checkpoints.Items.Add(cp.Name)
         Next
+    End Sub
+
+    Private Sub btnMakeMpegsSkippable_Click(sender As Object, e As EventArgs) Handles btnMakeMpegsSkippable.Click
+        txtMpegsSeen.Text = My.Resources.Gow1Movies.Split(New String() {Environment.NewLine}, StringSplitOptions.None).Count
     End Sub
 End Class

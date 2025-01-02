@@ -213,6 +213,9 @@ Partial Class GoW2
         Me.btnG2Slot5 = New System.Windows.Forms.Button()
         Me.btnG2Slot10 = New System.Windows.Forms.Button()
         Me.btnG2Slot9 = New System.Windows.Forms.Button()
+        Me.btnMakeMpegsSkippable = New System.Windows.Forms.Button()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.txtMpegsSeen = New System.Windows.Forms.TextBox()
         Me.gbG2Costume.SuspendLayout()
         Me.gbG2Difficulty.SuspendLayout()
         Me.tabG2Misc.SuspendLayout()
@@ -301,7 +304,7 @@ Partial Class GoW2
         Me.lblG2Warning.Name = "lblG2Warning"
         Me.lblG2Warning.Size = New System.Drawing.Size(484, 13)
         Me.lblG2Warning.TabIndex = 14
-        Me.lblG2Warning.Text = "WARNING: Changing anything in this section without a full understanding will like" & _
+        Me.lblG2Warning.Text = "WARNING: Changing anything in this section without a full understanding will like" &
     "ly corrupt your save."
         '
         'lblG2CamWad
@@ -744,6 +747,9 @@ Partial Class GoW2
         '
         'tabG2Char
         '
+        Me.tabG2Char.Controls.Add(Me.btnMakeMpegsSkippable)
+        Me.tabG2Char.Controls.Add(Me.Label13)
+        Me.tabG2Char.Controls.Add(Me.txtMpegsSeen)
         Me.tabG2Char.Controls.Add(Me.lblG2Bonus)
         Me.tabG2Char.Controls.Add(Me.chkG2Bonus)
         Me.tabG2Char.Controls.Add(Me.txtG2ItemExt)
@@ -2056,7 +2062,7 @@ Partial Class GoW2
         Me.lblG1Warning.Name = "lblG1Warning"
         Me.lblG1Warning.Size = New System.Drawing.Size(484, 13)
         Me.lblG1Warning.TabIndex = 14
-        Me.lblG1Warning.Text = "WARNING: Changing anything in this section without a full understanding will like" & _
+        Me.lblG1Warning.Text = "WARNING: Changing anything in this section without a full understanding will like" &
     "ly corrupt your save."
         '
         'btnG2Slot8
@@ -2124,6 +2130,33 @@ Partial Class GoW2
         Me.btnG2Slot9.Text = "Slot 9"
         Me.btnG2Slot9.UseVisualStyleBackColor = False
         Me.btnG2Slot9.Visible = False
+        '
+        'btnMakeMpegsSkippable
+        '
+        Me.btnMakeMpegsSkippable.Location = New System.Drawing.Point(404, 195)
+        Me.btnMakeMpegsSkippable.Name = "btnMakeMpegsSkippable"
+        Me.btnMakeMpegsSkippable.Size = New System.Drawing.Size(152, 23)
+        Me.btnMakeMpegsSkippable.TabIndex = 80
+        Me.btnMakeMpegsSkippable.Text = "Make All Skippable --^"
+        Me.btnMakeMpegsSkippable.UseVisualStyleBackColor = True
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(403, 172)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(86, 13)
+        Me.Label13.TabIndex = 78
+        Me.Label13.Text = "Cinematics Seen"
+        Me.Label13.TextAlign = System.Drawing.ContentAlignment.TopRight
+        '
+        'txtMpegsSeen
+        '
+        Me.txtMpegsSeen.Enabled = False
+        Me.txtMpegsSeen.Location = New System.Drawing.Point(495, 169)
+        Me.txtMpegsSeen.Name = "txtMpegsSeen"
+        Me.txtMpegsSeen.Size = New System.Drawing.Size(61, 20)
+        Me.txtMpegsSeen.TabIndex = 79
         '
         'GoW2
         '
@@ -2368,4 +2401,7 @@ Partial Class GoW2
     Friend WithEvents chkG2Frozen As System.Windows.Forms.CheckBox
     Friend WithEvents lblG2Frozen As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents btnMakeMpegsSkippable As Button
+    Friend WithEvents Label13 As Label
+    Friend WithEvents txtMpegsSeen As TextBox
 End Class

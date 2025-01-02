@@ -79,5 +79,113 @@ Namespace My.Resources
                 Return CType(obj,Byte())
             End Get
         End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to a01mp01
+        '''a01mp02
+        '''a01mp03
+        '''a01mp04
+        '''a01mp05
+        '''a02mp02
+        '''a03mp01
+        '''a03mp02
+        '''a04mp01
+        '''a04mp04
+        '''a06mp01
+        '''a06mp02
+        '''a06mp03
+        '''a06mp04
+        '''a06mp05
+        '''a06mp05b
+        '''a07mp01
+        '''a07mp04
+        '''a07mp05
+        '''ballway
+        '''bonus01
+        '''bonus03
+        '''bonus06
+        '''bonus10
+        '''bonus12
+        '''bonus14
+        '''bonus16
+        '''bonus17
+        '''bonus18
+        '''bonus19
+        '''bonus20
+        '''bonus21
+        '''bonus24
+        '''bonus25
+        '''d01mp01
+        '''d01mp02
+        '''d01mp03
+        '''gowcredits_scea
+        '''h01mp03
+        '''ma360
+        '''magicbzk
+        '''magicrtd
+        '''matbolt
+        '''mewintro
+        '''p00mp02
+        '''p00mp03
+        '''p00mp04
+        '''p01mp01
+        '''p02mp01
+        '''p02mp02
+        '''p03mp06
+        '''p03mp07
+        '''p03mp98
+        '''p04mp05
+        '''p06mp01
+        '''satintr [rest of string was truncated]&quot;;.
+        '''</summary>
+        Friend ReadOnly Property Gow1Movies() As String
+            Get
+                Return ResourceManager.GetString("Gow1Movies", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to atlashand
+        '''atlastitanwar
+        '''bkarenafight
+        '''bkdragintro
+        '''bladeoffer
+        '''bog20templeslide
+        '''bonuscredits
+        '''colossuseye
+        '''colossushand
+        '''deathathena
+        '''deathcolossus
+        '''deathicarus
+        '''deathkraken
+        '''deathkratos
+        '''deathlastspartan
+        '''dock1eyeexplode
+        '''dock2eyeexplode
+        '''endmovie
+        '''gaiapeptalk
+        '''gow2credits_scea
+        '''introatropos
+        '''introhud
+        '''introicarus
+        '''introlahkesis
+        '''intropegasus
+        '''introperseus
+        '''introprometheus
+        '''introtheseus
+        '''islehorsepull
+        '''islekickdoor
+        '''islelahkesisstatue
+        '''itemearthquake
+        '''itemlightning
+        '''itemtitanrage
+        '''mirrordestroy
+        '''mirrorp [rest of string was truncated]&quot;;.
+        '''</summary>
+        Friend ReadOnly Property Gow2Movies() As String
+            Get
+                Return ResourceManager.GetString("Gow2Movies", resourceCulture)
+            End Get
+        End Property
     End Module
 End Namespace
