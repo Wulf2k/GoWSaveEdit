@@ -134,7 +134,7 @@ Public Class GoW1
             bytes = FileToBytes(filename)
 
 
-            If bytes(4) = 202 Then
+            If bytes(4) = &HCA Then
                 bigendian = True
                 btnG1Browse.Visible = False
                 btnG1Open.Visible = False
@@ -144,7 +144,7 @@ Public Class GoW1
                 btnG1Slot3.Visible = True
                 btnG1Slot4.Visible = True
             Else
-                If bytes(7) = 202 Then
+                If bytes(7) = &HCA Then
                     bigendian = False
                     btnG1Browse.Visible = False
                     btnG1Open.Visible = False
@@ -639,6 +639,7 @@ Public Class GoW1
 
                 Dim bytesmast = FileToBytes("MASTER.BIN")
 
+                'TODO: Why the hell am I writing these bytes individually?
                 bytesmast(4 + 16 * Val(slotnum)) = &HCA
                 bytesmast(5 + 16 * Val(slotnum)) = &HFE
                 bytesmast(6 + 16 * Val(slotnum)) = &HBA
@@ -646,13 +647,14 @@ Public Class GoW1
 
                 WUInt32(bytesmast, 4 + 16 * Val(slotnum), &HCAFEBAD1&)
 
-                bytesmast(8 + 16 * Val(slotnum)) = bytes(&H6A)
+                'TODO: Why the hell am I writing these bytes individually?
+                bytesmast(8 + 16 * Val(slotnum)) = bytes(&H6A) 'Playtime
                 bytesmast(9 + 16 * Val(slotnum)) = bytes(&H6B)
-                bytesmast(10 + 16 * Val(slotnum)) = bytes(&H6C)
-                bytesmast(11 + 16 * Val(slotnum)) = bytes(&H6D)
+                bytesmast(&HA + 16 * Val(slotnum)) = bytes(&H6C)
+                bytesmast(&HB + 16 * Val(slotnum)) = bytes(&H6D)
 
-                If bytesmast(13 + 16 * Val(slotnum)) = 0 Then bytesmast(13 + 16 * Val(slotnum)) = 1
-                bytesmast(14 + 16 * Val(slotnum)) = bytes(&H427)
+                If bytesmast(&HD + 16 * Val(slotnum)) = 0 Then bytesmast(&HD + 16 * Val(slotnum)) = 1
+                bytesmast(&HE + 16 * Val(slotnum)) = bytes(&H427) 'Difficulty
 
                 BytesToFile("MASTER.BIN", bytesmast)
             End If
